@@ -237,15 +237,13 @@
             // 
             // bottomMarginBand1
             // 
-            this.bottomMarginBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable4});
-            this.bottomMarginBand1.HeightF = 21.94443F;
+            this.bottomMarginBand1.HeightF = 22.29169F;
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
             // xrTable4
             // 
             this.xrTable4.Font = new System.Drawing.Font("Calibri Light", 8F);
-            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(0.0001430511F, 0F);
+            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 23.00002F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 3, 3, 3, 100F);
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -509,8 +507,9 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable4,
             this.xrLine2});
-            this.ReportFooter.HeightF = 23.00001F;
+            this.ReportFooter.HeightF = 44.94445F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLine2
@@ -526,7 +525,7 @@
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLine3,
             this.xrTable3});
-            this.GroupFooter1.HeightF = 69.23609F;
+            this.GroupFooter1.HeightF = 46.23609F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.PrintAtBottom = true;
             this.GroupFooter1.RepeatEveryPage = true;
