@@ -64,34 +64,41 @@ namespace DXApplication9
 
         public static IQueryable GetOnatDeUnidadArtistica(int agrupacionId, DateTime fechaFinal, DateTime fechaInicial, int tipoMonedaId)
         {
-            List<OnatDeUA> lista = new List<OnatDeUA>();
-            var dc = new NegocioDataContext();
-            var actividadesImplicadasIDs = dc.Nomina
-                .Where(c => c.AgrupacionId == agrupacionId && c.OrdenDeTrabajo.TipoMonedaId  == tipoMonedaId && c.FechaEmision >= fechaInicial && c.FechaEmision <= fechaFinal )
-                .Select(c => c.OrdenDeTrabajo.OrdenDeTrabajoID);
-            var listaParticipantes = dc.ParticipantesDeAcividad
-                .Where(c => actividadesImplicadasIDs.Contains(c.OrdenDeTrabajo.OrdenDeTrabajoID)).AsEnumerable()
-                .DistinctBy(c=>c.ArtistaId);
-
-            foreach (var participantesDeAcividad in listaParticipantes.OrderBy(c => c.Artista.Nombre))
+            try
             {
-                var artista = participantesDeAcividad.Artista;
-                OnatDeUA onatDeUa = new OnatDeUA();
-                onatDeUa.IntgranteNombre = artista.NombreCompleto;
-                onatDeUa.IntgranteDireccion = artista.Direccion.Trim();
-                onatDeUa.IntgranteMunicipio = artista.Municipio.Descripcion.Trim();
-                onatDeUa.IntgranteProvincia = artista.Municipio.Provincia.Descripcion.Trim();
-                onatDeUa.ImporteParticipacionDeEmpresa =
-                    artista.GetImportesDeParticipacionDeEmpresa(tipoMonedaId, fechaInicial, fechaFinal);
-                onatDeUa.ImporteContrato =
-                    artista.GetImporteDeContratoDeServicio(tipoMonedaId, fechaInicial, fechaFinal);
-                onatDeUa.CarnetDeIdentidad = artista.CarnetIdentidad;
-                onatDeUa.Ingreso = artista.GetIngresosPersonales(tipoMonedaId, fechaInicial, fechaFinal);
-                onatDeUa.Retenido = artista.GetAporteOnat(tipoMonedaId, fechaInicial, fechaFinal);
+                List<OnatDeUA> lista = new List<OnatDeUA>();
+                var dc = new NegocioDataContext();
+                var actividadesImplicadasIDs = dc.Nomina
+                    .Where(c => c.AgrupacionId == agrupacionId && c.OrdenDeTrabajo.TipoMonedaId == tipoMonedaId && c.FechaEmision >= fechaInicial && c.FechaEmision <= fechaFinal)
+                    .Select(c => c.OrdenDeTrabajo.OrdenDeTrabajoID);
+                var listaParticipantes = dc.ParticipantesDeAcividad
+                    .Where(c => actividadesImplicadasIDs.Contains(c.OrdenDeTrabajo.OrdenDeTrabajoID)).AsEnumerable()
+                    .DistinctBy(c => c.ArtistaId);
 
-              lista.Add(onatDeUa);
+                foreach (var participantesDeAcividad in listaParticipantes.OrderBy(c => c.Artista.Nombre))
+                {
+                    var artista = participantesDeAcividad.Artista;
+                    OnatDeUA onatDeUa = new OnatDeUA();
+                    onatDeUa.IntgranteNombre = artista.NombreCompleto;
+                    onatDeUa.IntgranteDireccion = artista.Direccion.Trim();
+                    onatDeUa.IntgranteMunicipio = artista.Municipio.Descripcion.Trim();
+                    onatDeUa.IntgranteProvincia = artista.Municipio.Provincia.Descripcion.Trim();
+                    onatDeUa.ImporteParticipacionDeEmpresa =
+                        artista.GetImportesDeParticipacionDeEmpresa(tipoMonedaId, fechaInicial, fechaFinal);
+                    onatDeUa.ImporteContrato =
+                        artista.GetImporteDeContratoDeServicio(tipoMonedaId, fechaInicial, fechaFinal);
+                    onatDeUa.CarnetDeIdentidad = artista.CarnetIdentidad;
+                    onatDeUa.Ingreso = artista.GetIngresosPersonales(tipoMonedaId, fechaInicial, fechaFinal);
+                    onatDeUa.Retenido = artista.GetAporteOnat(tipoMonedaId, fechaInicial, fechaFinal);
+
+                    lista.Add(onatDeUa);
+                }
+                return lista.AsQueryable();
             }
-            return lista.AsQueryable();
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public static Agrupacion GetAgrupacionById(int agrupacionId)

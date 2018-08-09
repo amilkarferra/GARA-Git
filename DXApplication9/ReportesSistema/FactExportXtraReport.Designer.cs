@@ -405,7 +405,7 @@
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(84.46725F, 4.958344F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(70F, 70F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze;
             this.xrPictureBox1.StylePriority.UseBorders = false;
             // 
             // xrTableCell10

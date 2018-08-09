@@ -520,7 +520,7 @@
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(25F, 0F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(81.25F, 62.47635F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze;
             this.xrPictureBox1.StylePriority.UseBorders = false;
             // 
             // xrTableCell2
@@ -582,7 +582,8 @@
             // NombreAg_xrTableCell
             // 
             this.NombreAg_xrTableCell.BackColor = System.Drawing.Color.Gainsboro;
-            this.NombreAg_xrTableCell.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Italic);
+            this.NombreAg_xrTableCell.CanGrow = false;
+            this.NombreAg_xrTableCell.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Italic);
             this.NombreAg_xrTableCell.Name = "NombreAg_xrTableCell";
             this.NombreAg_xrTableCell.Padding = new DevExpress.XtraPrinting.PaddingInfo(25, 0, 0, 0, 100F);
             this.NombreAg_xrTableCell.StylePriority.UseBackColor = false;
