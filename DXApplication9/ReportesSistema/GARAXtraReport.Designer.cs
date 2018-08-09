@@ -277,8 +277,8 @@
             // 
             // Configuracion_objectDataSource
             // 
-            this.Configuracion_objectDataSource.DataSource = typeof(DXApplication9.ConfiguracionGeneral);
-            this.Configuracion_objectDataSource.Name = "Configuracion_objectDataSource";
+            //this.Configuracion_objectDataSource.DataSource = typeof(DXApplication9.ConfiguracionGeneral);
+            //this.Configuracion_objectDataSource.Name = "Configuracion_objectDataSource";
             // 
             // ReportesFirmas_linqServerModeSource
             // 

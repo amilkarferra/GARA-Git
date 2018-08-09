@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
 using System.Linq;
 
 namespace DXApplication9.ReportesSistema
@@ -12,8 +8,11 @@ namespace DXApplication9.ReportesSistema
         public SolicitudDineroXtraReport(DateTime aFechaIncial,DateTime aFechaFinal,int aMonedaId)
         {
             InitializeComponent();
+            
             OcultaFirmas();
             rangoFecha_xrLabel.Text = String.Format("Desde {0} - Hasta {1}",aFechaIncial.ToShortDateString(),aFechaFinal.ToShortDateString());
+            ExportOptions.Xlsx.SheetName = $"Solicitud de Dinero {rangoFecha_xrLabel.Text}";
+            ExportOptions.Xls.SheetName = $"Solicitud de Dinero {rangoFecha_xrLabel.Text}";
             linqServerModeSource1.QueryableSource =
                 GlobalDataContext.OrdenDeTrabajo.Where(
                     c =>
@@ -26,8 +25,6 @@ namespace DXApplication9.ReportesSistema
             if (ordenActual != null)
             {
                  FechaActividad_xrTableCell.Text = (ordenActual.FechaFinalActividad).AddDays(-7).ToShortDateString();
-               // Importe_xrTableCell.Text = (ordenActual.ImportePorActividad*ordenActual.CantidadActividades).ToString();
-
             }
            
         }

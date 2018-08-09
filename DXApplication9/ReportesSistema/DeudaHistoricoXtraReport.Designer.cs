@@ -50,7 +50,7 @@
             this.Descripcion_xrTableCell = new DevExpress.XtraReports.UI.XRTableCell();
             this.Acumulado_xrTableCell = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.DatosContactoxrRichText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Configuracion_objectDataSource)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.Configuracion_objectDataSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linqServerModeSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -269,8 +269,8 @@
             this.Detail,
             this.PageHeader,
             this.GroupHeader1});
-            this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.Configuracion_objectDataSource});
+            //this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
+            //this.Configuracion_objectDataSource});
             this.DataSource = this.linqServerModeSource1;
             this.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
  
@@ -280,7 +280,7 @@
             this.Controls.SetChildIndex(this.PageHeader, 0);
             this.Controls.SetChildIndex(this.Detail, 0);
             ((System.ComponentModel.ISupportInitialize)(this.DatosContactoxrRichText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Configuracion_objectDataSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.Configuracion_objectDataSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linqServerModeSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();

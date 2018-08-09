@@ -23,6 +23,13 @@ namespace DXApplication9
 
             }
         }
+
+        public string DireccionSegura => Direccion??"";
+        public string CarnetIdentidadSeguro => CarnetIdentidad??"";
+
+        /// <summary>
+        /// Arreglo de identificadores de agrupaciones al cual pertenece el integrante
+        /// </summary>
         private int[] AAgrupacionesIds = null;
 
         public string AgrupacionesString

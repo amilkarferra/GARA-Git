@@ -40,7 +40,8 @@ namespace DXApplication9.ReportesSistema
             Titulo_xrRichText.Html= $"<center>Ingreso de unidad artística <br> Agrupacion: <b>{Agrupacion.GetAgrupacionById(agrupacionId).Nombre.ToUpper()}</b> <br> Período <b>{fechaInicial.ToShortDateString()} - {fechaFinal.ToShortDateString()}</b> <br> Moneda: <b>{TipoMoneda.GetMonedaById(tipoMonedaId).Abreviatura}</b></center>";
             Titulo_xrRichText.TextAlignment = TextAlignment.MiddleCenter;
             
-            ExportOptions.Xls.SheetName= ExportOptions.Xlsx.SheetName = $"Onat {Agrupacion.GetAgrupacionById(agrupacionId).Nombre} {TipoMoneda.GetMonedaById(tipoMonedaId).Abreviatura}";
+            ExportOptions.Xls.SheetName = $"Onat {Agrupacion.GetAgrupacionById(agrupacionId).Nombre} {TipoMoneda.GetMonedaById(tipoMonedaId).Abreviatura}";
+            ExportOptions.Xlsx.SheetName = $"Onat {Agrupacion.GetAgrupacionById(agrupacionId).Nombre} {TipoMoneda.GetMonedaById(tipoMonedaId).Abreviatura}";
             
             string[] lineas = new string[4];
             lineas[0] = $"Dirección: {configuracion.DireccionEmpresa}";

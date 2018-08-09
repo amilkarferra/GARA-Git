@@ -114,6 +114,7 @@
     <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraSpellChecker.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -276,6 +277,12 @@
     </Compile>
     <Compile Include="ReportesSistema\EsquemaDeIngresoDeUA.Designer.cs">
       <DependentUpon>EsquemaDeIngresoDeUA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesSistema\GaraBaseXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportesSistema\GaraBaseXtraReport.Designer.cs">
+      <DependentUpon>GaraBaseXtraReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportesSistema\GeneralReportIntegrantesPorUA.cs">
       <SubType>Component</SubType>
@@ -618,6 +625,12 @@
     <Compile Include="TrayectoriaArtista_XtraForm.Designer.cs">
       <DependentUpon>TrayectoriaArtista_XtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AgrupacionesSelectedListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AgrupacionesSelectedListBox.Designer.cs">
+      <DependentUpon>AgrupacionesSelectedListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DescontarActividadXtraUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -886,6 +899,9 @@
     <EmbeddedResource Include="ReportesSistema\EsquemaDeIngresoDeUA.resx">
       <DependentUpon>EsquemaDeIngresoDeUA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportesSistema\GaraBaseXtraReport.resx">
+      <DependentUpon>GaraBaseXtraReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportesSistema\GeneralReportIntegrantesPorUA.resx">
       <DependentUpon>GeneralReportIntegrantesPorUA.cs</DependentUpon>
     </EmbeddedResource>
@@ -1055,6 +1071,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TrayectoriaArtista_XtraForm.resx">
       <DependentUpon>TrayectoriaArtista_XtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AgrupacionesSelectedListBox.resx">
+      <DependentUpon>AgrupacionesSelectedListBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DescontarActividadXtraUserControl.resx">
       <DependentUpon>DescontarActividadXtraUserControl.cs</DependentUpon>

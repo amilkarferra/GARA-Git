@@ -80,9 +80,13 @@ namespace DXApplication9
                     var artista = participantesDeAcividad.Artista;
                     OnatDeUA onatDeUa = new OnatDeUA();
                     onatDeUa.IntgranteNombre = artista.NombreCompleto;
-                    onatDeUa.IntgranteDireccion = artista.Direccion.Trim();
-                    onatDeUa.IntgranteMunicipio = artista.Municipio.Descripcion.Trim();
-                    onatDeUa.IntgranteProvincia = artista.Municipio.Provincia.Descripcion.Trim();
+                    onatDeUa.IntgranteDireccion = artista.DireccionSegura.Trim();
+                    if (artista.Municipio != null)
+                    {
+                        onatDeUa.IntgranteMunicipio = artista.Municipio.Descripcion.Trim();
+                        onatDeUa.IntgranteProvincia = artista.Municipio.Provincia.Descripcion.Trim();
+                    }
+
                     onatDeUa.ImporteParticipacionDeEmpresa =
                         artista.GetImportesDeParticipacionDeEmpresa(tipoMonedaId, fechaInicial, fechaFinal);
                     onatDeUa.ImporteContrato =
