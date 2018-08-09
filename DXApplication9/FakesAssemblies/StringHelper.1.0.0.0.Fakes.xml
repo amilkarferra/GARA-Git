@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StringHelper.1.0.0.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:OfflineModule.Utilities.Fakes.ShimStringsHelper">
+            <summary>Shim type of OfflineModule.Utilities.StringsHelper</summary>
+        </member>
+        <member name="M:OfflineModule.Utilities.Fakes.ShimStringsHelper.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:OfflineModule.Utilities.Fakes.ShimStringsHelper.#ctor(OfflineModule.Utilities.StringsHelper)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:OfflineModule.Utilities.Fakes.ShimStringsHelper.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:OfflineModule.Utilities.Fakes.ShimStringsHelper.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:OfflineModule.Utilities.Fakes.ShimStringsHelper.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:OfflineModule.Utilities.Fakes.ShimStringsHelper.Constructor">
+            <summary>Sets the shim of StringsHelper.StringsHelper()</summary>
+        </member>
+        <member name="P:OfflineModule.Utilities.Fakes.ShimStringsHelper.StaticConstructor">
+            <summary>Sets the shim of StringsHelper.StringsHelper()</summary>
+        </member>
+        <member name="T:OfflineModule.Utilities.Fakes.ShimStringsHelper.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:OfflineModule.Utilities.Fakes.StubStringsHelper">
+            <summary>Stub type of OfflineModule.Utilities.StringsHelper</summary>
+        </member>
+        <member name="M:OfflineModule.Utilities.Fakes.StubStringsHelper.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:OfflineModule.Utilities.Fakes.StubStringsHelper.InitializeStub">
+            <summary>Initializes a new instance of type StubStringsHelper</summary>
+        </member>
+        <member name="P:OfflineModule.Utilities.Fakes.StubStringsHelper.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:OfflineModule.Utilities.Fakes.StubStringsHelper.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:OfflineModule.Utilities.Fakes.StubStringsHelper.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>
