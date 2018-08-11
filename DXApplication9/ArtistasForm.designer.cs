@@ -107,6 +107,7 @@
             this.ColEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NombreCompletoCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Direccion_gridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MotivoNoSeguridadSocialCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TipoPasaporte_repositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.municipioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.provinciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -173,6 +174,15 @@
             this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
             this.MostrarSoloSeleccioados_barCheckItem = new DevExpress.XtraBars.BarCheckItem();
             this.ImpTabla_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
+            this.MostrarMostrarTodosbar_ButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.MostrarMostrarDobleVinculos_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.MostrarMostrarOciasionales_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
+            this.MostrarAltasYBajas_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.MostrarSoloAltas_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.MostrarSoloBjas_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.Principal = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.Principal_ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Integrantes_ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -279,7 +289,7 @@
             this.Obligatory_repositoryItemTextEdit,
             this.TipoPasaporte_repositoryItemLookUpEdit,
             this.TipoCargo_repositoryItemLookUpEdit});
-            this.Integrantes_gridControl.Size = new System.Drawing.Size(1080, 280);
+            this.Integrantes_gridControl.Size = new System.Drawing.Size(1080, 296);
             this.Integrantes_gridControl.TabIndex = 4;
             this.Integrantes_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Artista_gridView,
@@ -424,7 +434,8 @@
             this.EscalaSalarialCol,
             this.ColEstado,
             this.NombreCompletoCol,
-            this.Direccion_gridColumn});
+            this.Direccion_gridColumn,
+            this.MotivoNoSeguridadSocialCol});
             this.Artista_gridView.CustomizationFormBounds = new System.Drawing.Rectangle(884, 406, 210, 179);
             gridFormatRule1.ApplyToRow = true;
             gridFormatRule1.Column = this.colFechaBaja;
@@ -458,6 +469,7 @@
             this.Artista_gridView.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.False;
             this.Artista_gridView.OptionsView.EnableAppearanceEvenRow = true;
             this.Artista_gridView.OptionsView.EnableAppearanceOddRow = true;
+            this.Artista_gridView.OptionsView.ShowAutoFilterRow = true;
             this.Artista_gridView.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
             this.Artista_gridView.OptionsView.ShowDetailButtons = false;
             this.Artista_gridView.OptionsView.ShowFooter = true;
@@ -649,6 +661,12 @@
             this.Direccion_gridColumn.FieldName = "Artista.DireccionCompleta";
             this.Direccion_gridColumn.Name = "Direccion_gridColumn";
             // 
+            // MotivoNoSeguridadSocialCol
+            // 
+            this.MotivoNoSeguridadSocialCol.Caption = "Motivo No Seg Social";
+            this.MotivoNoSeguridadSocialCol.FieldName = "Artista.NoEscalaSalarial.Abreviatura";
+            this.MotivoNoSeguridadSocialCol.Name = "MotivoNoSeguridadSocialCol";
+            // 
             // TipoPasaporte_repositoryItemLookUpEdit
             // 
             this.TipoPasaporte_repositoryItemLookUpEdit.AutoHeight = false;
@@ -699,7 +717,7 @@
             // InsertInegrante_buttonEdit
             // 
             this.InsertInegrante_buttonEdit.EditValue = "";
-            this.InsertInegrante_buttonEdit.Location = new System.Drawing.Point(1014, 373);
+            this.InsertInegrante_buttonEdit.Location = new System.Drawing.Point(1014, 389);
             this.InsertInegrante_buttonEdit.Name = "InsertInegrante_buttonEdit";
             this.InsertInegrante_buttonEdit.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.InsertInegrante_buttonEdit.Properties.Appearance.Options.UseBackColor = true;
@@ -709,11 +727,10 @@
             toolTipItem1.Text = "Inserta el integrante como participante del proyecto.";
             superToolTip1.Items.Add(toolTipTitleItem1);
             superToolTip1.Items.Add(toolTipItem1);
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.InsertInegrante_buttonEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Insertar Integrantes Seleccionados", null, superToolTip1),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Cancelar")});
-            this.InsertInegrante_buttonEdit.Size = new System.Drawing.Size(104, 38);
+            this.InsertInegrante_buttonEdit.Size = new System.Drawing.Size(104, 22);
             this.InsertInegrante_buttonEdit.StyleController = this.layoutControl2;
             this.InsertInegrante_buttonEdit.TabIndex = 5;
             this.InsertInegrante_buttonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.InsertInegrante_buttonEdit_ButtonClick);
@@ -723,7 +740,7 @@
             this.ArtistasSinGrupos_xtraTabControl.Location = new System.Drawing.Point(12, 12);
             this.ArtistasSinGrupos_xtraTabControl.Name = "ArtistasSinGrupos_xtraTabControl";
             this.ArtistasSinGrupos_xtraTabControl.SelectedTabPage = this.Integrantes_xtraTabPage;
-            this.ArtistasSinGrupos_xtraTabControl.Size = new System.Drawing.Size(1106, 357);
+            this.ArtistasSinGrupos_xtraTabControl.Size = new System.Drawing.Size(1106, 373);
             this.ArtistasSinGrupos_xtraTabControl.TabIndex = 7;
             this.ArtistasSinGrupos_xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Integrantes_xtraTabPage,
@@ -734,7 +751,7 @@
             // 
             this.Integrantes_xtraTabPage.Controls.Add(this.layoutControl1);
             this.Integrantes_xtraTabPage.Name = "Integrantes_xtraTabPage";
-            this.Integrantes_xtraTabPage.Size = new System.Drawing.Size(1104, 330);
+            this.Integrantes_xtraTabPage.Size = new System.Drawing.Size(1104, 346);
             this.Integrantes_xtraTabPage.Text = "Integrantes";
             // 
             // layoutControl1
@@ -747,7 +764,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(841, 383, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1104, 330);
+            this.layoutControl1.Size = new System.Drawing.Size(1104, 346);
             this.layoutControl1.TabIndex = 6;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -795,6 +812,7 @@
             // agrupacionBindingSource
             // 
             this.agrupacionBindingSource.DataSource = typeof(DXApplication9.Agrupacion);
+            this.agrupacionBindingSource.Sort = "Nombre";
             // 
             // layoutControlGroup1
             // 
@@ -809,7 +827,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1104, 330);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1104, 346);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -818,7 +836,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1084, 284);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1084, 300);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -860,7 +878,7 @@
             // 
             this.Reserva_xtraTabPage.Controls.Add(this.Reservas_gridControl);
             this.Reserva_xtraTabPage.Name = "Reserva_xtraTabPage";
-            this.Reserva_xtraTabPage.Size = new System.Drawing.Size(1104, 330);
+            this.Reserva_xtraTabPage.Size = new System.Drawing.Size(1104, 346);
             this.Reserva_xtraTabPage.Text = "Reservas";
             // 
             // Reservas_gridControl
@@ -871,7 +889,7 @@
             this.Reservas_gridControl.Location = new System.Drawing.Point(0, 0);
             this.Reservas_gridControl.MainView = this.Reservas_gridView;
             this.Reservas_gridControl.Name = "Reservas_gridControl";
-            this.Reservas_gridControl.Size = new System.Drawing.Size(1104, 330);
+            this.Reservas_gridControl.Size = new System.Drawing.Size(1104, 346);
             this.Reservas_gridControl.TabIndex = 0;
             this.Reservas_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Reservas_gridView});
@@ -993,7 +1011,7 @@
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1110, 361);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1110, 377);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1001,9 +1019,9 @@
             // 
             this.ButtonContainer_layoutControlItem.Control = this.InsertInegrante_buttonEdit;
             this.ButtonContainer_layoutControlItem.CustomizationFormText = "layoutControlItem5";
-            this.ButtonContainer_layoutControlItem.Location = new System.Drawing.Point(1002, 361);
+            this.ButtonContainer_layoutControlItem.Location = new System.Drawing.Point(1002, 377);
             this.ButtonContainer_layoutControlItem.Name = "ButtonContainer_layoutControlItem";
-            this.ButtonContainer_layoutControlItem.Size = new System.Drawing.Size(108, 42);
+            this.ButtonContainer_layoutControlItem.Size = new System.Drawing.Size(108, 26);
             this.ButtonContainer_layoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.ButtonContainer_layoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.ButtonContainer_layoutControlItem.TextToControlDistance = 0;
@@ -1013,9 +1031,9 @@
             // 
             this.Last_emptySpaceItem.AllowHotTrack = false;
             this.Last_emptySpaceItem.CustomizationFormText = "emptySpaceItem2";
-            this.Last_emptySpaceItem.Location = new System.Drawing.Point(0, 361);
+            this.Last_emptySpaceItem.Location = new System.Drawing.Point(0, 377);
             this.Last_emptySpaceItem.Name = "Last_emptySpaceItem";
-            this.Last_emptySpaceItem.Size = new System.Drawing.Size(1002, 42);
+            this.Last_emptySpaceItem.Size = new System.Drawing.Size(1002, 26);
             this.Last_emptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Accion_popupMenu
@@ -1110,9 +1128,18 @@
             this.EscalaSalarial_barButtonItem,
             this.barCheckItem1,
             this.MostrarSoloSeleccioados_barCheckItem,
-            this.ImpTabla_barButtonItem});
+            this.ImpTabla_barButtonItem,
+            this.barSubItem4,
+            this.MostrarMostrarTodosbar_ButtonItem,
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem,
+            this.MostrarMostrarDobleVinculos_barButtonItem,
+            this.MostrarMostrarOciasionales_barButtonItem,
+            this.barSubItem5,
+            this.MostrarAltasYBajas_barButtonItem,
+            this.MostrarSoloAltas_barButtonItem,
+            this.MostrarSoloBjas_barButtonItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 19;
+            this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.Principal});
@@ -1352,6 +1379,94 @@
             this.ImpTabla_barButtonItem.Name = "ImpTabla_barButtonItem";
             this.ImpTabla_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ImpTabla_barButtonItem_ItemClick);
             // 
+            // barSubItem4
+            // 
+            this.barSubItem4.Caption = "Filtrar Por Catálogo";
+            this.barSubItem4.Id = 20;
+            this.barSubItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem4.ImageOptions.Image")));
+            this.barSubItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem4.ImageOptions.LargeImage")));
+            this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarMostrarTodosbar_ButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarMostrarSoloCatalogo_sbarbarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarMostrarDobleVinculos_barButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarMostrarOciasionales_barButtonItem)});
+            this.barSubItem4.Name = "barSubItem4";
+            // 
+            // MostrarMostrarTodosbar_ButtonItem
+            // 
+            this.MostrarMostrarTodosbar_ButtonItem.Caption = "Mostrar Todos";
+            this.MostrarMostrarTodosbar_ButtonItem.Id = 21;
+            this.MostrarMostrarTodosbar_ButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarTodosbar_ButtonItem.ImageOptions.Image")));
+            this.MostrarMostrarTodosbar_ButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarTodosbar_ButtonItem.ImageOptions.LargeImage")));
+            this.MostrarMostrarTodosbar_ButtonItem.Name = "MostrarMostrarTodosbar_ButtonItem";
+            this.MostrarMostrarTodosbar_ButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarMostrarTodosbar_ItemClick);
+            // 
+            // MostrarMostrarSoloCatalogo_sbarbarButtonItem
+            // 
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem.Caption = "Mostrar Solo catálogo";
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem.Id = 22;
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarSoloCatalogo_sbarbarButtonItem.ImageOptions.Image")));
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarSoloCatalogo_sbarbarButtonItem.ImageOptions.LargeImage")));
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem.Name = "MostrarMostrarSoloCatalogo_sbarbarButtonItem";
+            this.MostrarMostrarSoloCatalogo_sbarbarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarSoloCatalogoItemClick);
+            // 
+            // MostrarMostrarDobleVinculos_barButtonItem
+            // 
+            this.MostrarMostrarDobleVinculos_barButtonItem.Caption = "Mostrar Doble Vínculos";
+            this.MostrarMostrarDobleVinculos_barButtonItem.Id = 23;
+            this.MostrarMostrarDobleVinculos_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarDobleVinculos_barButtonItem.ImageOptions.Image")));
+            this.MostrarMostrarDobleVinculos_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarDobleVinculos_barButtonItem.ImageOptions.LargeImage")));
+            this.MostrarMostrarDobleVinculos_barButtonItem.Name = "MostrarMostrarDobleVinculos_barButtonItem";
+            this.MostrarMostrarDobleVinculos_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarMostrarDobleVinculos_barButtonItem_ItemClick);
+            // 
+            // MostrarMostrarOciasionales_barButtonItem
+            // 
+            this.MostrarMostrarOciasionales_barButtonItem.Caption = "Mostrar Ocasionales";
+            this.MostrarMostrarOciasionales_barButtonItem.Id = 24;
+            this.MostrarMostrarOciasionales_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarOciasionales_barButtonItem.ImageOptions.Image")));
+            this.MostrarMostrarOciasionales_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarMostrarOciasionales_barButtonItem.ImageOptions.LargeImage")));
+            this.MostrarMostrarOciasionales_barButtonItem.Name = "MostrarMostrarOciasionales_barButtonItem";
+            this.MostrarMostrarOciasionales_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarMostrarOciasionales_barButtonItem_ItemClick);
+            // 
+            // barSubItem5
+            // 
+            this.barSubItem5.Caption = "Filtrar Por Baja";
+            this.barSubItem5.Id = 25;
+            this.barSubItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem5.ImageOptions.Image")));
+            this.barSubItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem5.ImageOptions.LargeImage")));
+            this.barSubItem5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarAltasYBajas_barButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarSoloAltas_barButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.MostrarSoloBjas_barButtonItem)});
+            this.barSubItem5.Name = "barSubItem5";
+            // 
+            // MostrarAltasYBajas_barButtonItem
+            // 
+            this.MostrarAltasYBajas_barButtonItem.Caption = "Mostrar Altas y Bajas";
+            this.MostrarAltasYBajas_barButtonItem.Id = 26;
+            this.MostrarAltasYBajas_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarAltasYBajas_barButtonItem.ImageOptions.Image")));
+            this.MostrarAltasYBajas_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarAltasYBajas_barButtonItem.ImageOptions.LargeImage")));
+            this.MostrarAltasYBajas_barButtonItem.Name = "MostrarAltasYBajas_barButtonItem";
+            this.MostrarAltasYBajas_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarAltasYBajas_barButtonItem_ItemClick);
+            // 
+            // MostrarSoloAltas_barButtonItem
+            // 
+            this.MostrarSoloAltas_barButtonItem.Caption = "Mostrar Solo Altas";
+            this.MostrarSoloAltas_barButtonItem.Id = 27;
+            this.MostrarSoloAltas_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarSoloAltas_barButtonItem.ImageOptions.Image")));
+            this.MostrarSoloAltas_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarSoloAltas_barButtonItem.ImageOptions.LargeImage")));
+            this.MostrarSoloAltas_barButtonItem.Name = "MostrarSoloAltas_barButtonItem";
+            this.MostrarSoloAltas_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarSoloAltas_barButtonItem_ItemClick);
+            // 
+            // MostrarSoloBjas_barButtonItem
+            // 
+            this.MostrarSoloBjas_barButtonItem.Caption = "Mostrar Solo Bajas";
+            this.MostrarSoloBjas_barButtonItem.Id = 28;
+            this.MostrarSoloBjas_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("MostrarSoloBjas_barButtonItem.ImageOptions.Image")));
+            this.MostrarSoloBjas_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("MostrarSoloBjas_barButtonItem.ImageOptions.LargeImage")));
+            this.MostrarSoloBjas_barButtonItem.Name = "MostrarSoloBjas_barButtonItem";
+            this.MostrarSoloBjas_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.MostrarSoloBjas_barButtonItem_ItemClick);
+            // 
             // Principal
             // 
             this.Principal.Color = System.Drawing.Color.Maroon;
@@ -1384,9 +1499,9 @@
             // Ver_ribbonPageGroup
             // 
             this.Ver_ribbonPageGroup.ItemLinks.Add(this.MostrarSoloSeleccioados_barCheckItem);
-            this.Ver_ribbonPageGroup.ItemLinks.Add(this.MostrarTodos_barButtonItem);
-            this.Ver_ribbonPageGroup.ItemLinks.Add(this.MostrarBajas_barCheckItem);
             this.Ver_ribbonPageGroup.ItemLinks.Add(this.ImpTabla_barButtonItem);
+            this.Ver_ribbonPageGroup.ItemLinks.Add(this.barSubItem5);
+            this.Ver_ribbonPageGroup.ItemLinks.Add(this.barSubItem4, true);
             this.Ver_ribbonPageGroup.Name = "Ver_ribbonPageGroup";
             this.Ver_ribbonPageGroup.Text = "Ver";
             // 
@@ -1920,5 +2035,15 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup VerGeneral_ribbonPageGroup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ReportesGeneral_ribbonPageGroup;
         private DevExpress.XtraBars.BarButtonItem ImpTabla_barButtonItem;
+        private DevExpress.XtraGrid.Columns.GridColumn MotivoNoSeguridadSocialCol;
+        private DevExpress.XtraBars.BarSubItem barSubItem4;
+        private DevExpress.XtraBars.BarButtonItem MostrarMostrarTodosbar_ButtonItem;
+        private DevExpress.XtraBars.BarButtonItem MostrarMostrarSoloCatalogo_sbarbarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem MostrarMostrarDobleVinculos_barButtonItem;
+        private DevExpress.XtraBars.BarButtonItem MostrarMostrarOciasionales_barButtonItem;
+        private DevExpress.XtraBars.BarSubItem barSubItem5;
+        private DevExpress.XtraBars.BarButtonItem MostrarAltasYBajas_barButtonItem;
+        private DevExpress.XtraBars.BarButtonItem MostrarSoloAltas_barButtonItem;
+        private DevExpress.XtraBars.BarButtonItem MostrarSoloBjas_barButtonItem;
     }
 }

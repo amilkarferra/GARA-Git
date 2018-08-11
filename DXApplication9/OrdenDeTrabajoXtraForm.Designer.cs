@@ -402,6 +402,7 @@
             this.OTgridView.OptionsSelection.MultiSelect = true;
             this.OTgridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.OTgridView.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.False;
+            this.OTgridView.OptionsView.ShowAutoFilterRow = true;
             this.OTgridView.OptionsView.ShowFooter = true;
             this.OTgridView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.OTgridView_RowStyle);
             this.OTgridView.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.OTgridView_SelectionChanged);
@@ -440,7 +441,7 @@
             this.colAgrupacionId.Name = "colAgrupacionId";
             this.colAgrupacionId.Visible = true;
             this.colAgrupacionId.VisibleIndex = 10;
-            this.colAgrupacionId.Width = 68;
+            this.colAgrupacionId.Width = 45;
             // 
             // Agrupacion_repositoryItemLookUpEdit
             // 
@@ -462,7 +463,7 @@
             this.FechaCierre_gridColumn.Name = "FechaCierre_gridColumn";
             this.FechaCierre_gridColumn.Visible = true;
             this.FechaCierre_gridColumn.VisibleIndex = 7;
-            this.FechaCierre_gridColumn.Width = 58;
+            this.FechaCierre_gridColumn.Width = 38;
             // 
             // colFechaConfeccion
             // 
@@ -471,7 +472,7 @@
             this.colFechaConfeccion.Name = "colFechaConfeccion";
             this.colFechaConfeccion.Visible = true;
             this.colFechaConfeccion.VisibleIndex = 8;
-            this.colFechaConfeccion.Width = 67;
+            this.colFechaConfeccion.Width = 44;
             // 
             // colMoneda
             // 
@@ -481,7 +482,7 @@
             this.colMoneda.Name = "colMoneda";
             this.colMoneda.Visible = true;
             this.colMoneda.VisibleIndex = 9;
-            this.colMoneda.Width = 46;
+            this.colMoneda.Width = 30;
             // 
             // Moneda_repositoryItemLookUpEdit
             // 
@@ -501,7 +502,7 @@
             this.colClienteQueContrataId.Name = "colClienteQueContrataId";
             this.colClienteQueContrataId.Visible = true;
             this.colClienteQueContrataId.VisibleIndex = 12;
-            this.colClienteQueContrataId.Width = 140;
+            this.colClienteQueContrataId.Width = 77;
             // 
             // Cliente_repositoryItemLookUpEdit
             // 
@@ -534,7 +535,7 @@
             this.colNumeroContrato.Name = "colNumeroContrato";
             this.colNumeroContrato.Visible = true;
             this.colNumeroContrato.VisibleIndex = 13;
-            this.colNumeroContrato.Width = 53;
+            this.colNumeroContrato.Width = 36;
             // 
             // colLugarDePresentacion
             // 
@@ -543,7 +544,7 @@
             this.colLugarDePresentacion.Name = "colLugarDePresentacion";
             this.colLugarDePresentacion.Visible = true;
             this.colLugarDePresentacion.VisibleIndex = 11;
-            this.colLugarDePresentacion.Width = 107;
+            this.colLugarDePresentacion.Width = 71;
             // 
             // colFechaIncialActividad
             // 
@@ -552,7 +553,7 @@
             this.colFechaIncialActividad.Name = "colFechaIncialActividad";
             this.colFechaIncialActividad.Visible = true;
             this.colFechaIncialActividad.VisibleIndex = 14;
-            this.colFechaIncialActividad.Width = 33;
+            this.colFechaIncialActividad.Width = 50;
             // 
             // colFechaFinalActividad
             // 
@@ -561,7 +562,7 @@
             this.colFechaFinalActividad.Name = "colFechaFinalActividad";
             this.colFechaFinalActividad.Visible = true;
             this.colFechaFinalActividad.VisibleIndex = 15;
-            this.colFechaFinalActividad.Width = 33;
+            this.colFechaFinalActividad.Width = 48;
             // 
             // colCantidadActividades
             // 
@@ -571,7 +572,7 @@
             this.colCantidadActividades.Name = "colCantidadActividades";
             this.colCantidadActividades.Visible = true;
             this.colCantidadActividades.VisibleIndex = 16;
-            this.colCantidadActividades.Width = 42;
+            this.colCantidadActividades.Width = 47;
             // 
             // CantActividades_repositoryItemSpinEdit
             // 
@@ -599,7 +600,7 @@
             this.colImportePorActividad.Name = "colImportePorActividad";
             this.colImportePorActividad.Visible = true;
             this.colImportePorActividad.VisibleIndex = 17;
-            this.colImportePorActividad.Width = 34;
+            this.colImportePorActividad.Width = 27;
             // 
             // ImporteOt_repositoryItemTextEdit
             // 
@@ -621,7 +622,7 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 20;
-            this.colEstado.Width = 30;
+            this.colEstado.Width = 28;
             // 
             // EstadosOT_repositoryItemLookUpEdit
             // 
@@ -641,8 +642,6 @@
             this.Edit_gridColumn.OptionsColumn.ReadOnly = true;
             this.Edit_gridColumn.OptionsColumn.ShowInCustomizationForm = false;
             this.Edit_gridColumn.OptionsColumn.ShowInExpressionEditor = false;
-            this.Edit_gridColumn.Visible = true;
-            this.Edit_gridColumn.VisibleIndex = 23;
             this.Edit_gridColumn.Width = 36;
             // 
             // Edit_repositoryItemButtonEdit
@@ -662,8 +661,6 @@
             this.Print_gridColumn.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
             this.Print_gridColumn.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
             this.Print_gridColumn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            this.Print_gridColumn.Visible = true;
-            this.Print_gridColumn.VisibleIndex = 22;
             this.Print_gridColumn.Width = 32;
             // 
             // Print_repositoryItemButtonEdit
@@ -682,8 +679,8 @@
             this.CierraOT_gridColumn.Name = "CierraOT_gridColumn";
             this.CierraOT_gridColumn.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
             this.CierraOT_gridColumn.Visible = true;
-            this.CierraOT_gridColumn.VisibleIndex = 24;
-            this.CierraOT_gridColumn.Width = 54;
+            this.CierraOT_gridColumn.VisibleIndex = 22;
+            this.CierraOT_gridColumn.Width = 21;
             // 
             // CierraOT_repositoryItemButtonEdit
             // 
@@ -729,7 +726,7 @@
             this.ImporteFinal.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.ImporteFinal.Visible = true;
             this.ImporteFinal.VisibleIndex = 18;
-            this.ImporteFinal.Width = 54;
+            this.ImporteFinal.Width = 31;
             // 
             // colImporteFinal
             // 
@@ -737,6 +734,7 @@
             this.colImporteFinal.Name = "colImporteFinal";
             this.colImporteFinal.Visible = true;
             this.colImporteFinal.VisibleIndex = 19;
+            this.colImporteFinal.Width = 34;
             // 
             // Nombre_gridColumn
             // 
@@ -747,7 +745,7 @@
             this.Nombre_gridColumn.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.Nombre_gridColumn.Visible = true;
             this.Nombre_gridColumn.VisibleIndex = 1;
-            this.Nombre_gridColumn.Width = 73;
+            this.Nombre_gridColumn.Width = 48;
             // 
             // colAnno
             // 
@@ -762,6 +760,7 @@
             this.colCheque.ToolTip = "Numero de cheque o transferencia pagado por el Cliente";
             this.colCheque.Visible = true;
             this.colCheque.VisibleIndex = 2;
+            this.colCheque.Width = 49;
             // 
             // colFechaEntregaCheque
             // 
@@ -770,6 +769,7 @@
             this.colFechaEntregaCheque.ToolTip = "Fecha de Entrada de Cheque o Transferencia que paga la actividad";
             this.colFechaEntregaCheque.Visible = true;
             this.colFechaEntregaCheque.VisibleIndex = 3;
+            this.colFechaEntregaCheque.Width = 49;
             // 
             // colPorcientoCliente
             // 
@@ -784,6 +784,7 @@
             this.colChequePaga.ToolTip = "Id de cheque pagado a la Unidad Artística";
             this.colChequePaga.Visible = true;
             this.colChequePaga.VisibleIndex = 5;
+            this.colChequePaga.Width = 49;
             // 
             // colFechaDePago
             // 
@@ -792,6 +793,7 @@
             this.colFechaDePago.ToolTip = "Fecha de emisión del cheque pagado por la UA";
             this.colFechaDePago.Visible = true;
             this.colFechaDePago.VisibleIndex = 6;
+            this.colFechaDePago.Width = 49;
             // 
             // colEstadoCuenta
             // 
@@ -799,6 +801,7 @@
             this.colEstadoCuenta.Name = "colEstadoCuenta";
             this.colEstadoCuenta.Visible = true;
             this.colEstadoCuenta.VisibleIndex = 4;
+            this.colEstadoCuenta.Width = 49;
             // 
             // colNetoACobrar
             // 
@@ -807,13 +810,15 @@
             this.colNetoACobrar.Name = "colNetoACobrar";
             this.colNetoACobrar.Visible = true;
             this.colNetoACobrar.VisibleIndex = 21;
+            this.colNetoACobrar.Width = 28;
             // 
             // colFechaSolicitudDePago
             // 
             this.colFechaSolicitudDePago.FieldName = "FechaSolicitudDePago";
             this.colFechaSolicitudDePago.Name = "colFechaSolicitudDePago";
             this.colFechaSolicitudDePago.Visible = true;
-            this.colFechaSolicitudDePago.VisibleIndex = 25;
+            this.colFechaSolicitudDePago.VisibleIndex = 23;
+            this.colFechaSolicitudDePago.Width = 30;
             // 
             // colDescuento
             // 
@@ -833,7 +838,8 @@
             this.colNota.Name = "colNota";
             this.colNota.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
             this.colNota.Visible = true;
-            this.colNota.VisibleIndex = 26;
+            this.colNota.VisibleIndex = 24;
+            this.colNota.Width = 76;
             // 
             // Recordatorio_repositoryItemMemoExEdit
             // 

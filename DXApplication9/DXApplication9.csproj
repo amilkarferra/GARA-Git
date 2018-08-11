@@ -27,7 +27,7 @@
     <TargetCulture>es-CO</TargetCulture>
     <ProductName>GARA 2017</ProductName>
     <PublisherName>GARA</PublisherName>
-    <ApplicationRevision>330</ApplicationRevision>
+    <ApplicationRevision>334</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -236,6 +236,12 @@
     <Compile Include="EscalaSalarialXtraForm.Designer.cs">
       <DependentUpon>EscalaSalarialXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NomencladorNoEscalaSalarialXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NomencladorNoEscalaSalarialXtraForm.Designer.cs">
+      <DependentUpon>NomencladorNoEscalaSalarialXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopupAsignarEscalaXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,12 +283,6 @@
     </Compile>
     <Compile Include="ReportesSistema\EsquemaDeIngresoDeUA.Designer.cs">
       <DependentUpon>EsquemaDeIngresoDeUA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReportesSistema\GaraBaseXtraReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportesSistema\GaraBaseXtraReport.Designer.cs">
-      <DependentUpon>GaraBaseXtraReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportesSistema\GeneralReportIntegrantesPorUA.cs">
       <SubType>Component</SubType>
@@ -492,12 +492,6 @@
     </Compile>
     <Compile Include="ReportesSistema\FactExportXtraReport.Designer.cs">
       <DependentUpon>FactExportXtraReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReportesSistema\FundamentacionSnapXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportesSistema\FundamentacionSnapXtraForm.Designer.cs">
-      <DependentUpon>FundamentacionSnapXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportesSistema\GARAXtraReport.cs">
       <SubType>Component</SubType>
@@ -850,6 +844,12 @@
     <Compile Include="XtraReport2.Designer.cs">
       <DependentUpon>XtraReport2.cs</DependentUpon>
     </Compile>
+    <Compile Include="NomencladorGridXtraUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NomencladorGridXtraUserControl.Designer.cs">
+      <DependentUpon>NomencladorGridXtraUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgrupacionesForm.resx">
       <DependentUpon>AgrupacionesForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -875,6 +875,9 @@
     <EmbeddedResource Include="EscalaSalarialXtraForm.resx">
       <DependentUpon>EscalaSalarialXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NomencladorNoEscalaSalarialXtraForm.resx">
+      <DependentUpon>NomencladorNoEscalaSalarialXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PopupAsignarEscalaXtraForm.resx">
       <DependentUpon>PopupAsignarEscalaXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -898,9 +901,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesSistema\EsquemaDeIngresoDeUA.resx">
       <DependentUpon>EsquemaDeIngresoDeUA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportesSistema\GaraBaseXtraReport.resx">
-      <DependentUpon>GaraBaseXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesSistema\GeneralReportIntegrantesPorUA.resx">
       <DependentUpon>GeneralReportIntegrantesPorUA.cs</DependentUpon>
@@ -1004,9 +1004,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesSistema\FactExportXtraReport.resx">
       <DependentUpon>FactExportXtraReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportesSistema\FundamentacionSnapXtraForm.resx">
-      <DependentUpon>FundamentacionSnapXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesSistema\GARAXtraReport.resx">
       <DependentUpon>GARAXtraReport.cs</DependentUpon>
@@ -1179,6 +1176,9 @@
     <EmbeddedResource Include="XtraReport2.resx">
       <DependentUpon>XtraReport2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NomencladorGridXtraUserControl.resx">
+      <DependentUpon>NomencladorGridXtraUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -1251,6 +1251,7 @@
     <None Include="Properties\DataSources\ImportesDeFacturaEnFrontera.datasource" />
     <None Include="Properties\DataSources\Municipio.datasource" />
     <None Include="Properties\DataSources\NegocioDataContext.datasource" />
+    <None Include="Properties\DataSources\NoEscalaSalarial.datasource" />
     <None Include="Properties\DataSources\NomencladorCargo.datasource" />
     <None Include="Properties\DataSources\Nomina.datasource" />
     <None Include="Properties\DataSources\OnatDeUA.datasource" />
@@ -1330,6 +1331,14 @@
     </Content>
     <Content Include="Gara-no-text-ico.ico" />
     <Content Include="music folder.ico" />
+    <None Include="Resources\filterbyseries_pie_32x32.png" />
+    <None Include="Resources\filterbyseries_pie_16x16.png" />
+    <None Include="Resources\filterbyargument_pie_32x32.png" />
+    <None Include="Resources\filterbyargument_pie_16x16.png" />
+    <None Include="Resources\multiplemasterfilter_32x32.png" />
+    <None Include="Resources\multiplemasterfilter_16x16.png" />
+    <None Include="Resources\show_16x161.png" />
+    <None Include="Resources\show_16x16.png" />
     <None Include="Resources\refresh2_32x32.png" />
     <None Include="Resources\checkbox_16x161.png" />
     <None Include="Resources\checkbox_32x32.png" />

@@ -3036,7 +3036,7 @@
             this.exportToTIFFChartItem2,
             this.createExportToImageBaseItem2});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 30);
-            this.ribbonControl1.MaxItemId = 35;
+            this.ribbonControl1.MaxItemId = 37;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.chartRibbonPageCategory1});

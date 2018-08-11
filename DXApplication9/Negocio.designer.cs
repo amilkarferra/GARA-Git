@@ -117,9 +117,6 @@ namespace DXApplication9
     partial void InsertNomina(Nomina instance);
     partial void UpdateNomina(Nomina instance);
     partial void DeleteNomina(Nomina instance);
-    partial void InsertArtista(Artista instance);
-    partial void UpdateArtista(Artista instance);
-    partial void DeleteArtista(Artista instance);
     partial void InsertEscalaSalarial(EscalaSalarial instance);
     partial void UpdateEscalaSalarial(EscalaSalarial instance);
     partial void DeleteEscalaSalarial(EscalaSalarial instance);
@@ -159,6 +156,12 @@ namespace DXApplication9
     partial void InsertOrdenDeTrabajo(OrdenDeTrabajo instance);
     partial void UpdateOrdenDeTrabajo(OrdenDeTrabajo instance);
     partial void DeleteOrdenDeTrabajo(OrdenDeTrabajo instance);
+    partial void InsertNoEscalaSalarial(NoEscalaSalarial instance);
+    partial void UpdateNoEscalaSalarial(NoEscalaSalarial instance);
+    partial void DeleteNoEscalaSalarial(NoEscalaSalarial instance);
+    partial void InsertArtista(Artista instance);
+    partial void UpdateArtista(Artista instance);
+    partial void DeleteArtista(Artista instance);
     #endregion
 		
 		public NegocioDataContext() : 
@@ -423,14 +426,6 @@ namespace DXApplication9
 			}
 		}
 		
-		public System.Data.Linq.Table<Artista> Artista
-		{
-			get
-			{
-				return this.GetTable<Artista>();
-			}
-		}
-		
 		public System.Data.Linq.Table<EscalaSalarial> EscalaSalarial
 		{
 			get
@@ -532,6 +527,22 @@ namespace DXApplication9
 			get
 			{
 				return this.GetTable<OrdenDeTrabajo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<NoEscalaSalarial> NoEscalaSalarial
+		{
+			get
+			{
+				return this.GetTable<NoEscalaSalarial>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Artista> Artista
+		{
+			get
+			{
+				return this.GetTable<Artista>();
 			}
 		}
 	}
@@ -3054,9 +3065,9 @@ namespace DXApplication9
 		
 		private EntitySet<DocumentosInvitados> _DocumentosInvitados;
 		
-		private EntityRef<Artista> _Artista;
-		
 		private EntityRef<Proyectos> _Proyectos;
+		
+		private EntityRef<Artista> _Artista;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -3085,8 +3096,8 @@ namespace DXApplication9
 		public ParticipantesDeProyectos()
 		{
 			this._DocumentosInvitados = new EntitySet<DocumentosInvitados>(new Action<DocumentosInvitados>(this.attach_DocumentosInvitados), new Action<DocumentosInvitados>(this.detach_DocumentosInvitados));
-			this._Artista = default(EntityRef<Artista>);
 			this._Proyectos = default(EntityRef<Proyectos>);
+			this._Artista = default(EntityRef<Artista>);
 			OnCreated();
 		}
 		
@@ -3291,40 +3302,6 @@ namespace DXApplication9
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeProyectos", Storage="_Artista", ThisKey="ArtistaId", OtherKey="ArtistaID", IsForeignKey=true)]
-		public Artista Artista
-		{
-			get
-			{
-				return this._Artista.Entity;
-			}
-			set
-			{
-				Artista previousValue = this._Artista.Entity;
-				if (((previousValue != value) 
-							|| (this._Artista.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Artista.Entity = null;
-						previousValue.ParticipantesDeProyectos.Remove(this);
-					}
-					this._Artista.Entity = value;
-					if ((value != null))
-					{
-						value.ParticipantesDeProyectos.Add(this);
-						this._ArtistaId = value.ArtistaID;
-					}
-					else
-					{
-						this._ArtistaId = default(int);
-					}
-					this.SendPropertyChanged("Artista");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Proyectos_ParticipantesDeProyectos", Storage="_Proyectos", ThisKey="ProyectoId", OtherKey="ProyectoID", IsForeignKey=true)]
 		public Proyectos Proyectos
 		{
@@ -3355,6 +3332,40 @@ namespace DXApplication9
 						this._ProyectoId = default(Nullable<System.Guid>);
 					}
 					this.SendPropertyChanged("Proyectos");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeProyectos", Storage="_Artista", ThisKey="ArtistaId", OtherKey="ArtistaID", IsForeignKey=true)]
+		public Artista Artista
+		{
+			get
+			{
+				return this._Artista.Entity;
+			}
+			set
+			{
+				Artista previousValue = this._Artista.Entity;
+				if (((previousValue != value) 
+							|| (this._Artista.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Artista.Entity = null;
+						previousValue.ParticipantesDeProyectos.Remove(this);
+					}
+					this._Artista.Entity = value;
+					if ((value != null))
+					{
+						value.ParticipantesDeProyectos.Add(this);
+						this._ArtistaId = value.ArtistaID;
+					}
+					else
+					{
+						this._ArtistaId = default(int);
+					}
+					this.SendPropertyChanged("Artista");
 				}
 			}
 		}
@@ -7856,1364 +7867,6 @@ namespace DXApplication9
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Artista")]
-	public partial class Artista : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ArtistaID;
-		
-		private string _CarnetIdentidad;
-		
-		private string _Nombre;
-		
-		private string _PrimerApellido;
-		
-		private string _SegundoApellido;
-		
-		private string _Desempenno;
-		
-		private System.Nullable<int> _NomencladorCargoId;
-		
-		private string _AbrevDesempenno;
-		
-		private System.Nullable<System.DateTime> _FechaIngresoSector;
-		
-		private string _StatusLaboral;
-		
-		private byte[] _Foto;
-		
-		private System.Nullable<System.DateTime> _FechaDeAlta;
-		
-		private System.Nullable<System.DateTime> _FechaDeBaja;
-		
-		private System.Nullable<int> _Orden;
-		
-		private System.Nullable<int> _MunicipioId;
-		
-		private string _EstadoCivil;
-		
-		private string _Escolaridad;
-		
-		private string _Organismo;
-		
-		private System.Nullable<int> _AnnoGraduado;
-		
-		private string _Direccion;
-		
-		private string _Telefonos;
-		
-		private System.Nullable<int> _EscalaSalarialId;
-		
-		private string _FuenteProcedencia;
-		
-		private string _EscolaridadEnsennanzaGeneral;
-		
-		private string _OtraProfesion;
-		
-		private System.Nullable<int> _AnnoGraduadoOtraProfesion;
-		
-		private string _EnsennanzaEspecializada;
-		
-		private System.Nullable<int> _AnnoGraduadoEnsEspecializada;
-		
-		private string _CumplimientoServicioSocial;
-		
-		private string _TipoContratoArtista;
-		
-		private string _EvaluacionArtistica;
-		
-		private string _NivelEvaluacionArt;
-		
-		private string _CodigoEvalArtistica;
-		
-		private System.Nullable<System.DateTime> _FechaEvalArtistica;
-		
-		private System.Nullable<int> _TipoAval;
-		
-		private string _CodigoAvalProfesionalidad;
-		
-		private System.Nullable<System.DateTime> _FechaAval;
-		
-		private string _CentroUltimaAudicion;
-		
-		private System.Nullable<System.DateTime> _FechaUltimaAudicion;
-		
-		private System.Nullable<int> _Estado;
-		
-		private EntitySet<AgrupacionDeArtista> _AgrupacionDeArtista;
-		
-		private EntitySet<FotoDeIntegrante> _FotoDeIntegrante;
-		
-		private EntitySet<ParticipantesDeProyectos> _ParticipantesDeProyectos;
-		
-		private EntitySet<Pasaportes> _Pasaportes;
-		
-		private EntitySet<TrayectoriaArtista> _TrayectoriaArtista;
-		
-		private EntitySet<ParticipantesDeAcividad> _ParticipantesDeAcividad;
-		
-		private EntitySet<LogArtista> _LogArtista;
-		
-		private EntityRef<Municipio> _Municipio;
-		
-		private EntityRef<NomencladorCargo> _NomencladorCargo;
-		
-		private EntityRef<NomencladorCargo> _NomencladorCargo1;
-		
-		private EntityRef<EscalaSalarial> _EscalaSalarial;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnArtistaIDChanging(int value);
-    partial void OnArtistaIDChanged();
-    partial void OnCarnetIdentidadChanging(string value);
-    partial void OnCarnetIdentidadChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnPrimerApellidoChanging(string value);
-    partial void OnPrimerApellidoChanged();
-    partial void OnSegundoApellidoChanging(string value);
-    partial void OnSegundoApellidoChanged();
-    partial void OnDesempennoChanging(string value);
-    partial void OnDesempennoChanged();
-    partial void OnNomencladorCargoIdChanging(System.Nullable<int> value);
-    partial void OnNomencladorCargoIdChanged();
-    partial void OnAbrevDesempennoChanging(string value);
-    partial void OnAbrevDesempennoChanged();
-    partial void OnFechaIngresoSectorChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaIngresoSectorChanged();
-    partial void OnStatusLaboralChanging(string value);
-    partial void OnStatusLaboralChanged();
-    partial void OnFotoChanging(byte[] value);
-    partial void OnFotoChanged();
-    partial void OnFechaDeAltaChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaDeAltaChanged();
-    partial void OnFechaDeBajaChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaDeBajaChanged();
-    partial void OnOrdenChanging(System.Nullable<int> value);
-    partial void OnOrdenChanged();
-    partial void OnMunicipioIdChanging(System.Nullable<int> value);
-    partial void OnMunicipioIdChanged();
-    partial void OnEstadoCivilChanging(string value);
-    partial void OnEstadoCivilChanged();
-    partial void OnEscolaridadChanging(string value);
-    partial void OnEscolaridadChanged();
-    partial void OnOrganismoChanging(string value);
-    partial void OnOrganismoChanged();
-    partial void OnAnnoGraduadoChanging(System.Nullable<int> value);
-    partial void OnAnnoGraduadoChanged();
-    partial void OnDireccionChanging(string value);
-    partial void OnDireccionChanged();
-    partial void OnTelefonosChanging(string value);
-    partial void OnTelefonosChanged();
-    partial void OnEscalaSalarialIdChanging(System.Nullable<int> value);
-    partial void OnEscalaSalarialIdChanged();
-    partial void OnFuenteProcedenciaChanging(string value);
-    partial void OnFuenteProcedenciaChanged();
-    partial void OnEscolaridadEnsennanzaGeneralChanging(string value);
-    partial void OnEscolaridadEnsennanzaGeneralChanged();
-    partial void OnOtraProfesionChanging(string value);
-    partial void OnOtraProfesionChanged();
-    partial void OnAnnoGraduadoOtraProfesionChanging(System.Nullable<int> value);
-    partial void OnAnnoGraduadoOtraProfesionChanged();
-    partial void OnEnsennanzaEspecializadaChanging(string value);
-    partial void OnEnsennanzaEspecializadaChanged();
-    partial void OnAnnoGraduadoEnsEspecializadaChanging(System.Nullable<int> value);
-    partial void OnAnnoGraduadoEnsEspecializadaChanged();
-    partial void OnCumplimientoServicioSocialChanging(string value);
-    partial void OnCumplimientoServicioSocialChanged();
-    partial void OnTipoContratoArtistaChanging(string value);
-    partial void OnTipoContratoArtistaChanged();
-    partial void OnEvaluacionArtisticaChanging(string value);
-    partial void OnEvaluacionArtisticaChanged();
-    partial void OnNivelEvaluacionArtChanging(string value);
-    partial void OnNivelEvaluacionArtChanged();
-    partial void OnCodigoEvalArtisticaChanging(string value);
-    partial void OnCodigoEvalArtisticaChanged();
-    partial void OnFechaEvalArtisticaChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaEvalArtisticaChanged();
-    partial void OnTipoAvalChanging(System.Nullable<int> value);
-    partial void OnTipoAvalChanged();
-    partial void OnCodigoAvalProfesionalidadChanging(string value);
-    partial void OnCodigoAvalProfesionalidadChanged();
-    partial void OnFechaAvalChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaAvalChanged();
-    partial void OnCentroUltimaAudicionChanging(string value);
-    partial void OnCentroUltimaAudicionChanged();
-    partial void OnFechaUltimaAudicionChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaUltimaAudicionChanged();
-    partial void OnEstadoChanging(System.Nullable<int> value);
-    partial void OnEstadoChanged();
-    #endregion
-		
-		public Artista()
-		{
-			this._AgrupacionDeArtista = new EntitySet<AgrupacionDeArtista>(new Action<AgrupacionDeArtista>(this.attach_AgrupacionDeArtista), new Action<AgrupacionDeArtista>(this.detach_AgrupacionDeArtista));
-			this._FotoDeIntegrante = new EntitySet<FotoDeIntegrante>(new Action<FotoDeIntegrante>(this.attach_FotoDeIntegrante), new Action<FotoDeIntegrante>(this.detach_FotoDeIntegrante));
-			this._ParticipantesDeProyectos = new EntitySet<ParticipantesDeProyectos>(new Action<ParticipantesDeProyectos>(this.attach_ParticipantesDeProyectos), new Action<ParticipantesDeProyectos>(this.detach_ParticipantesDeProyectos));
-			this._Pasaportes = new EntitySet<Pasaportes>(new Action<Pasaportes>(this.attach_Pasaportes), new Action<Pasaportes>(this.detach_Pasaportes));
-			this._TrayectoriaArtista = new EntitySet<TrayectoriaArtista>(new Action<TrayectoriaArtista>(this.attach_TrayectoriaArtista), new Action<TrayectoriaArtista>(this.detach_TrayectoriaArtista));
-			this._ParticipantesDeAcividad = new EntitySet<ParticipantesDeAcividad>(new Action<ParticipantesDeAcividad>(this.attach_ParticipantesDeAcividad), new Action<ParticipantesDeAcividad>(this.detach_ParticipantesDeAcividad));
-			this._LogArtista = new EntitySet<LogArtista>(new Action<LogArtista>(this.attach_LogArtista), new Action<LogArtista>(this.detach_LogArtista));
-			this._Municipio = default(EntityRef<Municipio>);
-			this._NomencladorCargo = default(EntityRef<NomencladorCargo>);
-			this._NomencladorCargo1 = default(EntityRef<NomencladorCargo>);
-			this._EscalaSalarial = default(EntityRef<EscalaSalarial>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArtistaID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ArtistaID
-		{
-			get
-			{
-				return this._ArtistaID;
-			}
-			set
-			{
-				if ((this._ArtistaID != value))
-				{
-					this.OnArtistaIDChanging(value);
-					this.SendPropertyChanging();
-					this._ArtistaID = value;
-					this.SendPropertyChanged("ArtistaID");
-					this.OnArtistaIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CarnetIdentidad", DbType="NChar(20)")]
-		public string CarnetIdentidad
-		{
-			get
-			{
-				return this._CarnetIdentidad;
-			}
-			set
-			{
-				if ((this._CarnetIdentidad != value))
-				{
-					this.OnCarnetIdentidadChanging(value);
-					this.SendPropertyChanging();
-					this._CarnetIdentidad = value;
-					this.SendPropertyChanged("CarnetIdentidad");
-					this.OnCarnetIdentidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NChar(130)")]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrimerApellido", DbType="NChar(20)")]
-		public string PrimerApellido
-		{
-			get
-			{
-				return this._PrimerApellido;
-			}
-			set
-			{
-				if ((this._PrimerApellido != value))
-				{
-					this.OnPrimerApellidoChanging(value);
-					this.SendPropertyChanging();
-					this._PrimerApellido = value;
-					this.SendPropertyChanged("PrimerApellido");
-					this.OnPrimerApellidoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SegundoApellido", DbType="NChar(30)")]
-		public string SegundoApellido
-		{
-			get
-			{
-				return this._SegundoApellido;
-			}
-			set
-			{
-				if ((this._SegundoApellido != value))
-				{
-					this.OnSegundoApellidoChanging(value);
-					this.SendPropertyChanging();
-					this._SegundoApellido = value;
-					this.SendPropertyChanged("SegundoApellido");
-					this.OnSegundoApellidoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Desempenno", DbType="NVarChar(MAX)")]
-		public string Desempenno
-		{
-			get
-			{
-				return this._Desempenno;
-			}
-			set
-			{
-				if ((this._Desempenno != value))
-				{
-					this.OnDesempennoChanging(value);
-					this.SendPropertyChanging();
-					this._Desempenno = value;
-					this.SendPropertyChanged("Desempenno");
-					this.OnDesempennoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomencladorCargoId", DbType="Int")]
-		public System.Nullable<int> NomencladorCargoId
-		{
-			get
-			{
-				return this._NomencladorCargoId;
-			}
-			set
-			{
-				if ((this._NomencladorCargoId != value))
-				{
-					if (this._NomencladorCargo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNomencladorCargoIdChanging(value);
-					this.SendPropertyChanging();
-					this._NomencladorCargoId = value;
-					this.SendPropertyChanged("NomencladorCargoId");
-					this.OnNomencladorCargoIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AbrevDesempenno", DbType="NVarChar(50)")]
-		public string AbrevDesempenno
-		{
-			get
-			{
-				return this._AbrevDesempenno;
-			}
-			set
-			{
-				if ((this._AbrevDesempenno != value))
-				{
-					this.OnAbrevDesempennoChanging(value);
-					this.SendPropertyChanging();
-					this._AbrevDesempenno = value;
-					this.SendPropertyChanged("AbrevDesempenno");
-					this.OnAbrevDesempennoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaIngresoSector", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaIngresoSector
-		{
-			get
-			{
-				return this._FechaIngresoSector;
-			}
-			set
-			{
-				if ((this._FechaIngresoSector != value))
-				{
-					this.OnFechaIngresoSectorChanging(value);
-					this.SendPropertyChanging();
-					this._FechaIngresoSector = value;
-					this.SendPropertyChanged("FechaIngresoSector");
-					this.OnFechaIngresoSectorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusLaboral", DbType="NChar(30)")]
-		public string StatusLaboral
-		{
-			get
-			{
-				return this._StatusLaboral;
-			}
-			set
-			{
-				if ((this._StatusLaboral != value))
-				{
-					this.OnStatusLaboralChanging(value);
-					this.SendPropertyChanging();
-					this._StatusLaboral = value;
-					this.SendPropertyChanged("StatusLaboral");
-					this.OnStatusLaboralChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public byte[] Foto
-		{
-			get
-			{
-				return this._Foto;
-			}
-			set
-			{
-				if ((this._Foto != value))
-				{
-					this.OnFotoChanging(value);
-					this.SendPropertyChanging();
-					this._Foto = value;
-					this.SendPropertyChanged("Foto");
-					this.OnFotoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaDeAlta", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaDeAlta
-		{
-			get
-			{
-				return this._FechaDeAlta;
-			}
-			set
-			{
-				if ((this._FechaDeAlta != value))
-				{
-					this.OnFechaDeAltaChanging(value);
-					this.SendPropertyChanging();
-					this._FechaDeAlta = value;
-					this.SendPropertyChanged("FechaDeAlta");
-					this.OnFechaDeAltaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaDeBaja", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaDeBaja
-		{
-			get
-			{
-				return this._FechaDeBaja;
-			}
-			set
-			{
-				if ((this._FechaDeBaja != value))
-				{
-					this.OnFechaDeBajaChanging(value);
-					this.SendPropertyChanging();
-					this._FechaDeBaja = value;
-					this.SendPropertyChanged("FechaDeBaja");
-					this.OnFechaDeBajaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Orden", DbType="Int")]
-		public System.Nullable<int> Orden
-		{
-			get
-			{
-				return this._Orden;
-			}
-			set
-			{
-				if ((this._Orden != value))
-				{
-					this.OnOrdenChanging(value);
-					this.SendPropertyChanging();
-					this._Orden = value;
-					this.SendPropertyChanged("Orden");
-					this.OnOrdenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MunicipioId", DbType="Int")]
-		public System.Nullable<int> MunicipioId
-		{
-			get
-			{
-				return this._MunicipioId;
-			}
-			set
-			{
-				if ((this._MunicipioId != value))
-				{
-					if (this._Municipio.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMunicipioIdChanging(value);
-					this.SendPropertyChanging();
-					this._MunicipioId = value;
-					this.SendPropertyChanged("MunicipioId");
-					this.OnMunicipioIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstadoCivil", DbType="NVarChar(50)")]
-		public string EstadoCivil
-		{
-			get
-			{
-				return this._EstadoCivil;
-			}
-			set
-			{
-				if ((this._EstadoCivil != value))
-				{
-					this.OnEstadoCivilChanging(value);
-					this.SendPropertyChanging();
-					this._EstadoCivil = value;
-					this.SendPropertyChanged("EstadoCivil");
-					this.OnEstadoCivilChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Escolaridad", DbType="NVarChar(MAX)")]
-		public string Escolaridad
-		{
-			get
-			{
-				return this._Escolaridad;
-			}
-			set
-			{
-				if ((this._Escolaridad != value))
-				{
-					this.OnEscolaridadChanging(value);
-					this.SendPropertyChanging();
-					this._Escolaridad = value;
-					this.SendPropertyChanged("Escolaridad");
-					this.OnEscolaridadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Organismo", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Organismo
-		{
-			get
-			{
-				return this._Organismo;
-			}
-			set
-			{
-				if ((this._Organismo != value))
-				{
-					this.OnOrganismoChanging(value);
-					this.SendPropertyChanging();
-					this._Organismo = value;
-					this.SendPropertyChanged("Organismo");
-					this.OnOrganismoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoGraduado", DbType="Int")]
-		public System.Nullable<int> AnnoGraduado
-		{
-			get
-			{
-				return this._AnnoGraduado;
-			}
-			set
-			{
-				if ((this._AnnoGraduado != value))
-				{
-					this.OnAnnoGraduadoChanging(value);
-					this.SendPropertyChanging();
-					this._AnnoGraduado = value;
-					this.SendPropertyChanged("AnnoGraduado");
-					this.OnAnnoGraduadoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="NVarChar(MAX)")]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this.OnDireccionChanging(value);
-					this.SendPropertyChanging();
-					this._Direccion = value;
-					this.SendPropertyChanged("Direccion");
-					this.OnDireccionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefonos", DbType="NVarChar(MAX)")]
-		public string Telefonos
-		{
-			get
-			{
-				return this._Telefonos;
-			}
-			set
-			{
-				if ((this._Telefonos != value))
-				{
-					this.OnTelefonosChanging(value);
-					this.SendPropertyChanging();
-					this._Telefonos = value;
-					this.SendPropertyChanged("Telefonos");
-					this.OnTelefonosChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EscalaSalarialId", DbType="Int")]
-		public System.Nullable<int> EscalaSalarialId
-		{
-			get
-			{
-				return this._EscalaSalarialId;
-			}
-			set
-			{
-				if ((this._EscalaSalarialId != value))
-				{
-					if (this._EscalaSalarial.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEscalaSalarialIdChanging(value);
-					this.SendPropertyChanging();
-					this._EscalaSalarialId = value;
-					this.SendPropertyChanged("EscalaSalarialId");
-					this.OnEscalaSalarialIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FuenteProcedencia", DbType="NVarChar(MAX)")]
-		public string FuenteProcedencia
-		{
-			get
-			{
-				return this._FuenteProcedencia;
-			}
-			set
-			{
-				if ((this._FuenteProcedencia != value))
-				{
-					this.OnFuenteProcedenciaChanging(value);
-					this.SendPropertyChanging();
-					this._FuenteProcedencia = value;
-					this.SendPropertyChanged("FuenteProcedencia");
-					this.OnFuenteProcedenciaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EscolaridadEnsennanzaGeneral", DbType="NVarChar(MAX)")]
-		public string EscolaridadEnsennanzaGeneral
-		{
-			get
-			{
-				return this._EscolaridadEnsennanzaGeneral;
-			}
-			set
-			{
-				if ((this._EscolaridadEnsennanzaGeneral != value))
-				{
-					this.OnEscolaridadEnsennanzaGeneralChanging(value);
-					this.SendPropertyChanging();
-					this._EscolaridadEnsennanzaGeneral = value;
-					this.SendPropertyChanged("EscolaridadEnsennanzaGeneral");
-					this.OnEscolaridadEnsennanzaGeneralChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtraProfesion", DbType="NVarChar(MAX)")]
-		public string OtraProfesion
-		{
-			get
-			{
-				return this._OtraProfesion;
-			}
-			set
-			{
-				if ((this._OtraProfesion != value))
-				{
-					this.OnOtraProfesionChanging(value);
-					this.SendPropertyChanging();
-					this._OtraProfesion = value;
-					this.SendPropertyChanged("OtraProfesion");
-					this.OnOtraProfesionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoGraduadoOtraProfesion", DbType="Int")]
-		public System.Nullable<int> AnnoGraduadoOtraProfesion
-		{
-			get
-			{
-				return this._AnnoGraduadoOtraProfesion;
-			}
-			set
-			{
-				if ((this._AnnoGraduadoOtraProfesion != value))
-				{
-					this.OnAnnoGraduadoOtraProfesionChanging(value);
-					this.SendPropertyChanging();
-					this._AnnoGraduadoOtraProfesion = value;
-					this.SendPropertyChanged("AnnoGraduadoOtraProfesion");
-					this.OnAnnoGraduadoOtraProfesionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnsennanzaEspecializada", DbType="NVarChar(MAX)")]
-		public string EnsennanzaEspecializada
-		{
-			get
-			{
-				return this._EnsennanzaEspecializada;
-			}
-			set
-			{
-				if ((this._EnsennanzaEspecializada != value))
-				{
-					this.OnEnsennanzaEspecializadaChanging(value);
-					this.SendPropertyChanging();
-					this._EnsennanzaEspecializada = value;
-					this.SendPropertyChanged("EnsennanzaEspecializada");
-					this.OnEnsennanzaEspecializadaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoGraduadoEnsEspecializada", DbType="Int")]
-		public System.Nullable<int> AnnoGraduadoEnsEspecializada
-		{
-			get
-			{
-				return this._AnnoGraduadoEnsEspecializada;
-			}
-			set
-			{
-				if ((this._AnnoGraduadoEnsEspecializada != value))
-				{
-					this.OnAnnoGraduadoEnsEspecializadaChanging(value);
-					this.SendPropertyChanging();
-					this._AnnoGraduadoEnsEspecializada = value;
-					this.SendPropertyChanged("AnnoGraduadoEnsEspecializada");
-					this.OnAnnoGraduadoEnsEspecializadaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CumplimientoServicioSocial", DbType="NVarChar(MAX)")]
-		public string CumplimientoServicioSocial
-		{
-			get
-			{
-				return this._CumplimientoServicioSocial;
-			}
-			set
-			{
-				if ((this._CumplimientoServicioSocial != value))
-				{
-					this.OnCumplimientoServicioSocialChanging(value);
-					this.SendPropertyChanging();
-					this._CumplimientoServicioSocial = value;
-					this.SendPropertyChanged("CumplimientoServicioSocial");
-					this.OnCumplimientoServicioSocialChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoContratoArtista", DbType="NVarChar(MAX)")]
-		public string TipoContratoArtista
-		{
-			get
-			{
-				return this._TipoContratoArtista;
-			}
-			set
-			{
-				if ((this._TipoContratoArtista != value))
-				{
-					this.OnTipoContratoArtistaChanging(value);
-					this.SendPropertyChanging();
-					this._TipoContratoArtista = value;
-					this.SendPropertyChanged("TipoContratoArtista");
-					this.OnTipoContratoArtistaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EvaluacionArtistica", DbType="NVarChar(MAX)")]
-		public string EvaluacionArtistica
-		{
-			get
-			{
-				return this._EvaluacionArtistica;
-			}
-			set
-			{
-				if ((this._EvaluacionArtistica != value))
-				{
-					this.OnEvaluacionArtisticaChanging(value);
-					this.SendPropertyChanging();
-					this._EvaluacionArtistica = value;
-					this.SendPropertyChanged("EvaluacionArtistica");
-					this.OnEvaluacionArtisticaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NivelEvaluacionArt", DbType="NVarChar(MAX)")]
-		public string NivelEvaluacionArt
-		{
-			get
-			{
-				return this._NivelEvaluacionArt;
-			}
-			set
-			{
-				if ((this._NivelEvaluacionArt != value))
-				{
-					this.OnNivelEvaluacionArtChanging(value);
-					this.SendPropertyChanging();
-					this._NivelEvaluacionArt = value;
-					this.SendPropertyChanged("NivelEvaluacionArt");
-					this.OnNivelEvaluacionArtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoEvalArtistica", DbType="NVarChar(MAX)")]
-		public string CodigoEvalArtistica
-		{
-			get
-			{
-				return this._CodigoEvalArtistica;
-			}
-			set
-			{
-				if ((this._CodigoEvalArtistica != value))
-				{
-					this.OnCodigoEvalArtisticaChanging(value);
-					this.SendPropertyChanging();
-					this._CodigoEvalArtistica = value;
-					this.SendPropertyChanged("CodigoEvalArtistica");
-					this.OnCodigoEvalArtisticaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaEvalArtistica", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaEvalArtistica
-		{
-			get
-			{
-				return this._FechaEvalArtistica;
-			}
-			set
-			{
-				if ((this._FechaEvalArtistica != value))
-				{
-					this.OnFechaEvalArtisticaChanging(value);
-					this.SendPropertyChanging();
-					this._FechaEvalArtistica = value;
-					this.SendPropertyChanged("FechaEvalArtistica");
-					this.OnFechaEvalArtisticaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoAval", DbType="Int")]
-		public System.Nullable<int> TipoAval
-		{
-			get
-			{
-				return this._TipoAval;
-			}
-			set
-			{
-				if ((this._TipoAval != value))
-				{
-					if (this._NomencladorCargo1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTipoAvalChanging(value);
-					this.SendPropertyChanging();
-					this._TipoAval = value;
-					this.SendPropertyChanged("TipoAval");
-					this.OnTipoAvalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoAvalProfesionalidad", DbType="NVarChar(MAX)")]
-		public string CodigoAvalProfesionalidad
-		{
-			get
-			{
-				return this._CodigoAvalProfesionalidad;
-			}
-			set
-			{
-				if ((this._CodigoAvalProfesionalidad != value))
-				{
-					this.OnCodigoAvalProfesionalidadChanging(value);
-					this.SendPropertyChanging();
-					this._CodigoAvalProfesionalidad = value;
-					this.SendPropertyChanged("CodigoAvalProfesionalidad");
-					this.OnCodigoAvalProfesionalidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAval", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaAval
-		{
-			get
-			{
-				return this._FechaAval;
-			}
-			set
-			{
-				if ((this._FechaAval != value))
-				{
-					this.OnFechaAvalChanging(value);
-					this.SendPropertyChanging();
-					this._FechaAval = value;
-					this.SendPropertyChanged("FechaAval");
-					this.OnFechaAvalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CentroUltimaAudicion", DbType="NVarChar(MAX)")]
-		public string CentroUltimaAudicion
-		{
-			get
-			{
-				return this._CentroUltimaAudicion;
-			}
-			set
-			{
-				if ((this._CentroUltimaAudicion != value))
-				{
-					this.OnCentroUltimaAudicionChanging(value);
-					this.SendPropertyChanging();
-					this._CentroUltimaAudicion = value;
-					this.SendPropertyChanged("CentroUltimaAudicion");
-					this.OnCentroUltimaAudicionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaUltimaAudicion", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaUltimaAudicion
-		{
-			get
-			{
-				return this._FechaUltimaAudicion;
-			}
-			set
-			{
-				if ((this._FechaUltimaAudicion != value))
-				{
-					this.OnFechaUltimaAudicionChanging(value);
-					this.SendPropertyChanging();
-					this._FechaUltimaAudicion = value;
-					this.SendPropertyChanged("FechaUltimaAudicion");
-					this.OnFechaUltimaAudicionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="Int")]
-		public System.Nullable<int> Estado
-		{
-			get
-			{
-				return this._Estado;
-			}
-			set
-			{
-				if ((this._Estado != value))
-				{
-					this.OnEstadoChanging(value);
-					this.SendPropertyChanging();
-					this._Estado = value;
-					this.SendPropertyChanged("Estado");
-					this.OnEstadoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_AgrupacionDeArtista", Storage="_AgrupacionDeArtista", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<AgrupacionDeArtista> AgrupacionDeArtista
-		{
-			get
-			{
-				return this._AgrupacionDeArtista;
-			}
-			set
-			{
-				this._AgrupacionDeArtista.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_FotoDeIntegrante", Storage="_FotoDeIntegrante", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<FotoDeIntegrante> FotoDeIntegrante
-		{
-			get
-			{
-				return this._FotoDeIntegrante;
-			}
-			set
-			{
-				this._FotoDeIntegrante.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeProyectos", Storage="_ParticipantesDeProyectos", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<ParticipantesDeProyectos> ParticipantesDeProyectos
-		{
-			get
-			{
-				return this._ParticipantesDeProyectos;
-			}
-			set
-			{
-				this._ParticipantesDeProyectos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_Pasaportes", Storage="_Pasaportes", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<Pasaportes> Pasaportes
-		{
-			get
-			{
-				return this._Pasaportes;
-			}
-			set
-			{
-				this._Pasaportes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_TrayectoriaArtista", Storage="_TrayectoriaArtista", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<TrayectoriaArtista> TrayectoriaArtista
-		{
-			get
-			{
-				return this._TrayectoriaArtista;
-			}
-			set
-			{
-				this._TrayectoriaArtista.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeAcividad", Storage="_ParticipantesDeAcividad", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<ParticipantesDeAcividad> ParticipantesDeAcividad
-		{
-			get
-			{
-				return this._ParticipantesDeAcividad;
-			}
-			set
-			{
-				this._ParticipantesDeAcividad.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_LogArtista", Storage="_LogArtista", ThisKey="ArtistaID", OtherKey="ArtistaId")]
-		public EntitySet<LogArtista> LogArtista
-		{
-			get
-			{
-				return this._LogArtista;
-			}
-			set
-			{
-				this._LogArtista.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Municipio_Artista", Storage="_Municipio", ThisKey="MunicipioId", OtherKey="MunicipioID", IsForeignKey=true)]
-		public Municipio Municipio
-		{
-			get
-			{
-				return this._Municipio.Entity;
-			}
-			set
-			{
-				Municipio previousValue = this._Municipio.Entity;
-				if (((previousValue != value) 
-							|| (this._Municipio.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Municipio.Entity = null;
-						previousValue.Artista.Remove(this);
-					}
-					this._Municipio.Entity = value;
-					if ((value != null))
-					{
-						value.Artista.Add(this);
-						this._MunicipioId = value.MunicipioID;
-					}
-					else
-					{
-						this._MunicipioId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Municipio");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista", Storage="_NomencladorCargo", ThisKey="NomencladorCargoId", OtherKey="NomencladorCargoID", IsForeignKey=true)]
-		public NomencladorCargo NomencladorCargo
-		{
-			get
-			{
-				return this._NomencladorCargo.Entity;
-			}
-			set
-			{
-				NomencladorCargo previousValue = this._NomencladorCargo.Entity;
-				if (((previousValue != value) 
-							|| (this._NomencladorCargo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NomencladorCargo.Entity = null;
-						previousValue.Artista.Remove(this);
-					}
-					this._NomencladorCargo.Entity = value;
-					if ((value != null))
-					{
-						value.Artista.Add(this);
-						this._NomencladorCargoId = value.NomencladorCargoID;
-					}
-					else
-					{
-						this._NomencladorCargoId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("NomencladorCargo");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista1", Storage="_NomencladorCargo1", ThisKey="TipoAval", OtherKey="NomencladorCargoID", IsForeignKey=true)]
-		public NomencladorCargo NomencladorCargo1
-		{
-			get
-			{
-				return this._NomencladorCargo1.Entity;
-			}
-			set
-			{
-				NomencladorCargo previousValue = this._NomencladorCargo1.Entity;
-				if (((previousValue != value) 
-							|| (this._NomencladorCargo1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NomencladorCargo1.Entity = null;
-						previousValue.Artista1.Remove(this);
-					}
-					this._NomencladorCargo1.Entity = value;
-					if ((value != null))
-					{
-						value.Artista1.Add(this);
-						this._TipoAval = value.NomencladorCargoID;
-					}
-					else
-					{
-						this._TipoAval = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("NomencladorCargo1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EscalaSalarial_Artista", Storage="_EscalaSalarial", ThisKey="EscalaSalarialId", OtherKey="EscalaSalarialID", IsForeignKey=true)]
-		public EscalaSalarial EscalaSalarial
-		{
-			get
-			{
-				return this._EscalaSalarial.Entity;
-			}
-			set
-			{
-				EscalaSalarial previousValue = this._EscalaSalarial.Entity;
-				if (((previousValue != value) 
-							|| (this._EscalaSalarial.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EscalaSalarial.Entity = null;
-						previousValue.Artista.Remove(this);
-					}
-					this._EscalaSalarial.Entity = value;
-					if ((value != null))
-					{
-						value.Artista.Add(this);
-						this._EscalaSalarialId = value.EscalaSalarialID;
-					}
-					else
-					{
-						this._EscalaSalarialId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EscalaSalarial");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AgrupacionDeArtista(AgrupacionDeArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_AgrupacionDeArtista(AgrupacionDeArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-		
-		private void attach_FotoDeIntegrante(FotoDeIntegrante entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_FotoDeIntegrante(FotoDeIntegrante entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-		
-		private void attach_ParticipantesDeProyectos(ParticipantesDeProyectos entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_ParticipantesDeProyectos(ParticipantesDeProyectos entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-		
-		private void attach_Pasaportes(Pasaportes entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_Pasaportes(Pasaportes entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-		
-		private void attach_TrayectoriaArtista(TrayectoriaArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_TrayectoriaArtista(TrayectoriaArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-		
-		private void attach_ParticipantesDeAcividad(ParticipantesDeAcividad entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_ParticipantesDeAcividad(ParticipantesDeAcividad entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-		
-		private void attach_LogArtista(LogArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = this;
-		}
-		
-		private void detach_LogArtista(LogArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.Artista = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EscalaSalarial")]
 	public partial class EscalaSalarial : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -11615,9 +10268,9 @@ namespace DXApplication9
 		
 		private decimal _Dieta;
 		
-		private EntityRef<Artista> _Artista;
-		
 		private EntityRef<OrdenDeTrabajo> _OrdenDeTrabajo;
+		
+		private EntityRef<Artista> _Artista;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -11637,8 +10290,8 @@ namespace DXApplication9
 		
 		public ParticipantesDeAcividad()
 		{
-			this._Artista = default(EntityRef<Artista>);
 			this._OrdenDeTrabajo = default(EntityRef<OrdenDeTrabajo>);
+			this._Artista = default(EntityRef<Artista>);
 			OnCreated();
 		}
 		
@@ -11750,40 +10403,6 @@ namespace DXApplication9
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeAcividad", Storage="_Artista", ThisKey="ArtistaId", OtherKey="ArtistaID", IsForeignKey=true)]
-		public Artista Artista
-		{
-			get
-			{
-				return this._Artista.Entity;
-			}
-			set
-			{
-				Artista previousValue = this._Artista.Entity;
-				if (((previousValue != value) 
-							|| (this._Artista.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Artista.Entity = null;
-						previousValue.ParticipantesDeAcividad.Remove(this);
-					}
-					this._Artista.Entity = value;
-					if ((value != null))
-					{
-						value.ParticipantesDeAcividad.Add(this);
-						this._ArtistaId = value.ArtistaID;
-					}
-					else
-					{
-						this._ArtistaId = default(int);
-					}
-					this.SendPropertyChanged("Artista");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="OrdenDeTrabajo_ParticipantesDeAcividad", Storage="_OrdenDeTrabajo", ThisKey="ActividadId", OtherKey="OrdenDeTrabajoID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public OrdenDeTrabajo OrdenDeTrabajo
 		{
@@ -11814,6 +10433,40 @@ namespace DXApplication9
 						this._ActividadId = default(System.Guid);
 					}
 					this.SendPropertyChanged("OrdenDeTrabajo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeAcividad", Storage="_Artista", ThisKey="ArtistaId", OtherKey="ArtistaID", IsForeignKey=true)]
+		public Artista Artista
+		{
+			get
+			{
+				return this._Artista.Entity;
+			}
+			set
+			{
+				Artista previousValue = this._Artista.Entity;
+				if (((previousValue != value) 
+							|| (this._Artista.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Artista.Entity = null;
+						previousValue.ParticipantesDeAcividad.Remove(this);
+					}
+					this._Artista.Entity = value;
+					if ((value != null))
+					{
+						value.ParticipantesDeAcividad.Add(this);
+						this._ArtistaId = value.ArtistaID;
+					}
+					else
+					{
+						this._ArtistaId = default(int);
+					}
+					this.SendPropertyChanged("Artista");
 				}
 			}
 		}
@@ -12303,9 +10956,9 @@ namespace DXApplication9
 		
 		private int _UsuarioId;
 		
-		private EntityRef<Artista> _Artista;
-		
 		private EntityRef<Usuario> _Usuario;
+		
+		private EntityRef<Artista> _Artista;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -12327,8 +10980,8 @@ namespace DXApplication9
 		
 		public LogArtista()
 		{
-			this._Artista = default(EntityRef<Artista>);
 			this._Usuario = default(EntityRef<Usuario>);
+			this._Artista = default(EntityRef<Artista>);
 			OnCreated();
 		}
 		
@@ -12460,40 +11113,6 @@ namespace DXApplication9
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_LogArtista", Storage="_Artista", ThisKey="ArtistaId", OtherKey="ArtistaID", IsForeignKey=true)]
-		public Artista Artista
-		{
-			get
-			{
-				return this._Artista.Entity;
-			}
-			set
-			{
-				Artista previousValue = this._Artista.Entity;
-				if (((previousValue != value) 
-							|| (this._Artista.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Artista.Entity = null;
-						previousValue.LogArtista.Remove(this);
-					}
-					this._Artista.Entity = value;
-					if ((value != null))
-					{
-						value.LogArtista.Add(this);
-						this._ArtistaId = value.ArtistaID;
-					}
-					else
-					{
-						this._ArtistaId = default(int);
-					}
-					this.SendPropertyChanged("Artista");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_LogArtista", Storage="_Usuario", ThisKey="UsuarioId", OtherKey="UsuarioID", IsForeignKey=true)]
 		public Usuario Usuario
 		{
@@ -12524,6 +11143,40 @@ namespace DXApplication9
 						this._UsuarioId = default(int);
 					}
 					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_LogArtista", Storage="_Artista", ThisKey="ArtistaId", OtherKey="ArtistaID", IsForeignKey=true)]
+		public Artista Artista
+		{
+			get
+			{
+				return this._Artista.Entity;
+			}
+			set
+			{
+				Artista previousValue = this._Artista.Entity;
+				if (((previousValue != value) 
+							|| (this._Artista.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Artista.Entity = null;
+						previousValue.LogArtista.Remove(this);
+					}
+					this._Artista.Entity = value;
+					if ((value != null))
+					{
+						value.LogArtista.Add(this);
+						this._ArtistaId = value.ArtistaID;
+					}
+					else
+					{
+						this._ArtistaId = default(int);
+					}
+					this.SendPropertyChanged("Artista");
 				}
 			}
 		}
@@ -14744,6 +13397,1567 @@ namespace DXApplication9
 		{
 			this.SendPropertyChanging();
 			entity.OrdenDeTrabajo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NoEscalaSalarial")]
+	public partial class NoEscalaSalarial : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _NoEscalaSalarialID;
+		
+		private string _Descripcion;
+		
+		private string _Abreviatura;
+		
+		private EntitySet<Artista> _Artista;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNoEscalaSalarialIDChanging(int value);
+    partial void OnNoEscalaSalarialIDChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    partial void OnAbreviaturaChanging(string value);
+    partial void OnAbreviaturaChanged();
+    #endregion
+		
+		public NoEscalaSalarial()
+		{
+			this._Artista = new EntitySet<Artista>(new Action<Artista>(this.attach_Artista), new Action<Artista>(this.detach_Artista));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoEscalaSalarialID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int NoEscalaSalarialID
+		{
+			get
+			{
+				return this._NoEscalaSalarialID;
+			}
+			set
+			{
+				if ((this._NoEscalaSalarialID != value))
+				{
+					this.OnNoEscalaSalarialIDChanging(value);
+					this.SendPropertyChanging();
+					this._NoEscalaSalarialID = value;
+					this.SendPropertyChanged("NoEscalaSalarialID");
+					this.OnNoEscalaSalarialIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Abreviatura", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Abreviatura
+		{
+			get
+			{
+				return this._Abreviatura;
+			}
+			set
+			{
+				if ((this._Abreviatura != value))
+				{
+					this.OnAbreviaturaChanging(value);
+					this.SendPropertyChanging();
+					this._Abreviatura = value;
+					this.SendPropertyChanged("Abreviatura");
+					this.OnAbreviaturaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NoEscalaSalarial_Artista", Storage="_Artista", ThisKey="NoEscalaSalarialID", OtherKey="NoEscalaSalarialId")]
+		public EntitySet<Artista> Artista
+		{
+			get
+			{
+				return this._Artista;
+			}
+			set
+			{
+				this._Artista.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Artista(Artista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NoEscalaSalarial = this;
+		}
+		
+		private void detach_Artista(Artista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NoEscalaSalarial = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Artista")]
+	public partial class Artista : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ArtistaID;
+		
+		private string _CarnetIdentidad;
+		
+		private string _Nombre;
+		
+		private string _PrimerApellido;
+		
+		private string _SegundoApellido;
+		
+		private string _Desempenno;
+		
+		private System.Nullable<int> _NomencladorCargoId;
+		
+		private string _AbrevDesempenno;
+		
+		private System.Nullable<System.DateTime> _FechaIngresoSector;
+		
+		private string _StatusLaboral;
+		
+		private byte[] _Foto;
+		
+		private System.Nullable<System.DateTime> _FechaDeAlta;
+		
+		private System.Nullable<System.DateTime> _FechaDeBaja;
+		
+		private System.Nullable<int> _Orden;
+		
+		private System.Nullable<int> _MunicipioId;
+		
+		private string _EstadoCivil;
+		
+		private string _Escolaridad;
+		
+		private string _Organismo;
+		
+		private System.Nullable<int> _AnnoGraduado;
+		
+		private string _Direccion;
+		
+		private string _Telefonos;
+		
+		private System.Nullable<int> _EscalaSalarialId;
+		
+		private string _FuenteProcedencia;
+		
+		private string _EscolaridadEnsennanzaGeneral;
+		
+		private string _OtraProfesion;
+		
+		private System.Nullable<int> _AnnoGraduadoOtraProfesion;
+		
+		private string _EnsennanzaEspecializada;
+		
+		private System.Nullable<int> _AnnoGraduadoEnsEspecializada;
+		
+		private string _CumplimientoServicioSocial;
+		
+		private string _TipoContratoArtista;
+		
+		private string _EvaluacionArtistica;
+		
+		private string _NivelEvaluacionArt;
+		
+		private string _CodigoEvalArtistica;
+		
+		private System.Nullable<System.DateTime> _FechaEvalArtistica;
+		
+		private System.Nullable<int> _TipoAval;
+		
+		private string _CodigoAvalProfesionalidad;
+		
+		private System.Nullable<System.DateTime> _FechaAval;
+		
+		private string _CentroUltimaAudicion;
+		
+		private System.Nullable<System.DateTime> _FechaUltimaAudicion;
+		
+		private int _Estado;
+		
+		private System.Nullable<int> _NoEscalaSalarialId;
+		
+		private EntitySet<AgrupacionDeArtista> _AgrupacionDeArtista;
+		
+		private EntitySet<FotoDeIntegrante> _FotoDeIntegrante;
+		
+		private EntitySet<ParticipantesDeProyectos> _ParticipantesDeProyectos;
+		
+		private EntitySet<Pasaportes> _Pasaportes;
+		
+		private EntitySet<TrayectoriaArtista> _TrayectoriaArtista;
+		
+		private EntitySet<ParticipantesDeAcividad> _ParticipantesDeAcividad;
+		
+		private EntitySet<LogArtista> _LogArtista;
+		
+		private EntityRef<EscalaSalarial> _EscalaSalarial;
+		
+		private EntityRef<Municipio> _Municipio;
+		
+		private EntityRef<NoEscalaSalarial> _NoEscalaSalarial;
+		
+		private EntityRef<NomencladorCargo> _NomencladorCargo;
+		
+		private EntityRef<NomencladorCargo> _NomencladorCargo1;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnArtistaIDChanging(int value);
+    partial void OnArtistaIDChanged();
+    partial void OnCarnetIdentidadChanging(string value);
+    partial void OnCarnetIdentidadChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnPrimerApellidoChanging(string value);
+    partial void OnPrimerApellidoChanged();
+    partial void OnSegundoApellidoChanging(string value);
+    partial void OnSegundoApellidoChanged();
+    partial void OnDesempennoChanging(string value);
+    partial void OnDesempennoChanged();
+    partial void OnNomencladorCargoIdChanging(System.Nullable<int> value);
+    partial void OnNomencladorCargoIdChanged();
+    partial void OnAbrevDesempennoChanging(string value);
+    partial void OnAbrevDesempennoChanged();
+    partial void OnFechaIngresoSectorChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaIngresoSectorChanged();
+    partial void OnStatusLaboralChanging(string value);
+    partial void OnStatusLaboralChanged();
+    partial void OnFotoChanging(byte[] value);
+    partial void OnFotoChanged();
+    partial void OnFechaDeAltaChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaDeAltaChanged();
+    partial void OnFechaDeBajaChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaDeBajaChanged();
+    partial void OnOrdenChanging(System.Nullable<int> value);
+    partial void OnOrdenChanged();
+    partial void OnMunicipioIdChanging(System.Nullable<int> value);
+    partial void OnMunicipioIdChanged();
+    partial void OnEstadoCivilChanging(string value);
+    partial void OnEstadoCivilChanged();
+    partial void OnEscolaridadChanging(string value);
+    partial void OnEscolaridadChanged();
+    partial void OnOrganismoChanging(string value);
+    partial void OnOrganismoChanged();
+    partial void OnAnnoGraduadoChanging(System.Nullable<int> value);
+    partial void OnAnnoGraduadoChanged();
+    partial void OnDireccionChanging(string value);
+    partial void OnDireccionChanged();
+    partial void OnTelefonosChanging(string value);
+    partial void OnTelefonosChanged();
+    partial void OnEscalaSalarialIdChanging(System.Nullable<int> value);
+    partial void OnEscalaSalarialIdChanged();
+    partial void OnFuenteProcedenciaChanging(string value);
+    partial void OnFuenteProcedenciaChanged();
+    partial void OnEscolaridadEnsennanzaGeneralChanging(string value);
+    partial void OnEscolaridadEnsennanzaGeneralChanged();
+    partial void OnOtraProfesionChanging(string value);
+    partial void OnOtraProfesionChanged();
+    partial void OnAnnoGraduadoOtraProfesionChanging(System.Nullable<int> value);
+    partial void OnAnnoGraduadoOtraProfesionChanged();
+    partial void OnEnsennanzaEspecializadaChanging(string value);
+    partial void OnEnsennanzaEspecializadaChanged();
+    partial void OnAnnoGraduadoEnsEspecializadaChanging(System.Nullable<int> value);
+    partial void OnAnnoGraduadoEnsEspecializadaChanged();
+    partial void OnCumplimientoServicioSocialChanging(string value);
+    partial void OnCumplimientoServicioSocialChanged();
+    partial void OnTipoContratoArtistaChanging(string value);
+    partial void OnTipoContratoArtistaChanged();
+    partial void OnEvaluacionArtisticaChanging(string value);
+    partial void OnEvaluacionArtisticaChanged();
+    partial void OnNivelEvaluacionArtChanging(string value);
+    partial void OnNivelEvaluacionArtChanged();
+    partial void OnCodigoEvalArtisticaChanging(string value);
+    partial void OnCodigoEvalArtisticaChanged();
+    partial void OnFechaEvalArtisticaChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaEvalArtisticaChanged();
+    partial void OnTipoAvalChanging(System.Nullable<int> value);
+    partial void OnTipoAvalChanged();
+    partial void OnCodigoAvalProfesionalidadChanging(string value);
+    partial void OnCodigoAvalProfesionalidadChanged();
+    partial void OnFechaAvalChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaAvalChanged();
+    partial void OnCentroUltimaAudicionChanging(string value);
+    partial void OnCentroUltimaAudicionChanged();
+    partial void OnFechaUltimaAudicionChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaUltimaAudicionChanged();
+    partial void OnEstadoChanging(int value);
+    partial void OnEstadoChanged();
+    partial void OnNoEscalaSalarialIdChanging(System.Nullable<int> value);
+    partial void OnNoEscalaSalarialIdChanged();
+    #endregion
+		
+		public Artista()
+		{
+			this._AgrupacionDeArtista = new EntitySet<AgrupacionDeArtista>(new Action<AgrupacionDeArtista>(this.attach_AgrupacionDeArtista), new Action<AgrupacionDeArtista>(this.detach_AgrupacionDeArtista));
+			this._FotoDeIntegrante = new EntitySet<FotoDeIntegrante>(new Action<FotoDeIntegrante>(this.attach_FotoDeIntegrante), new Action<FotoDeIntegrante>(this.detach_FotoDeIntegrante));
+			this._ParticipantesDeProyectos = new EntitySet<ParticipantesDeProyectos>(new Action<ParticipantesDeProyectos>(this.attach_ParticipantesDeProyectos), new Action<ParticipantesDeProyectos>(this.detach_ParticipantesDeProyectos));
+			this._Pasaportes = new EntitySet<Pasaportes>(new Action<Pasaportes>(this.attach_Pasaportes), new Action<Pasaportes>(this.detach_Pasaportes));
+			this._TrayectoriaArtista = new EntitySet<TrayectoriaArtista>(new Action<TrayectoriaArtista>(this.attach_TrayectoriaArtista), new Action<TrayectoriaArtista>(this.detach_TrayectoriaArtista));
+			this._ParticipantesDeAcividad = new EntitySet<ParticipantesDeAcividad>(new Action<ParticipantesDeAcividad>(this.attach_ParticipantesDeAcividad), new Action<ParticipantesDeAcividad>(this.detach_ParticipantesDeAcividad));
+			this._LogArtista = new EntitySet<LogArtista>(new Action<LogArtista>(this.attach_LogArtista), new Action<LogArtista>(this.detach_LogArtista));
+			this._EscalaSalarial = default(EntityRef<EscalaSalarial>);
+			this._Municipio = default(EntityRef<Municipio>);
+			this._NoEscalaSalarial = default(EntityRef<NoEscalaSalarial>);
+			this._NomencladorCargo = default(EntityRef<NomencladorCargo>);
+			this._NomencladorCargo1 = default(EntityRef<NomencladorCargo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArtistaID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ArtistaID
+		{
+			get
+			{
+				return this._ArtistaID;
+			}
+			set
+			{
+				if ((this._ArtistaID != value))
+				{
+					this.OnArtistaIDChanging(value);
+					this.SendPropertyChanging();
+					this._ArtistaID = value;
+					this.SendPropertyChanged("ArtistaID");
+					this.OnArtistaIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CarnetIdentidad", DbType="NChar(20)")]
+		public string CarnetIdentidad
+		{
+			get
+			{
+				return this._CarnetIdentidad;
+			}
+			set
+			{
+				if ((this._CarnetIdentidad != value))
+				{
+					this.OnCarnetIdentidadChanging(value);
+					this.SendPropertyChanging();
+					this._CarnetIdentidad = value;
+					this.SendPropertyChanged("CarnetIdentidad");
+					this.OnCarnetIdentidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NChar(130)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrimerApellido", DbType="NChar(20)")]
+		public string PrimerApellido
+		{
+			get
+			{
+				return this._PrimerApellido;
+			}
+			set
+			{
+				if ((this._PrimerApellido != value))
+				{
+					this.OnPrimerApellidoChanging(value);
+					this.SendPropertyChanging();
+					this._PrimerApellido = value;
+					this.SendPropertyChanged("PrimerApellido");
+					this.OnPrimerApellidoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SegundoApellido", DbType="NChar(30)")]
+		public string SegundoApellido
+		{
+			get
+			{
+				return this._SegundoApellido;
+			}
+			set
+			{
+				if ((this._SegundoApellido != value))
+				{
+					this.OnSegundoApellidoChanging(value);
+					this.SendPropertyChanging();
+					this._SegundoApellido = value;
+					this.SendPropertyChanged("SegundoApellido");
+					this.OnSegundoApellidoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Desempenno", DbType="NVarChar(MAX)")]
+		public string Desempenno
+		{
+			get
+			{
+				return this._Desempenno;
+			}
+			set
+			{
+				if ((this._Desempenno != value))
+				{
+					this.OnDesempennoChanging(value);
+					this.SendPropertyChanging();
+					this._Desempenno = value;
+					this.SendPropertyChanged("Desempenno");
+					this.OnDesempennoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomencladorCargoId", DbType="Int")]
+		public System.Nullable<int> NomencladorCargoId
+		{
+			get
+			{
+				return this._NomencladorCargoId;
+			}
+			set
+			{
+				if ((this._NomencladorCargoId != value))
+				{
+					if (this._NomencladorCargo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNomencladorCargoIdChanging(value);
+					this.SendPropertyChanging();
+					this._NomencladorCargoId = value;
+					this.SendPropertyChanged("NomencladorCargoId");
+					this.OnNomencladorCargoIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AbrevDesempenno", DbType="NVarChar(50)")]
+		public string AbrevDesempenno
+		{
+			get
+			{
+				return this._AbrevDesempenno;
+			}
+			set
+			{
+				if ((this._AbrevDesempenno != value))
+				{
+					this.OnAbrevDesempennoChanging(value);
+					this.SendPropertyChanging();
+					this._AbrevDesempenno = value;
+					this.SendPropertyChanged("AbrevDesempenno");
+					this.OnAbrevDesempennoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaIngresoSector", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaIngresoSector
+		{
+			get
+			{
+				return this._FechaIngresoSector;
+			}
+			set
+			{
+				if ((this._FechaIngresoSector != value))
+				{
+					this.OnFechaIngresoSectorChanging(value);
+					this.SendPropertyChanging();
+					this._FechaIngresoSector = value;
+					this.SendPropertyChanged("FechaIngresoSector");
+					this.OnFechaIngresoSectorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusLaboral", DbType="NChar(30)")]
+		public string StatusLaboral
+		{
+			get
+			{
+				return this._StatusLaboral;
+			}
+			set
+			{
+				if ((this._StatusLaboral != value))
+				{
+					this.OnStatusLaboralChanging(value);
+					this.SendPropertyChanging();
+					this._StatusLaboral = value;
+					this.SendPropertyChanged("StatusLaboral");
+					this.OnStatusLaboralChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public byte[] Foto
+		{
+			get
+			{
+				return this._Foto;
+			}
+			set
+			{
+				if ((this._Foto != value))
+				{
+					this.OnFotoChanging(value);
+					this.SendPropertyChanging();
+					this._Foto = value;
+					this.SendPropertyChanged("Foto");
+					this.OnFotoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaDeAlta", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaDeAlta
+		{
+			get
+			{
+				return this._FechaDeAlta;
+			}
+			set
+			{
+				if ((this._FechaDeAlta != value))
+				{
+					this.OnFechaDeAltaChanging(value);
+					this.SendPropertyChanging();
+					this._FechaDeAlta = value;
+					this.SendPropertyChanged("FechaDeAlta");
+					this.OnFechaDeAltaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaDeBaja", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaDeBaja
+		{
+			get
+			{
+				return this._FechaDeBaja;
+			}
+			set
+			{
+				if ((this._FechaDeBaja != value))
+				{
+					this.OnFechaDeBajaChanging(value);
+					this.SendPropertyChanging();
+					this._FechaDeBaja = value;
+					this.SendPropertyChanged("FechaDeBaja");
+					this.OnFechaDeBajaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Orden", DbType="Int")]
+		public System.Nullable<int> Orden
+		{
+			get
+			{
+				return this._Orden;
+			}
+			set
+			{
+				if ((this._Orden != value))
+				{
+					this.OnOrdenChanging(value);
+					this.SendPropertyChanging();
+					this._Orden = value;
+					this.SendPropertyChanged("Orden");
+					this.OnOrdenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MunicipioId", DbType="Int")]
+		public System.Nullable<int> MunicipioId
+		{
+			get
+			{
+				return this._MunicipioId;
+			}
+			set
+			{
+				if ((this._MunicipioId != value))
+				{
+					if (this._Municipio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMunicipioIdChanging(value);
+					this.SendPropertyChanging();
+					this._MunicipioId = value;
+					this.SendPropertyChanged("MunicipioId");
+					this.OnMunicipioIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstadoCivil", DbType="NVarChar(50)")]
+		public string EstadoCivil
+		{
+			get
+			{
+				return this._EstadoCivil;
+			}
+			set
+			{
+				if ((this._EstadoCivil != value))
+				{
+					this.OnEstadoCivilChanging(value);
+					this.SendPropertyChanging();
+					this._EstadoCivil = value;
+					this.SendPropertyChanged("EstadoCivil");
+					this.OnEstadoCivilChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Escolaridad", DbType="NVarChar(MAX)")]
+		public string Escolaridad
+		{
+			get
+			{
+				return this._Escolaridad;
+			}
+			set
+			{
+				if ((this._Escolaridad != value))
+				{
+					this.OnEscolaridadChanging(value);
+					this.SendPropertyChanging();
+					this._Escolaridad = value;
+					this.SendPropertyChanged("Escolaridad");
+					this.OnEscolaridadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Organismo", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Organismo
+		{
+			get
+			{
+				return this._Organismo;
+			}
+			set
+			{
+				if ((this._Organismo != value))
+				{
+					this.OnOrganismoChanging(value);
+					this.SendPropertyChanging();
+					this._Organismo = value;
+					this.SendPropertyChanged("Organismo");
+					this.OnOrganismoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoGraduado", DbType="Int")]
+		public System.Nullable<int> AnnoGraduado
+		{
+			get
+			{
+				return this._AnnoGraduado;
+			}
+			set
+			{
+				if ((this._AnnoGraduado != value))
+				{
+					this.OnAnnoGraduadoChanging(value);
+					this.SendPropertyChanging();
+					this._AnnoGraduado = value;
+					this.SendPropertyChanged("AnnoGraduado");
+					this.OnAnnoGraduadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="NVarChar(MAX)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this.OnDireccionChanging(value);
+					this.SendPropertyChanging();
+					this._Direccion = value;
+					this.SendPropertyChanged("Direccion");
+					this.OnDireccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefonos", DbType="NVarChar(MAX)")]
+		public string Telefonos
+		{
+			get
+			{
+				return this._Telefonos;
+			}
+			set
+			{
+				if ((this._Telefonos != value))
+				{
+					this.OnTelefonosChanging(value);
+					this.SendPropertyChanging();
+					this._Telefonos = value;
+					this.SendPropertyChanged("Telefonos");
+					this.OnTelefonosChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EscalaSalarialId", DbType="Int")]
+		public System.Nullable<int> EscalaSalarialId
+		{
+			get
+			{
+				return this._EscalaSalarialId;
+			}
+			set
+			{
+				if ((this._EscalaSalarialId != value))
+				{
+					if (this._EscalaSalarial.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEscalaSalarialIdChanging(value);
+					this.SendPropertyChanging();
+					this._EscalaSalarialId = value;
+					this.SendPropertyChanged("EscalaSalarialId");
+					this.OnEscalaSalarialIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FuenteProcedencia", DbType="NVarChar(MAX)")]
+		public string FuenteProcedencia
+		{
+			get
+			{
+				return this._FuenteProcedencia;
+			}
+			set
+			{
+				if ((this._FuenteProcedencia != value))
+				{
+					this.OnFuenteProcedenciaChanging(value);
+					this.SendPropertyChanging();
+					this._FuenteProcedencia = value;
+					this.SendPropertyChanged("FuenteProcedencia");
+					this.OnFuenteProcedenciaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EscolaridadEnsennanzaGeneral", DbType="NVarChar(MAX)")]
+		public string EscolaridadEnsennanzaGeneral
+		{
+			get
+			{
+				return this._EscolaridadEnsennanzaGeneral;
+			}
+			set
+			{
+				if ((this._EscolaridadEnsennanzaGeneral != value))
+				{
+					this.OnEscolaridadEnsennanzaGeneralChanging(value);
+					this.SendPropertyChanging();
+					this._EscolaridadEnsennanzaGeneral = value;
+					this.SendPropertyChanged("EscolaridadEnsennanzaGeneral");
+					this.OnEscolaridadEnsennanzaGeneralChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtraProfesion", DbType="NVarChar(MAX)")]
+		public string OtraProfesion
+		{
+			get
+			{
+				return this._OtraProfesion;
+			}
+			set
+			{
+				if ((this._OtraProfesion != value))
+				{
+					this.OnOtraProfesionChanging(value);
+					this.SendPropertyChanging();
+					this._OtraProfesion = value;
+					this.SendPropertyChanged("OtraProfesion");
+					this.OnOtraProfesionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoGraduadoOtraProfesion", DbType="Int")]
+		public System.Nullable<int> AnnoGraduadoOtraProfesion
+		{
+			get
+			{
+				return this._AnnoGraduadoOtraProfesion;
+			}
+			set
+			{
+				if ((this._AnnoGraduadoOtraProfesion != value))
+				{
+					this.OnAnnoGraduadoOtraProfesionChanging(value);
+					this.SendPropertyChanging();
+					this._AnnoGraduadoOtraProfesion = value;
+					this.SendPropertyChanged("AnnoGraduadoOtraProfesion");
+					this.OnAnnoGraduadoOtraProfesionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnsennanzaEspecializada", DbType="NVarChar(MAX)")]
+		public string EnsennanzaEspecializada
+		{
+			get
+			{
+				return this._EnsennanzaEspecializada;
+			}
+			set
+			{
+				if ((this._EnsennanzaEspecializada != value))
+				{
+					this.OnEnsennanzaEspecializadaChanging(value);
+					this.SendPropertyChanging();
+					this._EnsennanzaEspecializada = value;
+					this.SendPropertyChanged("EnsennanzaEspecializada");
+					this.OnEnsennanzaEspecializadaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoGraduadoEnsEspecializada", DbType="Int")]
+		public System.Nullable<int> AnnoGraduadoEnsEspecializada
+		{
+			get
+			{
+				return this._AnnoGraduadoEnsEspecializada;
+			}
+			set
+			{
+				if ((this._AnnoGraduadoEnsEspecializada != value))
+				{
+					this.OnAnnoGraduadoEnsEspecializadaChanging(value);
+					this.SendPropertyChanging();
+					this._AnnoGraduadoEnsEspecializada = value;
+					this.SendPropertyChanged("AnnoGraduadoEnsEspecializada");
+					this.OnAnnoGraduadoEnsEspecializadaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CumplimientoServicioSocial", DbType="NVarChar(MAX)")]
+		public string CumplimientoServicioSocial
+		{
+			get
+			{
+				return this._CumplimientoServicioSocial;
+			}
+			set
+			{
+				if ((this._CumplimientoServicioSocial != value))
+				{
+					this.OnCumplimientoServicioSocialChanging(value);
+					this.SendPropertyChanging();
+					this._CumplimientoServicioSocial = value;
+					this.SendPropertyChanged("CumplimientoServicioSocial");
+					this.OnCumplimientoServicioSocialChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoContratoArtista", DbType="NVarChar(MAX)")]
+		public string TipoContratoArtista
+		{
+			get
+			{
+				return this._TipoContratoArtista;
+			}
+			set
+			{
+				if ((this._TipoContratoArtista != value))
+				{
+					this.OnTipoContratoArtistaChanging(value);
+					this.SendPropertyChanging();
+					this._TipoContratoArtista = value;
+					this.SendPropertyChanged("TipoContratoArtista");
+					this.OnTipoContratoArtistaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EvaluacionArtistica", DbType="NVarChar(MAX)")]
+		public string EvaluacionArtistica
+		{
+			get
+			{
+				return this._EvaluacionArtistica;
+			}
+			set
+			{
+				if ((this._EvaluacionArtistica != value))
+				{
+					this.OnEvaluacionArtisticaChanging(value);
+					this.SendPropertyChanging();
+					this._EvaluacionArtistica = value;
+					this.SendPropertyChanged("EvaluacionArtistica");
+					this.OnEvaluacionArtisticaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NivelEvaluacionArt", DbType="NVarChar(MAX)")]
+		public string NivelEvaluacionArt
+		{
+			get
+			{
+				return this._NivelEvaluacionArt;
+			}
+			set
+			{
+				if ((this._NivelEvaluacionArt != value))
+				{
+					this.OnNivelEvaluacionArtChanging(value);
+					this.SendPropertyChanging();
+					this._NivelEvaluacionArt = value;
+					this.SendPropertyChanged("NivelEvaluacionArt");
+					this.OnNivelEvaluacionArtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoEvalArtistica", DbType="NVarChar(MAX)")]
+		public string CodigoEvalArtistica
+		{
+			get
+			{
+				return this._CodigoEvalArtistica;
+			}
+			set
+			{
+				if ((this._CodigoEvalArtistica != value))
+				{
+					this.OnCodigoEvalArtisticaChanging(value);
+					this.SendPropertyChanging();
+					this._CodigoEvalArtistica = value;
+					this.SendPropertyChanged("CodigoEvalArtistica");
+					this.OnCodigoEvalArtisticaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaEvalArtistica", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaEvalArtistica
+		{
+			get
+			{
+				return this._FechaEvalArtistica;
+			}
+			set
+			{
+				if ((this._FechaEvalArtistica != value))
+				{
+					this.OnFechaEvalArtisticaChanging(value);
+					this.SendPropertyChanging();
+					this._FechaEvalArtistica = value;
+					this.SendPropertyChanged("FechaEvalArtistica");
+					this.OnFechaEvalArtisticaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoAval", DbType="Int")]
+		public System.Nullable<int> TipoAval
+		{
+			get
+			{
+				return this._TipoAval;
+			}
+			set
+			{
+				if ((this._TipoAval != value))
+				{
+					if (this._NomencladorCargo1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTipoAvalChanging(value);
+					this.SendPropertyChanging();
+					this._TipoAval = value;
+					this.SendPropertyChanged("TipoAval");
+					this.OnTipoAvalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoAvalProfesionalidad", DbType="NVarChar(MAX)")]
+		public string CodigoAvalProfesionalidad
+		{
+			get
+			{
+				return this._CodigoAvalProfesionalidad;
+			}
+			set
+			{
+				if ((this._CodigoAvalProfesionalidad != value))
+				{
+					this.OnCodigoAvalProfesionalidadChanging(value);
+					this.SendPropertyChanging();
+					this._CodigoAvalProfesionalidad = value;
+					this.SendPropertyChanged("CodigoAvalProfesionalidad");
+					this.OnCodigoAvalProfesionalidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAval", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaAval
+		{
+			get
+			{
+				return this._FechaAval;
+			}
+			set
+			{
+				if ((this._FechaAval != value))
+				{
+					this.OnFechaAvalChanging(value);
+					this.SendPropertyChanging();
+					this._FechaAval = value;
+					this.SendPropertyChanged("FechaAval");
+					this.OnFechaAvalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CentroUltimaAudicion", DbType="NVarChar(MAX)")]
+		public string CentroUltimaAudicion
+		{
+			get
+			{
+				return this._CentroUltimaAudicion;
+			}
+			set
+			{
+				if ((this._CentroUltimaAudicion != value))
+				{
+					this.OnCentroUltimaAudicionChanging(value);
+					this.SendPropertyChanging();
+					this._CentroUltimaAudicion = value;
+					this.SendPropertyChanged("CentroUltimaAudicion");
+					this.OnCentroUltimaAudicionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaUltimaAudicion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaUltimaAudicion
+		{
+			get
+			{
+				return this._FechaUltimaAudicion;
+			}
+			set
+			{
+				if ((this._FechaUltimaAudicion != value))
+				{
+					this.OnFechaUltimaAudicionChanging(value);
+					this.SendPropertyChanging();
+					this._FechaUltimaAudicion = value;
+					this.SendPropertyChanged("FechaUltimaAudicion");
+					this.OnFechaUltimaAudicionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="Int NOT NULL")]
+		public int Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoEscalaSalarialId", DbType="Int")]
+		public System.Nullable<int> NoEscalaSalarialId
+		{
+			get
+			{
+				return this._NoEscalaSalarialId;
+			}
+			set
+			{
+				if ((this._NoEscalaSalarialId != value))
+				{
+					if (this._NoEscalaSalarial.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNoEscalaSalarialIdChanging(value);
+					this.SendPropertyChanging();
+					this._NoEscalaSalarialId = value;
+					this.SendPropertyChanged("NoEscalaSalarialId");
+					this.OnNoEscalaSalarialIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_AgrupacionDeArtista", Storage="_AgrupacionDeArtista", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<AgrupacionDeArtista> AgrupacionDeArtista
+		{
+			get
+			{
+				return this._AgrupacionDeArtista;
+			}
+			set
+			{
+				this._AgrupacionDeArtista.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_FotoDeIntegrante", Storage="_FotoDeIntegrante", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<FotoDeIntegrante> FotoDeIntegrante
+		{
+			get
+			{
+				return this._FotoDeIntegrante;
+			}
+			set
+			{
+				this._FotoDeIntegrante.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeProyectos", Storage="_ParticipantesDeProyectos", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<ParticipantesDeProyectos> ParticipantesDeProyectos
+		{
+			get
+			{
+				return this._ParticipantesDeProyectos;
+			}
+			set
+			{
+				this._ParticipantesDeProyectos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_Pasaportes", Storage="_Pasaportes", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<Pasaportes> Pasaportes
+		{
+			get
+			{
+				return this._Pasaportes;
+			}
+			set
+			{
+				this._Pasaportes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_TrayectoriaArtista", Storage="_TrayectoriaArtista", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<TrayectoriaArtista> TrayectoriaArtista
+		{
+			get
+			{
+				return this._TrayectoriaArtista;
+			}
+			set
+			{
+				this._TrayectoriaArtista.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_ParticipantesDeAcividad", Storage="_ParticipantesDeAcividad", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<ParticipantesDeAcividad> ParticipantesDeAcividad
+		{
+			get
+			{
+				return this._ParticipantesDeAcividad;
+			}
+			set
+			{
+				this._ParticipantesDeAcividad.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Artista_LogArtista", Storage="_LogArtista", ThisKey="ArtistaID", OtherKey="ArtistaId")]
+		public EntitySet<LogArtista> LogArtista
+		{
+			get
+			{
+				return this._LogArtista;
+			}
+			set
+			{
+				this._LogArtista.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EscalaSalarial_Artista", Storage="_EscalaSalarial", ThisKey="EscalaSalarialId", OtherKey="EscalaSalarialID", IsForeignKey=true)]
+		public EscalaSalarial EscalaSalarial
+		{
+			get
+			{
+				return this._EscalaSalarial.Entity;
+			}
+			set
+			{
+				EscalaSalarial previousValue = this._EscalaSalarial.Entity;
+				if (((previousValue != value) 
+							|| (this._EscalaSalarial.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EscalaSalarial.Entity = null;
+						previousValue.Artista.Remove(this);
+					}
+					this._EscalaSalarial.Entity = value;
+					if ((value != null))
+					{
+						value.Artista.Add(this);
+						this._EscalaSalarialId = value.EscalaSalarialID;
+					}
+					else
+					{
+						this._EscalaSalarialId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EscalaSalarial");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Municipio_Artista", Storage="_Municipio", ThisKey="MunicipioId", OtherKey="MunicipioID", IsForeignKey=true)]
+		public Municipio Municipio
+		{
+			get
+			{
+				return this._Municipio.Entity;
+			}
+			set
+			{
+				Municipio previousValue = this._Municipio.Entity;
+				if (((previousValue != value) 
+							|| (this._Municipio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Municipio.Entity = null;
+						previousValue.Artista.Remove(this);
+					}
+					this._Municipio.Entity = value;
+					if ((value != null))
+					{
+						value.Artista.Add(this);
+						this._MunicipioId = value.MunicipioID;
+					}
+					else
+					{
+						this._MunicipioId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Municipio");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NoEscalaSalarial_Artista", Storage="_NoEscalaSalarial", ThisKey="NoEscalaSalarialId", OtherKey="NoEscalaSalarialID", IsForeignKey=true)]
+		public NoEscalaSalarial NoEscalaSalarial
+		{
+			get
+			{
+				return this._NoEscalaSalarial.Entity;
+			}
+			set
+			{
+				NoEscalaSalarial previousValue = this._NoEscalaSalarial.Entity;
+				if (((previousValue != value) 
+							|| (this._NoEscalaSalarial.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NoEscalaSalarial.Entity = null;
+						previousValue.Artista.Remove(this);
+					}
+					this._NoEscalaSalarial.Entity = value;
+					if ((value != null))
+					{
+						value.Artista.Add(this);
+						this._NoEscalaSalarialId = value.NoEscalaSalarialID;
+					}
+					else
+					{
+						this._NoEscalaSalarialId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("NoEscalaSalarial");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista", Storage="_NomencladorCargo", ThisKey="NomencladorCargoId", OtherKey="NomencladorCargoID", IsForeignKey=true)]
+		public NomencladorCargo NomencladorCargo
+		{
+			get
+			{
+				return this._NomencladorCargo.Entity;
+			}
+			set
+			{
+				NomencladorCargo previousValue = this._NomencladorCargo.Entity;
+				if (((previousValue != value) 
+							|| (this._NomencladorCargo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NomencladorCargo.Entity = null;
+						previousValue.Artista.Remove(this);
+					}
+					this._NomencladorCargo.Entity = value;
+					if ((value != null))
+					{
+						value.Artista.Add(this);
+						this._NomencladorCargoId = value.NomencladorCargoID;
+					}
+					else
+					{
+						this._NomencladorCargoId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("NomencladorCargo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista1", Storage="_NomencladorCargo1", ThisKey="TipoAval", OtherKey="NomencladorCargoID", IsForeignKey=true)]
+		public NomencladorCargo NomencladorCargo1
+		{
+			get
+			{
+				return this._NomencladorCargo1.Entity;
+			}
+			set
+			{
+				NomencladorCargo previousValue = this._NomencladorCargo1.Entity;
+				if (((previousValue != value) 
+							|| (this._NomencladorCargo1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NomencladorCargo1.Entity = null;
+						previousValue.Artista1.Remove(this);
+					}
+					this._NomencladorCargo1.Entity = value;
+					if ((value != null))
+					{
+						value.Artista1.Add(this);
+						this._TipoAval = value.NomencladorCargoID;
+					}
+					else
+					{
+						this._TipoAval = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("NomencladorCargo1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AgrupacionDeArtista(AgrupacionDeArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_AgrupacionDeArtista(AgrupacionDeArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
+		}
+		
+		private void attach_FotoDeIntegrante(FotoDeIntegrante entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_FotoDeIntegrante(FotoDeIntegrante entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
+		}
+		
+		private void attach_ParticipantesDeProyectos(ParticipantesDeProyectos entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_ParticipantesDeProyectos(ParticipantesDeProyectos entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
+		}
+		
+		private void attach_Pasaportes(Pasaportes entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_Pasaportes(Pasaportes entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
+		}
+		
+		private void attach_TrayectoriaArtista(TrayectoriaArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_TrayectoriaArtista(TrayectoriaArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
+		}
+		
+		private void attach_ParticipantesDeAcividad(ParticipantesDeAcividad entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_ParticipantesDeAcividad(ParticipantesDeAcividad entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
+		}
+		
+		private void attach_LogArtista(LogArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = this;
+		}
+		
+		private void detach_LogArtista(LogArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.Artista = null;
 		}
 	}
 }

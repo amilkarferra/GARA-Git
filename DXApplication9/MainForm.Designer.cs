@@ -204,6 +204,7 @@ namespace DXApplication9
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.NoAportanSeguridadSocial_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -292,9 +293,10 @@ namespace DXApplication9
             this.ProdccionInterna_barButtonItem,
             this.EscalaSalarial_barButtonItem,
             this.barButtonItem24,
-            this.barButtonItem25});
+            this.barButtonItem25,
+            this.NoAportanSeguridadSocial_barButtonItem});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 52;
+            this.ribbonControl.MaxItemId = 53;
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar2);
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar3);
@@ -1260,6 +1262,7 @@ namespace DXApplication9
             // 
             this.NomencladoresRechum_ribbonPageGroup.ItemLinks.Add(this.NomencladorDeCargos_barButtonItem);
             this.NomencladoresRechum_ribbonPageGroup.ItemLinks.Add(this.EscalaSalarial_barButtonItem);
+            this.NomencladoresRechum_ribbonPageGroup.ItemLinks.Add(this.NoAportanSeguridadSocial_barButtonItem);
             this.NomencladoresRechum_ribbonPageGroup.Name = "NomencladoresRechum_ribbonPageGroup";
             this.NomencladoresRechum_ribbonPageGroup.Text = "Nomencladores";
             // 
@@ -1410,6 +1413,15 @@ namespace DXApplication9
             superToolTip15.Items.Add(toolTipItem15);
             this.barButtonItem22.SuperTip = superToolTip15;
             // 
+            // NoAportanSeguridadSocial_barButtonItem
+            // 
+            this.NoAportanSeguridadSocial_barButtonItem.Caption = "Nomenclador No Aportan Seguridad Social";
+            this.NoAportanSeguridadSocial_barButtonItem.Id = 52;
+            this.NoAportanSeguridadSocial_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.Image")));
+            this.NoAportanSeguridadSocial_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.LargeImage")));
+            this.NoAportanSeguridadSocial_barButtonItem.Name = "NoAportanSeguridadSocial_barButtonItem";
+            this.NoAportanSeguridadSocial_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.NoAportanSeguridadSocial_barButtonItem_ItemClick);
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1555,6 +1567,7 @@ namespace DXApplication9
         private DevExpress.XtraBars.BarButtonItem barButtonItem24;
         private DevExpress.XtraBars.BarButtonItem barButtonItem25;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem NoAportanSeguridadSocial_barButtonItem;
     }
 }
 

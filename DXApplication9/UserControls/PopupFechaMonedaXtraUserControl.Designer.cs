@@ -37,7 +37,6 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.Fecha_dateEdit = new DevExpress.XtraEditors.DateEdit();
             this.Moneda_lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-            this.tipoMonedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.Moneda_layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -45,6 +44,7 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProvider2 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.tipoMonedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -52,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Fecha_dateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fecha_dateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Moneda_lookUpEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Moneda_layoutControlItem)).BeginInit();
@@ -60,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateEdit1
@@ -132,10 +132,6 @@
             this.dxValidationProvider1.SetValidationRule(this.Moneda_lookUpEdit, conditionValidationRule2);
             this.Moneda_lookUpEdit.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
-            // tipoMonedaBindingSource
-            // 
-            this.tipoMonedaBindingSource.DataSource = typeof(DXApplication9.TipoMoneda);
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -193,6 +189,10 @@
             // 
             this.dxValidationProvider2.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
             // 
+            // tipoMonedaBindingSource
+            // 
+            this.tipoMonedaBindingSource.DataSource = typeof(DXApplication9.TipoMoneda);
+            // 
             // PopupFechaMonedaXtraUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,7 +207,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Fecha_dateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fecha_dateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Moneda_lookUpEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Moneda_layoutControlItem)).EndInit();
@@ -215,6 +214,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

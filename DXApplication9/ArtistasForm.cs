@@ -71,6 +71,8 @@ namespace DXApplication9
             TipoCargo_repositoryItemLookUpEdit.ValueMember = "Valor";
             colFechaBaja.Visible = false;
             PopulaGrid();
+            Artista_gridView.Columns["FechaBaja"].FilterInfo = new ColumnFilterInfo("[FechaBaja] IS NULL"); //muestro por defecto solo las altas
+
             PopulaReservas();
             PopulaAgrupacion();
             if (aGrupoId != null)
@@ -767,19 +769,27 @@ namespace DXApplication9
         private void Artista_gridView_RowStyle(object sender, RowStyleEventArgs e)
         {
 
-            if (e.RowHandle == -1) return;
-            AgrupacionDeArtista agrupacionDeArtista = (AgrupacionDeArtista)Artista_gridView.GetRow(e.RowHandle);
-            if (agrupacionDeArtista.FechaBaja.HasValue)
+            try
             {
-                e.Appearance.BackColor = Color.LightSalmon;
-                e.Appearance.BackColor2 = Color.BurlyWood;
+                if (e.RowHandle == -1) return;
+                AgrupacionDeArtista agrupacionDeArtista = (AgrupacionDeArtista)Artista_gridView.GetRow(e.RowHandle);
+                if (agrupacionDeArtista.FechaBaja.HasValue)
+                {
+                    e.Appearance.BackColor = Color.LightSalmon;
+                    e.Appearance.BackColor2 = Color.BurlyWood;
 
-                // e.Appearance.ForeColor = Color.Chocolate;
+                    // e.Appearance.ForeColor = Color.Chocolate;
+                }
+                if (agrupacionDeArtista.Artista.Estado == Enumerados.EstadoArtista.Desactivado.ToEntero())
+                {
+                    e.Appearance.BackColor = Color.White;
+                    e.Appearance.ForeColor = Color.IndianRed;
+                }
             }
-            if (agrupacionDeArtista.Artista.Estado == Enumerados.EstadoArtista.Desactivado.ToEntero())
+            catch (Exception)
             {
-                e.Appearance.BackColor = Color.White;
-                e.Appearance.ForeColor = Color.IndianRed;
+
+               //do nothing
             }
         }
 
@@ -813,17 +823,25 @@ namespace DXApplication9
 
         private void Artista_gridView_DoubleClick(object sender, EventArgs e)
         {
-            if (LoginHelper.UsuarioRegistrado.PuedeEditarIntegrantes)
+            try
             {
-                AgrupacionDeArtista agrupacionDeArtista = GetArtistaSeleccionadoPorMouse();
-                EditIntegranteXtraForm editIntegranteXtraForm =
-                    new EditIntegranteXtraForm((int)AgrupacionSelect_lookUpEdit.EditValue, agrupacionDeArtista,
-                        AGlobalDataContext);
-                if (editIntegranteXtraForm.ShowDialog() == DialogResult.OK)
+                if (LoginHelper.UsuarioRegistrado.PuedeEditarIntegrantes)
                 {
-                    AGlobalDataContext.Refresh(RefreshMode.KeepChanges, agrupacionDeArtista);
-                    PopulaGrid();
+                    AgrupacionDeArtista agrupacionDeArtista = GetArtistaSeleccionadoPorMouse();
+                    EditIntegranteXtraForm editIntegranteXtraForm =
+                        new EditIntegranteXtraForm((int)AgrupacionSelect_lookUpEdit.EditValue, agrupacionDeArtista,
+                            AGlobalDataContext);
+                    if (editIntegranteXtraForm.ShowDialog() == DialogResult.OK)
+                    {
+                        AGlobalDataContext.Refresh(RefreshMode.KeepChanges, agrupacionDeArtista);
+                        PopulaGrid();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+               Utils.MuestraError("no se puede editar el artista desde esta vista");
             }
         }
 
@@ -995,14 +1013,7 @@ namespace DXApplication9
 
         private void PopulaGrid()
         {
-            if (MostrarBajas_barCheckItem.Checked)
-            {
-                PopulaGridConBajas();
-                MostrarBajas_barCheckItem.Caption = "Ocultar Bajas";
-                return;
-            }
-            PopulaGridSinBajas();
-            MostrarBajas_barCheckItem.Caption = "Mostrar Bajas";
+            PopulaGridConBajas();
 
         }
 
@@ -1337,6 +1348,7 @@ namespace DXApplication9
             {
                 agrupacionDeArtistaBindingSource.DataSource =
                     AGlobalDataContext.AgrupacionDeArtista.OrderBy(c => c.Artista.Nombre);
+                MostrarBajas_barCheckItem.Enabled = true;
 
             }
 
@@ -1455,7 +1467,18 @@ namespace DXApplication9
 
         private void MostrarBajas_barCheckItem_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            PopulaGrid();
+            if (MostrarBajas_barCheckItem.Checked)
+            {
+                MostrarBajas_barCheckItem.Caption = "Ocultar Bajas";
+                Artista_gridView.Columns["FechaBaja"].FilterInfo = new ColumnFilterInfo("[FechaBaja] IS NOT NULL");
+            }
+            else
+            {
+                MostrarBajas_barCheckItem.Caption = "Mostrar Bajas";
+                Artista_gridView.Columns["FechaBaja"].ClearFilter();
+            }
+           
+            //PopulaGrid();
         }
 
         private void MostrarTodos_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -1659,6 +1682,46 @@ namespace DXApplication9
         private void ImpTabla_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             Integrantes_gridControl.ShowRibbonPrintPreview();
+        }
+
+        private void MostrarMostrarTodosbar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MostrarTodos();
+        }
+
+        private void MostrarSoloCatalogoItemClick(object sender, ItemClickEventArgs e)
+        {
+            agrupacionDeArtistaBindingSource.DataSource =
+                AGlobalDataContext.AgrupacionDeArtista.Where(c => c.Agrupacion.PerteneceACatalogo && !c.Agrupacion.DobleVinculo);
+        }
+
+        private void MostrarMostrarDobleVinculos_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            agrupacionDeArtistaBindingSource.DataSource =
+                AGlobalDataContext.AgrupacionDeArtista.Where(c => c.Agrupacion.PerteneceACatalogo && c.Agrupacion.DobleVinculo);
+        }
+
+        private void MostrarMostrarOciasionales_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            agrupacionDeArtistaBindingSource.DataSource =
+                AGlobalDataContext.AgrupacionDeArtista.Where(c => !c.Agrupacion.PerteneceACatalogo && !c.Agrupacion.DobleVinculo);
+        }
+
+        private void MostrarAltasYBajas_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+            Artista_gridView.Columns["FechaBaja"].ClearFilter();
+        }
+
+        private void MostrarSoloAltas_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Artista_gridView.Columns["FechaBaja"].FilterInfo = new ColumnFilterInfo("[FechaBaja] IS NULL");
+        }
+
+        private void MostrarSoloBjas_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Artista_gridView.Columns["FechaBaja"].FilterInfo = new ColumnFilterInfo("[FechaBaja] IS NOT NULL");
+
         }
     }
 }

@@ -21,6 +21,10 @@ namespace DXApplication9
         public DateTime FechaInicial;
         public int TipoMonedaId;
 
+        public int[] AgrupacionesIds
+        {get { return agrupacionesSelectedListBox1.AgrupacionesSeleccionadas; }
+        }
+
 
         /// <summary>
         /// Abre un dialgo para seleccionar Agrupacion, Moneda y Rango de Fecha para luego mostrar un reporte
@@ -45,43 +49,11 @@ namespace DXApplication9
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (!dxValidationProvider1.Validate()) return;
-            AgrupacionId = Convert.ToInt32(Agrupacion_lookUpEdit.EditValue);
+            if (!dxValidationProvider1.Validate() && AgrupacionesIds.Length==0) return;
             FechaFinal = FechaFinal_dateEdit.DateTime;
             FechaInicial = FechaInicial_dateEdit.DateTime;
             TipoMonedaId = Convert.ToInt32(Moneda_lookUpEdit.EditValue);
-
-            #region Reporte Historicos
-            if (!_isForOnatAgrupacionReporte)
-            {
-                var historicos = new NegocioDataContext().HistoricoDeuda.Where(c => c.AgrupacionId == Convert.ToInt32(Agrupacion_lookUpEdit.EditValue) && c.TipoMonedaId == Convert.ToInt32(Moneda_lookUpEdit.EditValue) && c.Fecha >= FechaInicial_dateEdit.DateTime && c.Fecha <= FechaFinal_dateEdit.DateTime);
-                if (!historicos.Any())
-                {
-                    XtraMessageBox.Show("No existen datos para mostrar", "Información",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                DeudaHistoricoXtraReport reporte =
-                        new DeudaHistoricoXtraReport(AgrupacionId,TipoMonedaId,FechaInicial ,FechaFinal );
-                reporte.CreateDocument();
-                reporte.ShowRibbonPreviewDialog();
-            }
-            #endregion
-
-            #region Reporte Onat Por Agrupacion
-
-            if (_isForOnatAgrupacionReporte)
-            {
-                DialogResult = DialogResult.OK;
-                //OnatDeUnidadArtistica_XtraReport reporte = new OnatDeUnidadArtistica_XtraReport(AgrupacionId,FechaFinal,FechaInicial, TipoMonedaId);
-                //reporte.CreateDocument();
-                //reporte.ShowRibbonPreviewDialog();
-            }
-
-            #endregion
-
-
-
+            DialogResult = DialogResult.OK;
         }
 
 

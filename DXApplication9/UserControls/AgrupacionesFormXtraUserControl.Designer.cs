@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Porciento_textEdit = new DevExpress.XtraEditors.TextEdit();
+            this.Cobra_lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.Codigo_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.Nombre_textEdit = new DevExpress.XtraEditors.TextEdit();
@@ -41,14 +43,14 @@
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
             this.Codigo_layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.Nombre_layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.agrupacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Cobra_lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Porciento_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.agrupacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Porciento_textEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cobra_lookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Codigo_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nombre_textEdit.Properties)).BeginInit();
@@ -59,12 +61,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Codigo_layoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nombre_layoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agrupacionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cobra_lookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Porciento_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agrupacionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -86,15 +86,39 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // Porciento_textEdit
+            // 
+            this.SetBoundPropertyName(this.Porciento_textEdit, "");
+            this.Porciento_textEdit.Location = new System.Drawing.Point(237, 107);
+            this.Porciento_textEdit.Name = "Porciento_textEdit";
+            this.Porciento_textEdit.Properties.Mask.EditMask = "n0";
+            this.Porciento_textEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.Porciento_textEdit.Size = new System.Drawing.Size(160, 20);
+            this.Porciento_textEdit.StyleController = this.layoutControl1;
+            this.Porciento_textEdit.TabIndex = 9;
+            // 
+            // Cobra_lookUpEdit
+            // 
+            this.SetBoundFieldName(this.Cobra_lookUpEdit, "[Nombre de Persona Recibe Cheque]");
+            this.SetBoundPropertyName(this.Cobra_lookUpEdit, "EditValue");
+            this.Cobra_lookUpEdit.Location = new System.Drawing.Point(237, 83);
+            this.Cobra_lookUpEdit.Name = "Cobra_lookUpEdit";
+            this.Cobra_lookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.Cobra_lookUpEdit.Properties.DisplayMember = "NombreCompleto";
+            this.Cobra_lookUpEdit.Size = new System.Drawing.Size(160, 20);
+            this.Cobra_lookUpEdit.StyleController = this.layoutControl1;
+            this.Cobra_lookUpEdit.TabIndex = 8;
+            // 
             // Codigo_textEdit
             // 
             this.SetBoundFieldName(this.Codigo_textEdit, "Codigo");
             this.SetBoundPropertyName(this.Codigo_textEdit, "EditValue");
-            this.Codigo_textEdit.Location = new System.Drawing.Point(230, 59);
+            this.Codigo_textEdit.Location = new System.Drawing.Point(237, 59);
             this.Codigo_textEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Codigo_textEdit.Name = "Codigo_textEdit";
             this.Codigo_textEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.Codigo_textEdit.Size = new System.Drawing.Size(167, 20);
+            this.Codigo_textEdit.Size = new System.Drawing.Size(160, 20);
             this.Codigo_textEdit.StyleController = this.layoutControl1;
             this.Codigo_textEdit.TabIndex = 7;
             // 
@@ -106,6 +130,7 @@
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
             this.pictureEdit1.Size = new System.Drawing.Size(103, 99);
             this.pictureEdit1.StyleController = this.layoutControl1;
             this.pictureEdit1.TabIndex = 6;
@@ -114,10 +139,10 @@
             // 
             this.SetBoundFieldName(this.Nombre_textEdit, "Nombre");
             this.SetBoundPropertyName(this.Nombre_textEdit, "EditValue");
-            this.Nombre_textEdit.Location = new System.Drawing.Point(230, 35);
+            this.Nombre_textEdit.Location = new System.Drawing.Point(237, 35);
             this.Nombre_textEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Nombre_textEdit.Name = "Nombre_textEdit";
-            this.Nombre_textEdit.Size = new System.Drawing.Size(167, 20);
+            this.Nombre_textEdit.Size = new System.Drawing.Size(160, 20);
             this.Nombre_textEdit.StyleController = this.layoutControl1;
             this.Nombre_textEdit.TabIndex = 5;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -128,11 +153,11 @@
             // 
             this.SetBoundFieldName(this.checkEdit, "PerteneceACatalogo");
             this.SetBoundPropertyName(this.checkEdit, "EditValue");
-            this.checkEdit.Location = new System.Drawing.Point(124, 12);
+            this.checkEdit.Location = new System.Drawing.Point(131, 12);
             this.checkEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEdit.Name = "checkEdit";
             this.checkEdit.Properties.Caption = "Del Catálogo";
-            this.checkEdit.Size = new System.Drawing.Size(273, 19);
+            this.checkEdit.Size = new System.Drawing.Size(266, 19);
             this.checkEdit.StyleController = this.layoutControl1;
             this.checkEdit.TabIndex = 4;
             this.checkEdit.CheckedChanged += new System.EventHandler(this.checkEdit_CheckedChanged);
@@ -159,9 +184,9 @@
             // 
             this.layoutControlItem1.Control = this.checkEdit;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(112, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(119, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(277, 23);
+            this.layoutControlItem1.Size = new System.Drawing.Size(270, 23);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -182,15 +207,15 @@
             this.splitterItem1.CustomizationFormText = "splitterItem1";
             this.splitterItem1.Location = new System.Drawing.Point(107, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 119);
+            this.splitterItem1.Size = new System.Drawing.Size(12, 119);
             // 
             // Codigo_layoutControlItem
             // 
             this.Codigo_layoutControlItem.Control = this.Codigo_textEdit;
             this.Codigo_layoutControlItem.CustomizationFormText = "Codigo";
-            this.Codigo_layoutControlItem.Location = new System.Drawing.Point(112, 47);
+            this.Codigo_layoutControlItem.Location = new System.Drawing.Point(119, 47);
             this.Codigo_layoutControlItem.Name = "Codigo_layoutControlItem";
-            this.Codigo_layoutControlItem.Size = new System.Drawing.Size(277, 24);
+            this.Codigo_layoutControlItem.Size = new System.Drawing.Size(270, 24);
             this.Codigo_layoutControlItem.Text = "Codigo";
             this.Codigo_layoutControlItem.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -198,60 +223,37 @@
             // 
             this.Nombre_layoutControlItem.Control = this.Nombre_textEdit;
             this.Nombre_layoutControlItem.CustomizationFormText = "Nombre";
-            this.Nombre_layoutControlItem.Location = new System.Drawing.Point(112, 23);
+            this.Nombre_layoutControlItem.Location = new System.Drawing.Point(119, 23);
             this.Nombre_layoutControlItem.Name = "Nombre_layoutControlItem";
-            this.Nombre_layoutControlItem.Size = new System.Drawing.Size(277, 24);
+            this.Nombre_layoutControlItem.Size = new System.Drawing.Size(270, 24);
             this.Nombre_layoutControlItem.Text = "Nombre:";
             this.Nombre_layoutControlItem.TextSize = new System.Drawing.Size(103, 13);
-            // 
-            // agrupacionBindingSource
-            // 
-            this.agrupacionBindingSource.DataSource = typeof(DXApplication9.Agrupacion);
-            // 
-            // Cobra_lookUpEdit
-            // 
-            this.SetBoundFieldName(this.Cobra_lookUpEdit, "[Nombre de Persona Recibe Cheque]");
-            this.Cobra_lookUpEdit.Location = new System.Drawing.Point(230, 83);
-            this.Cobra_lookUpEdit.Name = "Cobra_lookUpEdit";
-            this.Cobra_lookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.Cobra_lookUpEdit.Properties.DisplayMember = "NombreCompleto";
-            this.Cobra_lookUpEdit.Size = new System.Drawing.Size(167, 20);
-            this.Cobra_lookUpEdit.StyleController = this.layoutControl1;
-            this.Cobra_lookUpEdit.TabIndex = 8;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.Cobra_lookUpEdit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(112, 71);
+            this.layoutControlItem3.Location = new System.Drawing.Point(119, 71);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(277, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(270, 24);
             this.layoutControlItem3.Text = "Cobra:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(103, 13);
-            // 
-            // Porciento_textEdit
-            // 
-            this.SetBoundPropertyName(this.Porciento_textEdit, "");
-            this.Porciento_textEdit.Location = new System.Drawing.Point(230, 107);
-            this.Porciento_textEdit.Name = "Porciento_textEdit";
-            this.Porciento_textEdit.Properties.Mask.EditMask = "n0";
-            this.Porciento_textEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.Porciento_textEdit.Size = new System.Drawing.Size(167, 20);
-            this.Porciento_textEdit.StyleController = this.layoutControl1;
-            this.Porciento_textEdit.TabIndex = 9;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.Porciento_textEdit;
-            this.layoutControlItem4.Location = new System.Drawing.Point(112, 95);
+            this.layoutControlItem4.Location = new System.Drawing.Point(119, 95);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(277, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(270, 24);
             this.layoutControlItem4.Text = "Porciento Contratado";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(103, 13);
             // 
             // dxValidationProvider1
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
+            // 
+            // agrupacionBindingSource
+            // 
+            this.agrupacionBindingSource.DataSource = typeof(DXApplication9.Agrupacion);
             // 
             // AgrupacionesFormXtraUserControl
             // 
@@ -263,6 +265,8 @@
             this.Size = new System.Drawing.Size(409, 139);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Porciento_textEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cobra_lookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Codigo_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nombre_textEdit.Properties)).EndInit();
@@ -273,12 +277,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Codigo_layoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nombre_layoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agrupacionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cobra_lookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Porciento_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agrupacionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

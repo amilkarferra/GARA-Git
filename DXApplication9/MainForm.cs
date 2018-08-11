@@ -1,21 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Linq;
 using System.Deployment.Application;
-using System.Drawing;
 using System.Linq;
 using System.Management;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.Accessibility;
-using DevExpress.Data.PLinq.Helpers;
-using DevExpress.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Helpers;
-using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
@@ -861,8 +852,16 @@ namespace DXApplication9
             var popup = new PopupAgrupacionMonedaFechaXtraForm(true);
             if (popup.ShowDialog() == DialogResult.OK)
             {
-                OnatDeUnidadArtistica_XtraReport reporte = new OnatDeUnidadArtistica_XtraReport(popup.AgrupacionId, popup.FechaFinal, popup.FechaInicial, popup.TipoMonedaId);
+                var agrupaciones = popup.AgrupacionesIds;
+                if (agrupaciones == null) return;
+                XtraReport reporte = new XtraReport();
                 reporte.CreateDocument();
+                foreach (var agrupacionId in agrupaciones)
+                {
+                    OnatDeUnidadArtistica_XtraReport reporteActual = new OnatDeUnidadArtistica_XtraReport(agrupacionId, popup.FechaFinal, popup.FechaInicial, popup.TipoMonedaId);
+                    reporteActual.CreateDocument();
+                    reporte.Pages.AddRange(reporteActual.Pages);
+                }
                 reporte.ShowRibbonPreviewDialog();
             }
         }
@@ -903,7 +902,28 @@ namespace DXApplication9
         private void ReporteDeudas_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             PopupAgrupacionMonedaFechaXtraForm popup = new PopupAgrupacionMonedaFechaXtraForm();
-            popup.Show();
+            if (popup.ShowDialog() == DialogResult.OK)
+            {
+                var agrupacionesIds = popup.AgrupacionesIds;
+                var fechaIncial = popup.FechaInicial;
+                var fechaFinal = popup.FechaFinal;
+                var TipoMonedaId = popup.TipoMonedaId;
+                XtraReport reportePadre = new XtraReport();
+                reportePadre.CreateDocument();
+                foreach (var agrupacionId in agrupacionesIds)
+                {
+                    var historicos = AGlobalDataContext.HistoricoDeuda.Where(c => c.AgrupacionId == agrupacionId && c.TipoMonedaId == TipoMonedaId && c.Fecha >= fechaIncial && c.Fecha <= fechaFinal);
+                    if (historicos.Any())
+                    {
+
+                        DeudaHistoricoXtraReport reporte =
+                            new DeudaHistoricoXtraReport(agrupacionId, TipoMonedaId, fechaIncial, fechaFinal);
+                        reporte.CreateDocument();
+                        reportePadre.Pages.AddRange(reporte.Pages);
+                    }
+                }
+                reportePadre.ShowRibbonPreviewDialog();
+            }
         }
 
         private void ReporteGrupoConDeudas_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -963,8 +983,12 @@ namespace DXApplication9
         {
             EsquemaDeIngresosDeUA Form = new EsquemaDeIngresosDeUA { MdiParent = this };
             Form.Show();
+        }
 
-
+        private void NoAportanSeguridadSocial_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            NomencladorNoEscalaSalarialXtraForm Form = new NomencladorNoEscalaSalarialXtraForm { MdiParent = this };
+            Form.Show();
         }
     }
 }

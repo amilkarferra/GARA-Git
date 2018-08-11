@@ -131,8 +131,8 @@
       <Column Name="Desempenno" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="EsInvitado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="ParticipantesDeProyectos_DocumentosInvitados" Member="DocumentosInvitados" ThisKey="ParticipanteID" OtherKey="ParticipanteId" Type="DocumentosInvitados" />
-      <Association Name="Artista_ParticipantesDeProyectos" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" />
       <Association Name="Proyectos_ParticipantesDeProyectos" Member="Proyectos" ThisKey="ProyectoId" OtherKey="ProyectoID" Type="Proyectos" IsForeignKey="true" />
+      <Association Name="Artista_ParticipantesDeProyectos" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Pasaportes" Member="Pasaportes">
@@ -348,61 +348,6 @@
       <Association Name="OrdenDeTrabajo_Nomina" Member="OrdenDeTrabajo" ThisKey="DocumentoReferenciaId" OtherKey="OrdenDeTrabajoID" Type="OrdenDeTrabajo" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Artista" Member="Artista">
-    <Type Name="Artista">
-      <Column Name="ArtistaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CarnetIdentidad" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.String" DbType="NChar(130)" CanBeNull="true" />
-      <Column Name="PrimerApellido" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
-      <Column Name="SegundoApellido" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
-      <Column Name="Desempenno" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NomencladorCargoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AbrevDesempenno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FechaIngresoSector" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="StatusLaboral" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
-      <Column Name="Foto" Type="System.Byte[]" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FechaDeAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FechaDeBaja" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MunicipioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EstadoCivil" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Escolaridad" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Organismo" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="AnnoGraduado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Direccion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Telefonos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="EscalaSalarialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FuenteProcedencia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="EscolaridadEnsennanzaGeneral" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="OtraProfesion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AnnoGraduadoOtraProfesion" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EnsennanzaEspecializada" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AnnoGraduadoEnsEspecializada" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CumplimientoServicioSocial" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="TipoContratoArtista" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="EvaluacionArtistica" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NivelEvaluacionArt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CodigoEvalArtistica" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="FechaEvalArtistica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TipoAval" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CodigoAvalProfesionalidad" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="FechaAval" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CentroUltimaAudicion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="FechaUltimaAudicion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Estado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Artista_AgrupacionDeArtista" Member="AgrupacionDeArtista" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="AgrupacionDeArtista" />
-      <Association Name="Artista_FotoDeIntegrante" Member="FotoDeIntegrante" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="FotoDeIntegrante" />
-      <Association Name="Artista_ParticipantesDeProyectos" Member="ParticipantesDeProyectos" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="ParticipantesDeProyectos" />
-      <Association Name="Artista_Pasaportes" Member="Pasaportes" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="Pasaportes" />
-      <Association Name="Artista_TrayectoriaArtista" Member="TrayectoriaArtista" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="TrayectoriaArtista" />
-      <Association Name="Artista_ParticipantesDeAcividad" Member="ParticipantesDeAcividad" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="ParticipantesDeAcividad" />
-      <Association Name="Artista_LogArtista" Member="LogArtista" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="LogArtista" />
-      <Association Name="Municipio_Artista" Member="Municipio" ThisKey="MunicipioId" OtherKey="MunicipioID" Type="Municipio" IsForeignKey="true" />
-      <Association Name="NomencladorCargo_Artista" Member="NomencladorCargo" ThisKey="NomencladorCargoId" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
-      <Association Name="NomencladorCargo_Artista1" Member="NomencladorCargo1" ThisKey="TipoAval" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
-      <Association Name="EscalaSalarial_Artista" Member="EscalaSalarial" ThisKey="EscalaSalarialId" OtherKey="EscalaSalarialID" Type="EscalaSalarial" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.EscalaSalarial" Member="EscalaSalarial">
     <Type Name="EscalaSalarial">
       <Column Name="EscalaSalarialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -514,8 +459,8 @@
       <Column Name="ArtistaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Importe" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Column Name="Dieta" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Association Name="Artista_ParticipantesDeAcividad" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" />
       <Association Name="OrdenDeTrabajo_ParticipantesDeAcividad" Member="OrdenDeTrabajo" ThisKey="ActividadId" OtherKey="OrdenDeTrabajoID" Type="OrdenDeTrabajo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Artista_ParticipantesDeAcividad" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LogAction" Member="LogAction">
@@ -548,8 +493,8 @@
       <Column Name="TipoAccion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UsuarioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Artista_LogArtista" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" />
       <Association Name="Usuario_LogArtista" Member="Usuario" ThisKey="UsuarioId" OtherKey="UsuarioID" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Artista_LogArtista" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LogOrdenDeTrabajo" Member="LogOrdenDeTrabajo">
@@ -644,6 +589,71 @@
       <Association Name="ControlClientes_OrdenDeTrabajo" Member="ControlClientes" ThisKey="ClienteQueContrataId" OtherKey="ControlClienteID" Type="ControlClientes" IsForeignKey="true" />
       <Association Name="Proyectos_OrdenDeTrabajo" Member="Proyectos1" ThisKey="ProyectosId" OtherKey="ProyectoID" Type="Proyectos" IsForeignKey="true" />
       <Association Name="TipoMoneda_OrdenDeTrabajo" Member="TipoMoneda" ThisKey="TipoMonedaId" OtherKey="TipoMonedaID" Type="TipoMoneda" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NoEscalaSalarial" Member="NoEscalaSalarial">
+    <Type Name="NoEscalaSalarial">
+      <Column Name="NoEscalaSalarialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Abreviatura" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="NoEscalaSalarial_Artista" Member="Artista" ThisKey="NoEscalaSalarialID" OtherKey="NoEscalaSalarialId" Type="Artista" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Artista" Member="Artista">
+    <Type Name="Artista">
+      <Column Name="ArtistaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarnetIdentidad" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="NChar(130)" CanBeNull="true" />
+      <Column Name="PrimerApellido" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="SegundoApellido" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Desempenno" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NomencladorCargoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AbrevDesempenno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FechaIngresoSector" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StatusLaboral" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Foto" Type="System.Byte[]" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FechaDeAlta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaDeBaja" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MunicipioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstadoCivil" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Escolaridad" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Organismo" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="AnnoGraduado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Telefonos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EscalaSalarialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FuenteProcedencia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EscolaridadEnsennanzaGeneral" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OtraProfesion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AnnoGraduadoOtraProfesion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EnsennanzaEspecializada" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AnnoGraduadoEnsEspecializada" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CumplimientoServicioSocial" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TipoContratoArtista" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EvaluacionArtistica" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NivelEvaluacionArt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CodigoEvalArtistica" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FechaEvalArtistica" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TipoAval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodigoAvalProfesionalidad" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FechaAval" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CentroUltimaAudicion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FechaUltimaAudicion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoEscalaSalarialId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Artista_AgrupacionDeArtista" Member="AgrupacionDeArtista" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="AgrupacionDeArtista" />
+      <Association Name="Artista_FotoDeIntegrante" Member="FotoDeIntegrante" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="FotoDeIntegrante" />
+      <Association Name="Artista_ParticipantesDeProyectos" Member="ParticipantesDeProyectos" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="ParticipantesDeProyectos" />
+      <Association Name="Artista_Pasaportes" Member="Pasaportes" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="Pasaportes" />
+      <Association Name="Artista_TrayectoriaArtista" Member="TrayectoriaArtista" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="TrayectoriaArtista" />
+      <Association Name="Artista_ParticipantesDeAcividad" Member="ParticipantesDeAcividad" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="ParticipantesDeAcividad" />
+      <Association Name="Artista_LogArtista" Member="LogArtista" ThisKey="ArtistaID" OtherKey="ArtistaId" Type="LogArtista" />
+      <Association Name="EscalaSalarial_Artista" Member="EscalaSalarial" ThisKey="EscalaSalarialId" OtherKey="EscalaSalarialID" Type="EscalaSalarial" IsForeignKey="true" />
+      <Association Name="Municipio_Artista" Member="Municipio" ThisKey="MunicipioId" OtherKey="MunicipioID" Type="Municipio" IsForeignKey="true" />
+      <Association Name="NoEscalaSalarial_Artista" Member="NoEscalaSalarial" ThisKey="NoEscalaSalarialId" OtherKey="NoEscalaSalarialID" Type="NoEscalaSalarial" IsForeignKey="true" />
+      <Association Name="NomencladorCargo_Artista" Member="NomencladorCargo" ThisKey="NomencladorCargoId" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
+      <Association Name="NomencladorCargo_Artista1" Member="NomencladorCargo1" ThisKey="TipoAval" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

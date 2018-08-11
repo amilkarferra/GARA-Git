@@ -493,6 +493,46 @@ namespace DXApplication9.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap filterbyargument_pie_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("filterbyargument_pie_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filterbyargument_pie_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("filterbyargument_pie_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filterbyseries_pie_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("filterbyseries_pie_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filterbyseries_pie_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("filterbyseries_pie_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap financial_16x16 {
             get {
                 object obj = ResourceManager.GetObject("financial_16x16", resourceCulture);
@@ -633,6 +673,26 @@ namespace DXApplication9.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap multiplemasterfilter_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("multiplemasterfilter_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap multiplemasterfilter_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("multiplemasterfilter_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap preview_16x16 {
             get {
                 object obj = ResourceManager.GetObject("preview_16x16", resourceCulture);
@@ -746,6 +806,26 @@ namespace DXApplication9.Properties {
         internal static System.Drawing.Bitmap selectall2_32x32 {
             get {
                 object obj = ResourceManager.GetObject("selectall2_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("show_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("show_16x161", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -50,6 +50,7 @@ namespace DXApplication9
             TipoVinculo_lookUpEdit.Properties.DisplayMember = "Tipo";
             Municipio_treeListLookUpEdit1TreeList.DataSource = GetListaDeMunicipios();
             escalaSalarialBindingSource.DataSource = AGlobalDataContext.EscalaSalarial;
+            noEscalaSalarialBindingSource.DataSource = AGlobalDataContext.NoEscalaSalarial;
             //PopulaMunicipiosTreeList();
             // municipioBindingSource.DataSource = GetListaDeMunicipios();
             AAgrupacionId = agrupacionId;
@@ -61,65 +62,106 @@ namespace DXApplication9
                 AArtistaId = anAgrupacionDeArtista.ArtistaId;
                 artista = anAgrupacionDeArtista.Artista;
 
-                #region Datos personales
-                #region Foto
-                if (artista.Foto != null)
+                try
                 {
-                    MemoryStream ms = new MemoryStream(artista.Foto);
-                    Bitmap imagenBitmap = new Bitmap(ms);
-                    pictureEdit1.Image = imagenBitmap;
+                    #region Datos personales
+                    #region Foto
+                    if (artista.Foto != null)
+                    {
+                        MemoryStream ms = new MemoryStream(artista.Foto);
+                        Bitmap imagenBitmap = new Bitmap(ms);
+                        pictureEdit1.Image = imagenBitmap;
+                    }
+                    #endregion
+                    Nombre_textEdit.EditValue = anAgrupacionDeArtista.Artista.Nombre;
+                    PrimerApellicod_textEdit.EditValue = anAgrupacionDeArtista.Artista.PrimerApellido;
+                    SegundoApellido_textEdit.EditValue = anAgrupacionDeArtista.Artista.SegundoApellido;
+                    NumeroCarnet_textEdit.EditValue = anAgrupacionDeArtista.Artista.CarnetIdentidad;
+                    EstadoCivil_comboBoxEdit.EditValue = anAgrupacionDeArtista.Artista.EstadoCivil;
+                    Direccion_textEdit.EditValue = artista.Direccion;
+                    Municipio_treeListLookUpEdit.EditValue = anAgrupacionDeArtista.Artista.MunicipioId;
+                    Escolaridad_textEdit.EditValue = artista.EscolaridadEnsennanzaGeneral;
+                    AnnoGraduadoEnseGral_textEdit.EditValue = artista.AnnoGraduado;
+                    #endregion
                 }
-                #endregion
-                Nombre_textEdit.EditValue = anAgrupacionDeArtista.Artista.Nombre;
-                PrimerApellicod_textEdit.EditValue = anAgrupacionDeArtista.Artista.PrimerApellido;
-                SegundoApellido_textEdit.EditValue = anAgrupacionDeArtista.Artista.SegundoApellido;
-                NumeroCarnet_textEdit.EditValue = anAgrupacionDeArtista.Artista.CarnetIdentidad;
-                EstadoCivil_comboBoxEdit.EditValue = anAgrupacionDeArtista.Artista.EstadoCivil;
-                Direccion_textEdit.EditValue = artista.Direccion;
-                Municipio_treeListLookUpEdit.EditValue = anAgrupacionDeArtista.Artista.MunicipioId;
-                Escolaridad_textEdit.EditValue = artista.EscolaridadEnsennanzaGeneral;
-                AnnoGraduadoEnseGral_textEdit.EditValue = artista.AnnoGraduado;
-                #endregion
-                #region Datos Laborales
+                catch (Exception e)
+                {
+                    Utils.MuestraError($"error insertando datos personales el error es: {e.Message}");
+                }
 
-                Agencia_textEdit.Text = artista.Organismo;
-                if (anAgrupacionDeArtista.FechaAlta != null)
-                    FechaAlta_dateEdit.EditValue = anAgrupacionDeArtista.FechaAlta;
-                statusLaboralTextEdit.EditValue = anAgrupacionDeArtista.Artista.StatusLaboral;
-                FuenteProcedencia_textEdit.EditValue = artista.FuenteProcedencia;
-                if (anAgrupacionDeArtista.Artista.FechaIngresoSector != null) fechaIngresoSectorDateEdit.DateTime = (DateTime)anAgrupacionDeArtista.Artista.FechaIngresoSector;
-                ServicioSocial_textEdit.EditValue = artista.CumplimientoServicioSocial;
-                Desempenno_lookUpEdit.EditValue = anAgrupacionDeArtista.NomencladorCargoId;
-                DesempeñoAbrev_textEdit.EditValue = anAgrupacionDeArtista.AbrevDesempenno;
-                TipoContrato_textEdit.EditValue = artista.TipoContratoArtista;
-                TipoVinculo_lookUpEdit.EditValue = anAgrupacionDeArtista.TipoVinculo;
-            //    EscalaSalarial_lookUpEdit.EditValue = anAgrupacionDeArtista.Artista.EscalaSalarialId;
 
-                #region Evaluacion Artistica
-                EvaluacionArtistica_textEdit.EditValue = artista.EvaluacionArtistica;
-                NivelEvaluacion_textEdit.EditValue = artista.NivelEvaluacionArt;
-                CodigoEvaluacionArt_textEdit.EditValue = artista.CodigoEvalArtistica;
-                FechaEvaluacion_dateEdit.EditValue = artista.FechaEvalArtistica;
-                #endregion
 
-                #region Aval
-                AvalLookUpEdit.EditValue = artista.TipoAval;
-                CodigoAval_textEdit.EditValue = artista.CodigoAvalProfesionalidad;
-                FechaAval_dateEdit.EditValue = artista.FechaAval;
-                #endregion
+                try
+                {
+                    #region Datos Laborales
 
-                #region Otra Profesion
-                OtraProfesion_textEdit.EditValue = artista.OtraProfesion;
-                AnnoOtraProfesion_textEdit.EditValue = artista.AnnoGraduadoOtraProfesion;
-                #endregion
+                    Agencia_textEdit.Text = artista.Organismo;
+                    FechaAlta_dateEdit.EditValue = anAgrupacionDeArtista.FechaAlta ?? Convert.ToDateTime("1/1/1900");
+                    statusLaboralTextEdit.EditValue = anAgrupacionDeArtista.Artista.StatusLaboral;
+                    FuenteProcedencia_textEdit.EditValue = artista.FuenteProcedencia;
+                    fechaIngresoSectorDateEdit.DateTime = anAgrupacionDeArtista.Artista.FechaIngresoSector ?? Convert.ToDateTime("1/1/1900");
+                    ServicioSocial_textEdit.EditValue = artista.CumplimientoServicioSocial;
+                    Desempenno_lookUpEdit.EditValue = anAgrupacionDeArtista.NomencladorCargoId;
+                    DesempeñoAbrev_textEdit.EditValue = anAgrupacionDeArtista.AbrevDesempenno;
+                    TipoContrato_textEdit.EditValue = artista.TipoContratoArtista;
+                    TipoVinculo_lookUpEdit.EditValue = anAgrupacionDeArtista.TipoVinculo;
+                    //    EscalaSalarial_lookUpEdit.EditValue = anAgrupacionDeArtista.Artista.EscalaSalarialId;
 
-                #region Enseñanza Especializada
+                    #region Evaluacion Artistica
+                    EvaluacionArtistica_textEdit.EditValue = artista.EvaluacionArtistica;
+                    NivelEvaluacion_textEdit.EditValue = artista.NivelEvaluacionArt;
+                    CodigoEvaluacionArt_textEdit.EditValue = artista.CodigoEvalArtistica;
+                    FechaEvaluacion_dateEdit.EditValue = artista.FechaEvalArtistica ?? Convert.ToDateTime("1/1/1900");
+                    #endregion
 
-                EnsennanzaEsp_textEdit.EditValue = artista.EnsennanzaEspecializada;
-                annoGraduadoEnsEsp_TextEdit.EditValue = artista.AnnoGraduadoEnsEspecializada;
-                #endregion
+                    #region Aval
+                    AvalLookUpEdit.EditValue = artista.TipoAval;
+                    CodigoAval_textEdit.EditValue = artista.CodigoAvalProfesionalidad;
+                    FechaAval_dateEdit.EditValue = artista.FechaAval ?? Convert.ToDateTime("1/1/1900");
+                    #endregion
 
-                #endregion
+                    #region Otra Profesion
+                    OtraProfesion_textEdit.EditValue = artista.OtraProfesion;
+                    AnnoOtraProfesion_textEdit.EditValue = artista.AnnoGraduadoOtraProfesion;
+                    #endregion
+
+                    #region Enseñanza Especializada
+
+                    EnsennanzaEsp_textEdit.EditValue = artista.EnsennanzaEspecializada;
+                    annoGraduadoEnsEsp_TextEdit.EditValue = artista.AnnoGraduadoEnsEspecializada;
+                    #endregion
+
+
+                    #region EscalaSalarial
+
+                    NoSeAcoge_checkEdit.Checked = artista.NoEscalaSalarialId != null;
+                    if (artista.EscalaSalarial == null)
+                    {
+                        EscalaSalarial_layoutControlItem.Enabled = false;
+                        MotivoNoSegSocial_lookUpEdit.EditValue = artista.NoEscalaSalarialId;
+
+                    }
+                    if (artista.NoEscalaSalarialId == null)
+                    {
+                        NoSeAcoge_checkEdit.Checked = false;
+                        MotivoNoSegSocial_layoutControlItem.Enabled = false;
+                        MotivoNoSegSocial_lookUpEdit.EditValue = null;
+                        EscalaSalarial_layoutControlItem.Enabled = true;
+                        EscalaSalarial_lookUpEdit.EditValue = artista.EscalaSalarialId;
+                    }
+
+
+
+                    #endregion
+
+                    #endregion
+                }
+                catch (Exception e)
+                {
+
+                    Utils.MuestraError($"error insertando datos laborales el error es: {e.Message}");
+
+                }
 
                 artistaId = anAgrupacionDeArtista.Artista.ArtistaID;
                 Text = String.Format("Editando datos de {0}", AAgrupacionDeArtista.Artista.NombreCompleto);
@@ -129,7 +171,7 @@ namespace DXApplication9
             trayectoriaArtistaBindingSource.DataSource = AGlobalDataContext.TrayectoriaArtista.Where(c => c.ArtistaId == artistaId);
 
             // This line of code is generated by Data Source Configuration Wizard
-           // Municipio_treeListLookUpEdit.Properties.DataSource = new DXApplication9.NegocioDataContext().Provincia;
+            // Municipio_treeListLookUpEdit.Properties.DataSource = new DXApplication9.NegocioDataContext().Provincia;
             // This line of code is generated by Data Source Configuration Wizard
             // Fill a SqlDataSource
             //sqlDataSource1.Fill();
@@ -138,7 +180,7 @@ namespace DXApplication9
 
         private void EditIntegrante_XtraUserControl_Load(object sender, EventArgs e)
         {
-            
+
             Agrupacion_repositoryItemLookUpEdit.DataSource = AGlobalDataContext.Agrupacion;
             TipoVinculo_repositoryItemLookUpEdit.DataSource = Enumerados.ListaDeEnumerados(typeof(Enumerados.TipoVinculoDeArtista));
             tabbedControlGroup1.SelectedTabPage = Personales_layoutControlGroup;
@@ -147,7 +189,7 @@ namespace DXApplication9
 
         public void CreaTablaMunicipioProvincia()
         {
-            
+
         }
 
         private void PopulaMunicipiosTreeList()
@@ -313,7 +355,7 @@ namespace DXApplication9
             try
             {
                 if (!dxValidationProvider1.Validate()) return 0;
-                Artista artista = artistaId == 0 ? (new Artista()) : 
+                Artista artista = artistaId == 0 ? (new Artista()) :
                     AGlobalDataContext.Artista.FirstOrDefault(c => c.ArtistaID == artistaId);
                 if (artistaId == 0)
                 {
@@ -336,7 +378,7 @@ namespace DXApplication9
 
                         pictureEdit1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         binary = new Binary(ms.GetBuffer());
-                        byte[] imagen = binary.ToArray();artista.Foto = imagen;
+                        byte[] imagen = binary.ToArray(); artista.Foto = imagen;
 
                     }
                 }
@@ -353,21 +395,21 @@ namespace DXApplication9
                 artista.EstadoCivil = Convert.ToString(EstadoCivil_comboBoxEdit.EditValue).Trim();
                 artista.Direccion = Convert.ToString(Direccion_textEdit.EditValue).Trim();
                 if (Municipio_treeListLookUpEdit.EditValue != null) artista.MunicipioId = String.IsNullOrEmpty(Municipio_treeListLookUpEdit.EditValue.ToString()) ? (int?)null : Convert.ToInt32(Municipio_treeListLookUpEdit.EditValue);
-               artista.EscolaridadEnsennanzaGeneral = Convert.ToString(Escolaridad_textEdit.EditValue).Trim();
+                artista.EscolaridadEnsennanzaGeneral = Convert.ToString(Escolaridad_textEdit.EditValue).Trim();
                 artista.AnnoGraduado = Convert.ToInt32(AnnoGraduadoEnseGral_textEdit.EditValue);
 
                 #endregion
 
                 #region Datos Laborales
-                
+
                 artista.Organismo = Convert.ToString(Agencia_textEdit.EditValue).Trim();
                 artista.StatusLaboral = Convert.ToString(statusLaboralTextEdit.EditValue);
                 artista.FuenteProcedencia = Convert.ToString(FuenteProcedencia_textEdit.EditValue);
-                if(fechaIngresoSectorDateEdit.EditValue!=null)artista.FechaIngresoSector = Convert.ToDateTime(fechaIngresoSectorDateEdit.EditValue);
+                if (fechaIngresoSectorDateEdit.EditValue != null) artista.FechaIngresoSector = Convert.ToDateTime(fechaIngresoSectorDateEdit.EditValue);
                 artista.CumplimientoServicioSocial = Convert.ToString(ServicioSocial_textEdit.EditValue).Trim();
                 //if (EscalaSalarial_lookUpEdit.EditValue!=null)
                 //artista.EscalaSalarialId = Convert.ToInt32(EscalaSalarial_lookUpEdit.EditValue);
-              
+
 
                 artista.TipoContratoArtista = Convert.ToString(TipoContrato_textEdit.EditValue).Trim();
 
@@ -379,8 +421,8 @@ namespace DXApplication9
                 #endregion
 
                 #region Aval de profesionalidad
-               // if (AvalLookUpEdit.Text != String.Empty) artista.TipoAval = Convert.ToInt32(AvalLookUpEdit.EditValue);
-                artista.TipoAval = (int?) (AvalLookUpEdit.EditValue==null?AvalLookUpEdit.EditValue:Convert.ToInt32(AvalLookUpEdit.EditValue));
+                // if (AvalLookUpEdit.Text != String.Empty) artista.TipoAval = Convert.ToInt32(AvalLookUpEdit.EditValue);
+                artista.TipoAval = (int?)(AvalLookUpEdit.EditValue == null ? AvalLookUpEdit.EditValue : Convert.ToInt32(AvalLookUpEdit.EditValue));
                 artista.CodigoAvalProfesionalidad = Convert.ToString(CodigoAval_textEdit.EditValue).Trim();
                 if (FechaAval_dateEdit.EditValue != null) artista.FechaAval = Convert.ToDateTime(FechaAval_dateEdit.EditValue);
                 #endregion
@@ -395,16 +437,49 @@ namespace DXApplication9
                 artista.AnnoGraduadoEnsEspecializada = Convert.ToInt32(annoGraduadoEnsEsp_TextEdit.EditValue);
                 #endregion
 
+                #region Seguridad Social
+
+                if (NoSeAcoge_checkEdit.Checked)
+                {
+                    artista.EscalaSalarial = null;
+                    if (MotivoNoSegSocial_lookUpEdit.EditValue != null)
+                        artista.NoEscalaSalarialId =
+                            Convert.ToInt32(MotivoNoSegSocial_lookUpEdit.EditValue);
+                    else
+                    {
+                        artista.NoEscalaSalarialId = null;
+                    }
+                }
+                else
+                {
+                    artista.NoEscalaSalarialId = null;
+                    if (MotivoNoSegSocial_lookUpEdit.EditValue != null)
+                    {
+                        artista.EscalaSalarialId = Convert.ToInt32(EscalaSalarial_lookUpEdit.EditValue);
+                    }
+                
+                    else
+                    {
+                        artista.NoEscalaSalarialId = null;
+                    }
+                }
+
+
+
+
+                #endregion
+
+
                 #endregion
 
                 artista.Estado = Enumerados.EstadoArtista.Activo.ToEntero();
 
-             if (artistaId == 0)
+                if (artistaId == 0)
                 {
                     AGlobalDataContext.Artista.InsertOnSubmit(artista);
                 }
 
-              AGlobalDataContext.SubmitChanges();
+                AGlobalDataContext.SubmitChanges();
 
                 if (AAgrupacionDeArtista == null || AAgrupacionDeArtista.AgrupacionDeArtistaID == 0)
                 {
@@ -421,17 +496,17 @@ namespace DXApplication9
                 }
                 else
                 {
-                 
+
                     ActualizaAgrupacionDeArtista();
                 }
-               // _GlobalDataContext.SubmitChanges();
+                // _GlobalDataContext.SubmitChanges();
                 return artista.ArtistaID;
 
             }
             catch (Exception exception)
             {
                 DialogResult = DialogResult.Cancel;
-               Utils.MuestraError();
+                Utils.MuestraError();
                 return 0;
             }
         }
@@ -448,11 +523,11 @@ namespace DXApplication9
                 agrupacionDeArtista.TipoVinculo = Convert.ToInt32(TipoVinculo_lookUpEdit.EditValue);
                 agrupacionDeArtista.FechaAlta = FechaAlta_dateEdit.DateTime;
                 dataContext.SubmitChanges();
-               // _GlobalDataContext = dataContext;
+                // _GlobalDataContext = dataContext;
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
 
@@ -612,10 +687,10 @@ namespace DXApplication9
             AvalLookUpEdit.EditValue = null;
         }
 
-       
-
-
-
-
+        private void NoSeAcoge_checkEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            EscalaSalarial_layoutControlItem.Enabled = !NoSeAcoge_checkEdit.Checked;
+            MotivoNoSegSocial_layoutControlItem.Enabled = NoSeAcoge_checkEdit.Checked;
+        }
     }
 }
