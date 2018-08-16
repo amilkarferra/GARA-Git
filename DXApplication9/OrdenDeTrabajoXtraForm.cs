@@ -153,7 +153,6 @@ namespace DXApplication9
 
         }
 
-
         //private void OTgridView_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         //{
         //    GridView _View = OTgridView;
@@ -293,7 +292,6 @@ namespace DXApplication9
             //TODO Implementar metodo que posicione el mouse en una orden determinada
             //OTgridView.Fin
         }
-
 
         private void OTgridView_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
         {
@@ -437,7 +435,6 @@ namespace DXApplication9
             PopulaOrdenDeTrabajoGridControl();
         }
 
-
         private void PopulaOrdenDeTrabajoGridControl()
         {
             AGlobalDataContext = new NegocioDataContext();
@@ -451,50 +448,57 @@ namespace DXApplication9
 
         private void OTgridView_RowStyle(object sender, RowStyleEventArgs e)
         {
-            if (e.RowHandle == -1) return; OrdenDeTrabajo ot = (OrdenDeTrabajo)OTgridView.GetRow(e.RowHandle);
-            Enumerados.EstadoOrdenDeTrabajo estado = (Enumerados.EstadoOrdenDeTrabajo)Enum.Parse(typeof(Enumerados.EstadoOrdenDeTrabajo), ot.Estado.ToString());
-            switch (estado)
+            try
             {
-                case Enumerados.EstadoOrdenDeTrabajo.Realizada:
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.Cerrada:
-                    e.Appearance.BackColor = Color.Khaki;
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.Cancelada:
-                    e.Appearance.BackColor = Color.LightSalmon;
-                    e.Appearance.ForeColor = Color.Brown;
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.AsociadaNomina:
-                    e.Appearance.BackColor = Color.LightSlateGray;
-                    if (ot.FechaSolicitudDePago != null)
-                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Underline);
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.Cobrada:
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.Pagada:
-                    e.Appearance.BackColor = Color.Green;
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.PagadaCobrada:
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
-                    e.Appearance.BackColor = Color.Green;
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.AsociadaNominaCobrada:
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
-                    e.Appearance.BackColor = Color.LightSlateGray;
-                    break;
-                case Enumerados.EstadoOrdenDeTrabajo.CerradaCobrada:
-                    e.Appearance.BackColor = Color.Khaki;
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
-                    break;
+                if (e.RowHandle == -1) return; OrdenDeTrabajo ot = (OrdenDeTrabajo)OTgridView.GetRow(e.RowHandle);
+                Enumerados.EstadoOrdenDeTrabajo estado = (Enumerados.EstadoOrdenDeTrabajo)Enum.Parse(typeof(Enumerados.EstadoOrdenDeTrabajo), ot.Estado.ToString());
+                switch (estado)
+                {
+                    case Enumerados.EstadoOrdenDeTrabajo.Realizada:
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.Cerrada:
+                        e.Appearance.BackColor = Color.Khaki;
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.Cancelada:
+                        e.Appearance.BackColor = Color.LightSalmon;
+                        e.Appearance.ForeColor = Color.Brown;
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.AsociadaNomina:
+                        e.Appearance.BackColor = Color.LightSlateGray;
+                        if (ot.FechaSolicitudDePago != null)
+                            e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Underline);
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.Cobrada:
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.Pagada:
+                        e.Appearance.BackColor = Color.Green;
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.PagadaCobrada:
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                        e.Appearance.BackColor = Color.Green;
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.AsociadaNominaCobrada:
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                        e.Appearance.BackColor = Color.LightSlateGray;
+                        break;
+                    case Enumerados.EstadoOrdenDeTrabajo.CerradaCobrada:
+                        e.Appearance.BackColor = Color.Khaki;
+                        e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                        break;
+                }
+                if (ot.EsFacturaDeProyecto)
+                {
+                    //e.Appearance.ForeColor = Color.DarkBlue;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Italic);
+                }
             }
-            if (ot.EsFacturaDeProyecto)
+            catch (Exception)
             {
-                //e.Appearance.ForeColor = Color.DarkBlue;
-                e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Italic);
+
+               //do nothing
             }
         }
-
         private void Refresh_simpleButton_Click(object sender, EventArgs e)
         {
             AGlobalDataContext = new NegocioDataContext();
@@ -509,8 +513,6 @@ namespace DXApplication9
             OTgridView.OptionsSelection.MultiSelect = !OTgridView.OptionsSelection.MultiSelect;
             FechaCierre_gridColumn.Visible = OTgridView.OptionsSelection.MultiSelect;
         }
-
-
 
         private void ConfirmaEntrega_barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -555,8 +557,6 @@ namespace DXApplication9
             PopulaOrdenDeTrabajoGridControl();
         }
 
-
-
         private void Descancelar_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var idSeleccionados = GetOrdenesIdSeleccionadas();
@@ -567,7 +567,6 @@ namespace DXApplication9
             }
             PopulaOrdenDeTrabajoGridControl();
         }
-
 
         private void OTgridView_DoubleClick(object sender, EventArgs e)
         {
@@ -581,7 +580,6 @@ namespace DXApplication9
         /// <param name="agridView"></param>
         /// <param name="rowHandle"></param>
         /// <returns></returns>
-
 
         private void ImprimirActividades_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -649,7 +647,6 @@ namespace DXApplication9
             MuestraSolicitudesDeActividadesSeleccionadas();
 
         }
-
 
         private void MuestraSolicitudesDeActividadesSeleccionadas()
         {
@@ -1015,8 +1012,6 @@ namespace DXApplication9
             PopulaOrdenDeTrabajoGridControl();
         }
 
-
-
         private void Nueva_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             EditOtXtraForm editOt = new EditOtXtraForm(TipoActividad);
@@ -1258,7 +1253,6 @@ namespace DXApplication9
         {
 
         }
-
 
         private List<int> _selectedDataSourceRowIndeces;
 

@@ -1,0 +1,6 @@
+
+DXApplication9/bin/*
+DXApplication9/debug/*
+DXApplication9/obj/Debug/*
+
+.gitattributes
