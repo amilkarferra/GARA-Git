@@ -60,9 +60,6 @@ namespace DXApplication9
     partial void InsertMunicipio(Municipio instance);
     partial void UpdateMunicipio(Municipio instance);
     partial void DeleteMunicipio(Municipio instance);
-    partial void InsertNomencladorCargo(NomencladorCargo instance);
-    partial void UpdateNomencladorCargo(NomencladorCargo instance);
-    partial void DeleteNomencladorCargo(NomencladorCargo instance);
     partial void InsertParticipantesDeProyectos(ParticipantesDeProyectos instance);
     partial void UpdateParticipantesDeProyectos(ParticipantesDeProyectos instance);
     partial void DeleteParticipantesDeProyectos(ParticipantesDeProyectos instance);
@@ -162,10 +159,16 @@ namespace DXApplication9
     partial void InsertArtista(Artista instance);
     partial void UpdateArtista(Artista instance);
     partial void DeleteArtista(Artista instance);
+    partial void InsertNomencladorCargo(NomencladorCargo instance);
+    partial void UpdateNomencladorCargo(NomencladorCargo instance);
+    partial void DeleteNomencladorCargo(NomencladorCargo instance);
+    partial void InsertTipoNomencladorCargo(TipoNomencladorCargo instance);
+    partial void UpdateTipoNomencladorCargo(TipoNomencladorCargo instance);
+    partial void DeleteTipoNomencladorCargo(TipoNomencladorCargo instance);
     #endregion
 		
 		public NegocioDataContext() : 
-				base(global::DXApplication9.Properties.Settings.Default.artistasConnectionString, mappingSource)
+				base(global::DXApplication9.Properties.Settings.Default.artistasConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -271,14 +274,6 @@ namespace DXApplication9
 			get
 			{
 				return this.GetTable<Municipio>();
-			}
-		}
-		
-		public System.Data.Linq.Table<NomencladorCargo> NomencladorCargo
-		{
-			get
-			{
-				return this.GetTable<NomencladorCargo>();
 			}
 		}
 		
@@ -545,6 +540,22 @@ namespace DXApplication9
 				return this.GetTable<Artista>();
 			}
 		}
+		
+		public System.Data.Linq.Table<NomencladorCargo> NomencladorCargo
+		{
+			get
+			{
+				return this.GetTable<NomencladorCargo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TipoNomencladorCargo> TipoNomencladorCargo
+		{
+			get
+			{
+				return this.GetTable<TipoNomencladorCargo>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AgrupacionDeArtista")]
@@ -571,11 +582,11 @@ namespace DXApplication9
 		
 		private EntitySet<LogAgrupacionDeArtista> _LogAgrupacionDeArtista;
 		
-		private EntityRef<NomencladorCargo> _NomencladorCargo;
-		
 		private EntityRef<Agrupacion> _Agrupacion;
 		
 		private EntityRef<Artista> _Artista;
+		
+		private EntityRef<NomencladorCargo> _NomencladorCargo;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -602,9 +613,9 @@ namespace DXApplication9
 		public AgrupacionDeArtista()
 		{
 			this._LogAgrupacionDeArtista = new EntitySet<LogAgrupacionDeArtista>(new Action<LogAgrupacionDeArtista>(this.attach_LogAgrupacionDeArtista), new Action<LogAgrupacionDeArtista>(this.detach_LogAgrupacionDeArtista));
-			this._NomencladorCargo = default(EntityRef<NomencladorCargo>);
 			this._Agrupacion = default(EntityRef<Agrupacion>);
 			this._Artista = default(EntityRef<Artista>);
+			this._NomencladorCargo = default(EntityRef<NomencladorCargo>);
 			OnCreated();
 		}
 		
@@ -793,40 +804,6 @@ namespace DXApplication9
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_AgrupacionDeArtista", Storage="_NomencladorCargo", ThisKey="NomencladorCargoId", OtherKey="NomencladorCargoID", IsForeignKey=true)]
-		public NomencladorCargo NomencladorCargo
-		{
-			get
-			{
-				return this._NomencladorCargo.Entity;
-			}
-			set
-			{
-				NomencladorCargo previousValue = this._NomencladorCargo.Entity;
-				if (((previousValue != value) 
-							|| (this._NomencladorCargo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NomencladorCargo.Entity = null;
-						previousValue.AgrupacionDeArtista.Remove(this);
-					}
-					this._NomencladorCargo.Entity = value;
-					if ((value != null))
-					{
-						value.AgrupacionDeArtista.Add(this);
-						this._NomencladorCargoId = value.NomencladorCargoID;
-					}
-					else
-					{
-						this._NomencladorCargoId = default(int);
-					}
-					this.SendPropertyChanged("NomencladorCargo");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Agrupacion_AgrupacionDeArtista", Storage="_Agrupacion", ThisKey="AgrupacionId", OtherKey="AgrupacionID", IsForeignKey=true)]
 		public Agrupacion Agrupacion
 		{
@@ -891,6 +868,40 @@ namespace DXApplication9
 						this._ArtistaId = default(int);
 					}
 					this.SendPropertyChanged("Artista");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_AgrupacionDeArtista", Storage="_NomencladorCargo", ThisKey="NomencladorCargoId", OtherKey="NomencladorCargoID", IsForeignKey=true)]
+		public NomencladorCargo NomencladorCargo
+		{
+			get
+			{
+				return this._NomencladorCargo.Entity;
+			}
+			set
+			{
+				NomencladorCargo previousValue = this._NomencladorCargo.Entity;
+				if (((previousValue != value) 
+							|| (this._NomencladorCargo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NomencladorCargo.Entity = null;
+						previousValue.AgrupacionDeArtista.Remove(this);
+					}
+					this._NomencladorCargo.Entity = value;
+					if ((value != null))
+					{
+						value.AgrupacionDeArtista.Add(this);
+						this._NomencladorCargoId = value.NomencladorCargoID;
+					}
+					else
+					{
+						this._NomencladorCargoId = default(int);
+					}
+					this.SendPropertyChanged("NomencladorCargo");
 				}
 			}
 		}
@@ -2818,224 +2829,6 @@ namespace DXApplication9
 		{
 			this.SendPropertyChanging();
 			entity.Municipio = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NomencladorCargo")]
-	public partial class NomencladorCargo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _NomencladorCargoID;
-		
-		private string _Descripcion;
-		
-		private int _Tipo;
-		
-		private int _PesoDeCargo;
-		
-		private EntitySet<AgrupacionDeArtista> _AgrupacionDeArtista;
-		
-		private EntitySet<Artista> _Artista;
-		
-		private EntitySet<Artista> _Artista1;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNomencladorCargoIDChanging(int value);
-    partial void OnNomencladorCargoIDChanged();
-    partial void OnDescripcionChanging(string value);
-    partial void OnDescripcionChanged();
-    partial void OnTipoChanging(int value);
-    partial void OnTipoChanged();
-    partial void OnPesoDeCargoChanging(int value);
-    partial void OnPesoDeCargoChanged();
-    #endregion
-		
-		public NomencladorCargo()
-		{
-			this._AgrupacionDeArtista = new EntitySet<AgrupacionDeArtista>(new Action<AgrupacionDeArtista>(this.attach_AgrupacionDeArtista), new Action<AgrupacionDeArtista>(this.detach_AgrupacionDeArtista));
-			this._Artista = new EntitySet<Artista>(new Action<Artista>(this.attach_Artista), new Action<Artista>(this.detach_Artista));
-			this._Artista1 = new EntitySet<Artista>(new Action<Artista>(this.attach_Artista1), new Action<Artista>(this.detach_Artista1));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomencladorCargoID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int NomencladorCargoID
-		{
-			get
-			{
-				return this._NomencladorCargoID;
-			}
-			set
-			{
-				if ((this._NomencladorCargoID != value))
-				{
-					this.OnNomencladorCargoIDChanging(value);
-					this.SendPropertyChanging();
-					this._NomencladorCargoID = value;
-					this.SendPropertyChanged("NomencladorCargoID");
-					this.OnNomencladorCargoIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Descripcion
-		{
-			get
-			{
-				return this._Descripcion;
-			}
-			set
-			{
-				if ((this._Descripcion != value))
-				{
-					this.OnDescripcionChanging(value);
-					this.SendPropertyChanging();
-					this._Descripcion = value;
-					this.SendPropertyChanged("Descripcion");
-					this.OnDescripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="Int NOT NULL")]
-		public int Tipo
-		{
-			get
-			{
-				return this._Tipo;
-			}
-			set
-			{
-				if ((this._Tipo != value))
-				{
-					this.OnTipoChanging(value);
-					this.SendPropertyChanging();
-					this._Tipo = value;
-					this.SendPropertyChanged("Tipo");
-					this.OnTipoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PesoDeCargo", DbType="Int NOT NULL")]
-		public int PesoDeCargo
-		{
-			get
-			{
-				return this._PesoDeCargo;
-			}
-			set
-			{
-				if ((this._PesoDeCargo != value))
-				{
-					this.OnPesoDeCargoChanging(value);
-					this.SendPropertyChanging();
-					this._PesoDeCargo = value;
-					this.SendPropertyChanged("PesoDeCargo");
-					this.OnPesoDeCargoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_AgrupacionDeArtista", Storage="_AgrupacionDeArtista", ThisKey="NomencladorCargoID", OtherKey="NomencladorCargoId")]
-		public EntitySet<AgrupacionDeArtista> AgrupacionDeArtista
-		{
-			get
-			{
-				return this._AgrupacionDeArtista;
-			}
-			set
-			{
-				this._AgrupacionDeArtista.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista", Storage="_Artista", ThisKey="NomencladorCargoID", OtherKey="NomencladorCargoId")]
-		public EntitySet<Artista> Artista
-		{
-			get
-			{
-				return this._Artista;
-			}
-			set
-			{
-				this._Artista.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista1", Storage="_Artista1", ThisKey="NomencladorCargoID", OtherKey="TipoAval")]
-		public EntitySet<Artista> Artista1
-		{
-			get
-			{
-				return this._Artista1;
-			}
-			set
-			{
-				this._Artista1.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AgrupacionDeArtista(AgrupacionDeArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.NomencladorCargo = this;
-		}
-		
-		private void detach_AgrupacionDeArtista(AgrupacionDeArtista entity)
-		{
-			this.SendPropertyChanging();
-			entity.NomencladorCargo = null;
-		}
-		
-		private void attach_Artista(Artista entity)
-		{
-			this.SendPropertyChanging();
-			entity.NomencladorCargo = this;
-		}
-		
-		private void detach_Artista(Artista entity)
-		{
-			this.SendPropertyChanging();
-			entity.NomencladorCargo = null;
-		}
-		
-		private void attach_Artista1(Artista entity)
-		{
-			this.SendPropertyChanging();
-			entity.NomencladorCargo1 = this;
-		}
-		
-		private void detach_Artista1(Artista entity)
-		{
-			this.SendPropertyChanging();
-			entity.NomencladorCargo1 = null;
 		}
 	}
 	
@@ -14958,6 +14751,427 @@ namespace DXApplication9
 		{
 			this.SendPropertyChanging();
 			entity.Artista = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NomencladorCargo")]
+	public partial class NomencladorCargo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _NomencladorCargoID;
+		
+		private string _Descripcion;
+		
+		private int _PesoDeCargo;
+		
+		private int _TipoNomencladorCargoId;
+		
+		private EntitySet<AgrupacionDeArtista> _AgrupacionDeArtista;
+		
+		private EntitySet<Artista> _Artista;
+		
+		private EntitySet<Artista> _Artista1;
+		
+		private EntityRef<TipoNomencladorCargo> _TipoNomencladorCargo;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNomencladorCargoIDChanging(int value);
+    partial void OnNomencladorCargoIDChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    partial void OnPesoDeCargoChanging(int value);
+    partial void OnPesoDeCargoChanged();
+    partial void OnTipoNomencladorCargoIdChanging(int value);
+    partial void OnTipoNomencladorCargoIdChanged();
+    #endregion
+		
+		public NomencladorCargo()
+		{
+			this._AgrupacionDeArtista = new EntitySet<AgrupacionDeArtista>(new Action<AgrupacionDeArtista>(this.attach_AgrupacionDeArtista), new Action<AgrupacionDeArtista>(this.detach_AgrupacionDeArtista));
+			this._Artista = new EntitySet<Artista>(new Action<Artista>(this.attach_Artista), new Action<Artista>(this.detach_Artista));
+			this._Artista1 = new EntitySet<Artista>(new Action<Artista>(this.attach_Artista1), new Action<Artista>(this.detach_Artista1));
+			this._TipoNomencladorCargo = default(EntityRef<TipoNomencladorCargo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomencladorCargoID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int NomencladorCargoID
+		{
+			get
+			{
+				return this._NomencladorCargoID;
+			}
+			set
+			{
+				if ((this._NomencladorCargoID != value))
+				{
+					this.OnNomencladorCargoIDChanging(value);
+					this.SendPropertyChanging();
+					this._NomencladorCargoID = value;
+					this.SendPropertyChanged("NomencladorCargoID");
+					this.OnNomencladorCargoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PesoDeCargo", DbType="Int NOT NULL")]
+		public int PesoDeCargo
+		{
+			get
+			{
+				return this._PesoDeCargo;
+			}
+			set
+			{
+				if ((this._PesoDeCargo != value))
+				{
+					this.OnPesoDeCargoChanging(value);
+					this.SendPropertyChanging();
+					this._PesoDeCargo = value;
+					this.SendPropertyChanged("PesoDeCargo");
+					this.OnPesoDeCargoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoNomencladorCargoId", DbType="Int NOT NULL")]
+		public int TipoNomencladorCargoId
+		{
+			get
+			{
+				return this._TipoNomencladorCargoId;
+			}
+			set
+			{
+				if ((this._TipoNomencladorCargoId != value))
+				{
+					if (this._TipoNomencladorCargo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTipoNomencladorCargoIdChanging(value);
+					this.SendPropertyChanging();
+					this._TipoNomencladorCargoId = value;
+					this.SendPropertyChanged("TipoNomencladorCargoId");
+					this.OnTipoNomencladorCargoIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_AgrupacionDeArtista", Storage="_AgrupacionDeArtista", ThisKey="NomencladorCargoID", OtherKey="NomencladorCargoId")]
+		public EntitySet<AgrupacionDeArtista> AgrupacionDeArtista
+		{
+			get
+			{
+				return this._AgrupacionDeArtista;
+			}
+			set
+			{
+				this._AgrupacionDeArtista.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista", Storage="_Artista", ThisKey="NomencladorCargoID", OtherKey="NomencladorCargoId")]
+		public EntitySet<Artista> Artista
+		{
+			get
+			{
+				return this._Artista;
+			}
+			set
+			{
+				this._Artista.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NomencladorCargo_Artista1", Storage="_Artista1", ThisKey="NomencladorCargoID", OtherKey="TipoAval")]
+		public EntitySet<Artista> Artista1
+		{
+			get
+			{
+				return this._Artista1;
+			}
+			set
+			{
+				this._Artista1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoNomencladorCargo_NomencladorCargo", Storage="_TipoNomencladorCargo", ThisKey="TipoNomencladorCargoId", OtherKey="TipoNomencladorCargoID", IsForeignKey=true)]
+		public TipoNomencladorCargo TipoNomencladorCargo
+		{
+			get
+			{
+				return this._TipoNomencladorCargo.Entity;
+			}
+			set
+			{
+				TipoNomencladorCargo previousValue = this._TipoNomencladorCargo.Entity;
+				if (((previousValue != value) 
+							|| (this._TipoNomencladorCargo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TipoNomencladorCargo.Entity = null;
+						previousValue.NomencladorCargo.Remove(this);
+					}
+					this._TipoNomencladorCargo.Entity = value;
+					if ((value != null))
+					{
+						value.NomencladorCargo.Add(this);
+						this._TipoNomencladorCargoId = value.TipoNomencladorCargoID;
+					}
+					else
+					{
+						this._TipoNomencladorCargoId = default(int);
+					}
+					this.SendPropertyChanged("TipoNomencladorCargo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AgrupacionDeArtista(AgrupacionDeArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NomencladorCargo = this;
+		}
+		
+		private void detach_AgrupacionDeArtista(AgrupacionDeArtista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NomencladorCargo = null;
+		}
+		
+		private void attach_Artista(Artista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NomencladorCargo = this;
+		}
+		
+		private void detach_Artista(Artista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NomencladorCargo = null;
+		}
+		
+		private void attach_Artista1(Artista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NomencladorCargo1 = this;
+		}
+		
+		private void detach_Artista1(Artista entity)
+		{
+			this.SendPropertyChanging();
+			entity.NomencladorCargo1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TipoNomencladorCargo")]
+	public partial class TipoNomencladorCargo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TipoNomencladorCargoID;
+		
+		private string _Abreviatura;
+		
+		private string _Descripcion;
+		
+		private bool _Enabled;
+		
+		private EntitySet<NomencladorCargo> _NomencladorCargo;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTipoNomencladorCargoIDChanging(int value);
+    partial void OnTipoNomencladorCargoIDChanged();
+    partial void OnAbreviaturaChanging(string value);
+    partial void OnAbreviaturaChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    partial void OnEnabledChanging(bool value);
+    partial void OnEnabledChanged();
+    #endregion
+		
+		public TipoNomencladorCargo()
+		{
+			this._NomencladorCargo = new EntitySet<NomencladorCargo>(new Action<NomencladorCargo>(this.attach_NomencladorCargo), new Action<NomencladorCargo>(this.detach_NomencladorCargo));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoNomencladorCargoID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TipoNomencladorCargoID
+		{
+			get
+			{
+				return this._TipoNomencladorCargoID;
+			}
+			set
+			{
+				if ((this._TipoNomencladorCargoID != value))
+				{
+					this.OnTipoNomencladorCargoIDChanging(value);
+					this.SendPropertyChanging();
+					this._TipoNomencladorCargoID = value;
+					this.SendPropertyChanged("TipoNomencladorCargoID");
+					this.OnTipoNomencladorCargoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Abreviatura", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Abreviatura
+		{
+			get
+			{
+				return this._Abreviatura;
+			}
+			set
+			{
+				if ((this._Abreviatura != value))
+				{
+					this.OnAbreviaturaChanging(value);
+					this.SendPropertyChanging();
+					this._Abreviatura = value;
+					this.SendPropertyChanged("Abreviatura");
+					this.OnAbreviaturaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Enabled", DbType="Bit NOT NULL")]
+		public bool Enabled
+		{
+			get
+			{
+				return this._Enabled;
+			}
+			set
+			{
+				if ((this._Enabled != value))
+				{
+					this.OnEnabledChanging(value);
+					this.SendPropertyChanging();
+					this._Enabled = value;
+					this.SendPropertyChanged("Enabled");
+					this.OnEnabledChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoNomencladorCargo_NomencladorCargo", Storage="_NomencladorCargo", ThisKey="TipoNomencladorCargoID", OtherKey="TipoNomencladorCargoId")]
+		public EntitySet<NomencladorCargo> NomencladorCargo
+		{
+			get
+			{
+				return this._NomencladorCargo;
+			}
+			set
+			{
+				this._NomencladorCargo.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_NomencladorCargo(NomencladorCargo entity)
+		{
+			this.SendPropertyChanging();
+			entity.TipoNomencladorCargo = this;
+		}
+		
+		private void detach_NomencladorCargo(NomencladorCargo entity)
+		{
+			this.SendPropertyChanging();
+			entity.TipoNomencladorCargo = null;
 		}
 	}
 }

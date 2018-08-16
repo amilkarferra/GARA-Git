@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="artistas" Class="NegocioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=artistas;Persist Security Info=False;User ID=artex" SettingsObjectName="DXApplication9.Properties.Settings" SettingsPropertyName="artistasConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=artistas;Persist Security Info=True;User ID=artex" SettingsObjectName="DXApplication9.Properties.Settings" SettingsPropertyName="artistasConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AgrupacionDeArtista" Member="AgrupacionDeArtista">
     <Type Name="AgrupacionDeArtista">
       <Column Name="AgrupacionDeArtistaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -11,9 +11,9 @@
       <Column Name="NomencladorCargoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="AbrevDesempenno" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="AgrupacionDeArtista_LogAgrupacionDeArtista" Member="LogAgrupacionDeArtista" ThisKey="AgrupacionDeArtistaID" OtherKey="AgrupacionDeArtistaId" Type="LogAgrupacionDeArtista" />
-      <Association Name="NomencladorCargo_AgrupacionDeArtista" Member="NomencladorCargo" ThisKey="NomencladorCargoId" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
       <Association Name="Agrupacion_AgrupacionDeArtista" Member="Agrupacion" ThisKey="AgrupacionId" OtherKey="AgrupacionID" Type="Agrupacion" IsForeignKey="true" />
       <Association Name="Artista_AgrupacionDeArtista" Member="Artista" ThisKey="ArtistaId" OtherKey="ArtistaID" Type="Artista" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="NomencladorCargo_AgrupacionDeArtista" Member="NomencladorCargo" ThisKey="NomencladorCargoId" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Cancion" Member="Cancion">
@@ -106,17 +106,6 @@
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Municipio_Artista" Member="Artista" ThisKey="MunicipioID" OtherKey="MunicipioId" Type="Artista" />
       <Association Name="Provincia_Municipio" Member="Provincia" ThisKey="ProvinciaID" OtherKey="ProvinciaID" Type="Provincia" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.NomencladorCargo" Member="NomencladorCargo">
-    <Type Name="NomencladorCargo">
-      <Column Name="NomencladorCargoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Tipo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PesoDeCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="NomencladorCargo_AgrupacionDeArtista" Member="AgrupacionDeArtista" ThisKey="NomencladorCargoID" OtherKey="NomencladorCargoId" Type="AgrupacionDeArtista" />
-      <Association Name="NomencladorCargo_Artista" Member="Artista" ThisKey="NomencladorCargoID" OtherKey="NomencladorCargoId" Type="Artista" />
-      <Association Name="NomencladorCargo_Artista1" Member="Artista1" ThisKey="NomencladorCargoID" OtherKey="TipoAval" Type="Artista" />
     </Type>
   </Table>
   <Table Name="dbo.ParticipantesDeProyectos" Member="ParticipantesDeProyectos">
@@ -654,6 +643,27 @@
       <Association Name="NoEscalaSalarial_Artista" Member="NoEscalaSalarial" ThisKey="NoEscalaSalarialId" OtherKey="NoEscalaSalarialID" Type="NoEscalaSalarial" IsForeignKey="true" />
       <Association Name="NomencladorCargo_Artista" Member="NomencladorCargo" ThisKey="NomencladorCargoId" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
       <Association Name="NomencladorCargo_Artista1" Member="NomencladorCargo1" ThisKey="TipoAval" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NomencladorCargo" Member="NomencladorCargo">
+    <Type Name="NomencladorCargo">
+      <Column Name="NomencladorCargoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PesoDeCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoNomencladorCargoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NomencladorCargo_AgrupacionDeArtista" Member="AgrupacionDeArtista" ThisKey="NomencladorCargoID" OtherKey="NomencladorCargoId" Type="AgrupacionDeArtista" />
+      <Association Name="NomencladorCargo_Artista" Member="Artista" ThisKey="NomencladorCargoID" OtherKey="NomencladorCargoId" Type="Artista" />
+      <Association Name="NomencladorCargo_Artista1" Member="Artista1" ThisKey="NomencladorCargoID" OtherKey="TipoAval" Type="Artista" />
+      <Association Name="TipoNomencladorCargo_NomencladorCargo" Member="TipoNomencladorCargo" ThisKey="TipoNomencladorCargoId" OtherKey="TipoNomencladorCargoID" Type="TipoNomencladorCargo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoNomencladorCargo" Member="TipoNomencladorCargo">
+    <Type Name="TipoNomencladorCargo">
+      <Column Name="TipoNomencladorCargoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Abreviatura" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="TipoNomencladorCargo_NomencladorCargo" Member="NomencladorCargo" ThisKey="TipoNomencladorCargoID" OtherKey="TipoNomencladorCargoId" Type="NomencladorCargo" />
     </Type>
   </Table>
 </Database>

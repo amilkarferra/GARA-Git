@@ -19,7 +19,7 @@ namespace DXApplication9
         public NomencladorGridXtraUserControl()
         {
             InitializeComponent();
-            noEscalaSalarialBindingSource.DataSource = _dataContext.NoEscalaSalarial;
+            bindingSource.DataSource = _dataContext.NoEscalaSalarial;
         }
         void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -77,7 +77,7 @@ namespace DXApplication9
         private void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
            _dataContext = new NegocioDataContext();
-            noEscalaSalarialBindingSource.DataSource = _dataContext.NoEscalaSalarial;
+            bindingSource.DataSource = _dataContext.NoEscalaSalarial;
         }
 
     }

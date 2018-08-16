@@ -224,6 +224,11 @@
     <Compile Include="Dashboard2.Designer.cs">
       <DependentUpon>Dashboard2.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DeudasHistoricoXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,11 +241,20 @@
     <Compile Include="EscalaSalarialXtraForm.Designer.cs">
       <DependentUpon>EscalaSalarialXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Negocio.cs">
+      <DependentUpon>Negocio.dbml</DependentUpon>
+    </Compile>
     <Compile Include="NomencladorNoEscalaSalarialXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NomencladorNoEscalaSalarialXtraForm.Designer.cs">
       <DependentUpon>NomencladorNoEscalaSalarialXtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NomencladorTipoCargosXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NomencladorTipoCargosXtraForm.Designer.cs">
+      <DependentUpon>NomencladorTipoCargosXtraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PopupAsignarEscalaXtraForm.cs">
       <SubType>Form</SubType>
@@ -869,6 +883,9 @@
     <EmbeddedResource Include="Dashboard2.resx">
       <DependentUpon>Dashboard2.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="DeudasHistoricoXtraForm.resx">
       <DependentUpon>DeudasHistoricoXtraForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -877,6 +894,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NomencladorNoEscalaSalarialXtraForm.resx">
       <DependentUpon>NomencladorNoEscalaSalarialXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NomencladorTipoCargosXtraForm.resx">
+      <DependentUpon>NomencladorTipoCargosXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopupAsignarEscalaXtraForm.resx">
       <DependentUpon>PopupAsignarEscalaXtraForm.cs</DependentUpon>
@@ -1178,6 +1198,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NomencladorGridXtraUserControl.resx">
       <DependentUpon>NomencladorGridXtraUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -1206,6 +1227,11 @@
       <DependentUpon>artistasDataSet11.xsd</DependentUpon>
     </None>
     <None Include="ClassDiagram1.cd" />
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Dictionaries\es_ES.aff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1267,6 +1293,7 @@
     <None Include="Properties\DataSources\RolesPorReporteUserControl.SmallConfiguracion.datasource" />
     <None Include="Properties\DataSources\TipoDescuento.datasource" />
     <None Include="Properties\DataSources\TipoMoneda.datasource" />
+    <None Include="Properties\DataSources\TipoNomencladorCargo.datasource" />
     <None Include="Properties\DataSources\TrayectoriaArtista.datasource" />
     <None Include="Properties\DataSources\Usuario.datasource" />
     <None Include="Properties\Settings.settings">

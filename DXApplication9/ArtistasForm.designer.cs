@@ -97,8 +97,9 @@
             this.colStatusLaboral = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCarnetIdentidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaAlta = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colArtista = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTipoNomencladorCargo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TipoCargo_repositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.tipoNomencladorCargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colFechaBaja = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEdad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAgrupacion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -225,6 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Artista_gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Obligatory_repositoryItemTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoCargo_repositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoNomencladorCargoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoPasaporte_repositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.municipioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciaBindingSource)).BeginInit();
@@ -426,7 +428,7 @@
             this.colStatusLaboral,
             this.colCarnetIdentidad,
             this.colFechaAlta,
-            this.colArtista,
+            this.colTipoNomencladorCargo,
             this.colFechaBaja,
             this.colEdad,
             this.colAgrupacion,
@@ -578,14 +580,14 @@
             this.colFechaAlta.VisibleIndex = 4;
             this.colFechaAlta.Width = 73;
             // 
-            // colArtista
+            // colTipoNomencladorCargo
             // 
-            this.colArtista.ColumnEdit = this.TipoCargo_repositoryItemLookUpEdit;
-            this.colArtista.FieldName = "NomencladorCargo.Tipo";
-            this.colArtista.Name = "colArtista";
-            this.colArtista.Visible = true;
-            this.colArtista.VisibleIndex = 7;
-            this.colArtista.Width = 73;
+            this.colTipoNomencladorCargo.Caption = "Tipo";
+            this.colTipoNomencladorCargo.FieldName = "NomencladorCargo.TipoNomencladorCargo.Abreviatura";
+            this.colTipoNomencladorCargo.Name = "colTipoNomencladorCargo";
+            this.colTipoNomencladorCargo.Visible = true;
+            this.colTipoNomencladorCargo.VisibleIndex = 7;
+            this.colTipoNomencladorCargo.Width = 73;
             // 
             // TipoCargo_repositoryItemLookUpEdit
             // 
@@ -594,7 +596,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.TipoCargo_repositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Tipo")});
+            this.TipoCargo_repositoryItemLookUpEdit.DataSource = this.tipoNomencladorCargoBindingSource;
+            this.TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Abreviatura";
+            this.TipoCargo_repositoryItemLookUpEdit.KeyMember = "TipoNomencladorCargoID";
             this.TipoCargo_repositoryItemLookUpEdit.Name = "TipoCargo_repositoryItemLookUpEdit";
+            this.TipoCargo_repositoryItemLookUpEdit.ValueMember = "TipoNomencladorCargoID";
+            // 
+            // tipoNomencladorCargoBindingSource
+            // 
+            this.tipoNomencladorCargoBindingSource.DataSource = typeof(DXApplication9.TipoNomencladorCargo);
             // 
             // colFechaBaja
             // 
@@ -1850,6 +1860,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Artista_gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Obligatory_repositoryItemTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoCargo_repositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoNomencladorCargoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoPasaporte_repositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.municipioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciaBindingSource)).EndInit();
@@ -1931,7 +1942,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private System.Windows.Forms.BindingSource agrupacionDeArtistaBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colFechaAlta;
-        private DevExpress.XtraGrid.Columns.GridColumn colArtista;
+        private DevExpress.XtraGrid.Columns.GridColumn colTipoNomencladorCargo;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit TipoCargo_repositoryItemLookUpEdit;
         private DevExpress.XtraGrid.Columns.GridColumn colFechaBaja;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
@@ -2045,5 +2056,6 @@
         private DevExpress.XtraBars.BarButtonItem MostrarAltasYBajas_barButtonItem;
         private DevExpress.XtraBars.BarButtonItem MostrarSoloAltas_barButtonItem;
         private DevExpress.XtraBars.BarButtonItem MostrarSoloBjas_barButtonItem;
+        private System.Windows.Forms.BindingSource tipoNomencladorCargoBindingSource;
     }
 }

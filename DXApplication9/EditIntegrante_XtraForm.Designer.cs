@@ -371,7 +371,7 @@
             this.MotivoNoSegSocial_lookUpEdit.StyleController = this.layoutControl1;
             this.MotivoNoSegSocial_lookUpEdit.TabIndex = 57;
             // 
-            // noEscalaSalarialBindingSource
+            // bindingSource
             // 
             this.noEscalaSalarialBindingSource.DataSource = typeof(DXApplication9.NoEscalaSalarial);
             // 

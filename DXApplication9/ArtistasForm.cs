@@ -65,10 +65,12 @@ namespace DXApplication9
             //  NuevoIntegrante_simpleButton.Enabled = LoginHelper.RoleDeUsuario == Enumerados.Roles.RecursosHumanos ||
             //                                         LoginHelper.UsuarioRegistrado.EsAdministrador();
 
-            TipoCargo_repositoryItemLookUpEdit.DataSource = Enumerados.ListaDeEnumerados(typeof(Enumerados.TipoCargo));
-            //Enumerados.EnumToList(Enumerados.ProyectoEnumerados.TipoCargo);
-            TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Tipo";
-            TipoCargo_repositoryItemLookUpEdit.ValueMember = "Valor";
+
+            //tipoNomencladorCargoBindingSource.DataSource = AGlobalDataContext.TipoNomencladorCargo;
+            //TipoCargo_repositoryItemLookUpEdit.DataSource = Enumerados.ListaDeEnumerados(typeof(Enumerados.TipoCargo));
+            ////Enumerados.EnumToList(Enumerados.ProyectoEnumerados.TipoCargo);
+            //TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Tipo";
+            //TipoCargo_repositoryItemLookUpEdit.ValueMember = "Valor";
             colFechaBaja.Visible = false;
             PopulaGrid();
             Artista_gridView.Columns["FechaBaja"].FilterInfo = new ColumnFilterInfo("[FechaBaja] IS NULL"); //muestro por defecto solo las altas

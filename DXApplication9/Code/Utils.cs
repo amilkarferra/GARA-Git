@@ -83,6 +83,7 @@ namespace DXApplication9
         {
             return Convert.ToInt32(value);
         }
+
         /// <summary>
         /// Devuelve el valor del Atributo Description del valor del enumerado
         /// Si no tiene dicho atributo devuelve el valor convertido a cadena.
@@ -601,6 +602,21 @@ namespace DXApplication9
         {
             XtraMessageBox.AllowHtmlText = true;
             XtraMessageBox.Show(aMensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        /// <summary>
+        ///Muestra un dialogo para asegurar el borrado
+        /// </summary>
+        /// <returns></returns>
+        public static DialogResult MuestraMensajeEliminacion()
+        {
+            return MuestraDialogYesNo("Esta acción es irreversible,<br> está seguro ?");
+        }
+
+        public static DialogResult MuestraDialogYesNo(string message)
+        {
+            XtraMessageBox.AllowHtmlText = true;
+            return XtraMessageBox.Show(message, "Seguro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         /// <summary>

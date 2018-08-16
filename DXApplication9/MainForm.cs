@@ -990,5 +990,11 @@ namespace DXApplication9
             NomencladorNoEscalaSalarialXtraForm Form = new NomencladorNoEscalaSalarialXtraForm { MdiParent = this };
             Form.Show();
         }
+
+        private void NomTipoCargo_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            NomencladorTipoCargosXtraForm Form = new NomencladorTipoCargosXtraForm { MdiParent = this };
+            Form.Show();
+        }
     }
 }

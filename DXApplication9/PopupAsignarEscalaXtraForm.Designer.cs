@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopupAsignarEscalaXtraForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.Salir_simpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.Ok_simpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.escalaSalarialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.escalaSalarialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.escalaSalarialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.escalaSalarialBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -64,6 +64,28 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // Salir_simpleButton
+            // 
+            this.Salir_simpleButton.ImageOptions.Image = global::DXApplication9.Properties.Resources.walking_16x16;
+            this.Salir_simpleButton.Location = new System.Drawing.Point(143, 36);
+            this.Salir_simpleButton.Name = "Salir_simpleButton";
+            this.Salir_simpleButton.Size = new System.Drawing.Size(76, 22);
+            this.Salir_simpleButton.StyleController = this.layoutControl1;
+            this.Salir_simpleButton.TabIndex = 6;
+            this.Salir_simpleButton.Text = "Salir";
+            this.Salir_simpleButton.Click += new System.EventHandler(this.Salir_simpleButton_Click);
+            // 
+            // Ok_simpleButton
+            // 
+            this.Ok_simpleButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Ok_simpleButton.ImageOptions.Image")));
+            this.Ok_simpleButton.Location = new System.Drawing.Point(63, 36);
+            this.Ok_simpleButton.Name = "Ok_simpleButton";
+            this.Ok_simpleButton.Size = new System.Drawing.Size(76, 22);
+            this.Ok_simpleButton.StyleController = this.layoutControl1;
+            this.Ok_simpleButton.TabIndex = 5;
+            this.Ok_simpleButton.Text = "Aceptar";
+            this.Ok_simpleButton.Click += new System.EventHandler(this.Ok_simpleButton_Click);
+            // 
             // lookUpEdit1
             // 
             this.lookUpEdit1.Location = new System.Drawing.Point(69, 12);
@@ -78,6 +100,10 @@
             this.lookUpEdit1.Size = new System.Drawing.Size(150, 20);
             this.lookUpEdit1.StyleController = this.layoutControl1;
             this.lookUpEdit1.TabIndex = 4;
+            // 
+            // escalaSalarialBindingSource
+            // 
+            this.escalaSalarialBindingSource.DataSource = typeof(DXApplication9.EscalaSalarial);
             // 
             // layoutControlGroup1
             // 
@@ -102,36 +128,6 @@
             this.layoutControlItem1.Text = "Seleccione:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(54, 13);
             // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(51, 30);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // Salir_simpleButton
-            // 
-            this.Salir_simpleButton.ImageOptions.Image = global::DXApplication9.Properties.Resources.walking_16x16;
-            this.Salir_simpleButton.Location = new System.Drawing.Point(143, 36);
-            this.Salir_simpleButton.Name = "Salir_simpleButton";
-            this.Salir_simpleButton.Size = new System.Drawing.Size(76, 22);
-            this.Salir_simpleButton.StyleController = this.layoutControl1;
-            this.Salir_simpleButton.TabIndex = 6;
-            this.Salir_simpleButton.Text = "Salir";
-            this.Salir_simpleButton.Click += new System.EventHandler(this.Salir_simpleButton_Click);
-            // 
-            // Ok_simpleButton
-            // 
-            this.Ok_simpleButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Ok_simpleButton.ImageOptions.Image")));
-            this.Ok_simpleButton.Location = new System.Drawing.Point(63, 36);
-            this.Ok_simpleButton.Name = "Ok_simpleButton";
-            this.Ok_simpleButton.Size = new System.Drawing.Size(76, 22);
-            this.Ok_simpleButton.StyleController = this.layoutControl1;
-            this.Ok_simpleButton.TabIndex = 5;
-            this.Ok_simpleButton.Text = "Aceptar";
-            this.Ok_simpleButton.Click += new System.EventHandler(this.Ok_simpleButton_Click);
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.Ok_simpleButton;
@@ -150,9 +146,13 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // escalaSalarialBindingSource
+            // emptySpaceItem1
             // 
-            this.escalaSalarialBindingSource.DataSource = typeof(DXApplication9.EscalaSalarial);
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(51, 30);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // PopupAsignarEscalaXtraForm
             // 
@@ -165,12 +165,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.escalaSalarialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.escalaSalarialBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

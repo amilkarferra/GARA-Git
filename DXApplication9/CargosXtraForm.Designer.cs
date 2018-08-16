@@ -35,13 +35,14 @@
             this.Cargos_gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNomencladorCargoID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TipoCargo_repositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colPesoDeCargo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.colTipoNomencladorCargo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tipoNomencladorCargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Cargos_gridControl)).BeginInit();
@@ -51,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoNomencladorCargoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -93,8 +95,8 @@
             this.Cargos_gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colDescripcion,
             this.colNomencladorCargoID,
-            this.colTipo,
-            this.colPesoDeCargo});
+            this.colPesoDeCargo,
+            this.colTipoNomencladorCargo});
             this.Cargos_gridView.GridControl = this.Cargos_gridControl;
             this.Cargos_gridView.Name = "Cargos_gridView";
             this.Cargos_gridView.NewItemRowText = "Clic aquí Para insertar nuevo registro";
@@ -122,27 +124,23 @@
             this.colNomencladorCargoID.FieldName = "NomencladorCargoID";
             this.colNomencladorCargoID.Name = "colNomencladorCargoID";
             // 
-            // colTipo
-            // 
-            this.colTipo.ColumnEdit = this.TipoCargo_repositoryItemLookUpEdit;
-            this.colTipo.FieldName = "Tipo";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.Visible = true;
-            this.colTipo.VisibleIndex = 2;
-            // 
             // TipoCargo_repositoryItemLookUpEdit
             // 
             this.TipoCargo_repositoryItemLookUpEdit.AutoHeight = false;
             this.TipoCargo_repositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TipoCargo_repositoryItemLookUpEdit.DataSource = this.tipoNomencladorCargoBindingSource;
+            this.TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Abreviatura";
+            this.TipoCargo_repositoryItemLookUpEdit.KeyMember = "TipoNomencladorCargoID";
             this.TipoCargo_repositoryItemLookUpEdit.Name = "TipoCargo_repositoryItemLookUpEdit";
+            this.TipoCargo_repositoryItemLookUpEdit.ValueMember = "TipoNomencladorCargoID";
             // 
             // colPesoDeCargo
             // 
             this.colPesoDeCargo.FieldName = "PesoDeCargo";
             this.colPesoDeCargo.Name = "colPesoDeCargo";
             this.colPesoDeCargo.Visible = true;
-            this.colPesoDeCargo.VisibleIndex = 3;
+            this.colPesoDeCargo.VisibleIndex = 2;
             // 
             // layoutControlGroup1
             // 
@@ -168,6 +166,18 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             // 
+            // colTipoNomencladorCargo
+            // 
+            this.colTipoNomencladorCargo.ColumnEdit = this.TipoCargo_repositoryItemLookUpEdit;
+            this.colTipoNomencladorCargo.FieldName = "TipoNomencladorCargo.Abreviatura";
+            this.colTipoNomencladorCargo.Name = "colTipoNomencladorCargo";
+            this.colTipoNomencladorCargo.Visible = true;
+            this.colTipoNomencladorCargo.VisibleIndex = 3;
+            // 
+            // tipoNomencladorCargoBindingSource
+            // 
+            this.tipoNomencladorCargoBindingSource.DataSource = typeof(DXApplication9.TipoNomencladorCargo);
+            // 
             // CargosXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoNomencladorCargoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,10 +211,10 @@
         private System.Windows.Forms.BindingSource nomencladorCargoBindingSource;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private DevExpress.XtraGrid.Columns.GridColumn colNomencladorCargoID;
-        private DevExpress.XtraGrid.Columns.GridColumn colTipo;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit TipoCargo_repositoryItemLookUpEdit;
         private DevExpress.XtraGrid.Columns.GridColumn colPesoDeCargo;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
-
+        private DevExpress.XtraGrid.Columns.GridColumn colTipoNomencladorCargo;
+        private System.Windows.Forms.BindingSource tipoNomencladorCargoBindingSource;
     }
 }

@@ -1,32 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace DXApplication9
 {
-    public partial class CargosXtraForm : DevExpress.XtraEditors.XtraForm
+    public partial class CargosXtraForm : XtraForm
     {
-        NegocioDataContext AGlobalDataContext = new NegocioDataContext();
+        private readonly NegocioDataContext _aGlobalDataContext = new NegocioDataContext();
         public CargosXtraForm()
         {
             InitializeComponent();
-            nomencladorCargoBindingSource.DataSource = AGlobalDataContext.NomencladorCargo;
-            TipoCargo_repositoryItemLookUpEdit.DataSource = Enumerados.ListaDeEnumerados(typeof (Enumerados.TipoCargo));
-            TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Tipo";
-            TipoCargo_repositoryItemLookUpEdit.ValueMember = "Valor";
+            nomencladorCargoBindingSource.DataSource = _aGlobalDataContext.NomencladorCargo;
+            tipoNomencladorCargoBindingSource.DataSource = _aGlobalDataContext.TipoNomencladorCargo;
+           
         }
 
-        private void Cargos_gridView_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        private void Cargos_gridView_RowUpdated(object sender, RowObjectEventArgs e)
         {
             try
             {
-                AGlobalDataContext.SubmitChanges();
+                _aGlobalDataContext.SubmitChanges();
             }
             catch (Exception)
             {

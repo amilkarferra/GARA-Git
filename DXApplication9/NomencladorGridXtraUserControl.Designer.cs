@@ -26,11 +26,11 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.noEscalaSalarialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNoEscalaSalarialID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,7 +48,7 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.noEscalaSalarialBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
@@ -56,7 +56,7 @@
             // 
             // gridControl
             // 
-            this.gridControl.DataSource = this.noEscalaSalarialBindingSource;
+            this.gridControl.DataSource = this.bindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.Location = new System.Drawing.Point(0, 115);
             this.gridControl.MainView = this.gridView;
@@ -70,9 +70,9 @@
             this.gridView});
             this.gridControl.Click += new System.EventHandler(this.gridControl_Click);
             // 
-            // noEscalaSalarialBindingSource
+            // bindingSource
             // 
-            this.noEscalaSalarialBindingSource.DataSource = typeof(DXApplication9.NoEscalaSalarial);
+            this.bindingSource.DataSource = typeof(DXApplication9.NoEscalaSalarial);
             // 
             // gridView
             // 
@@ -208,7 +208,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiPrintPreview);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Print and Export";
+            this.ribbonPageGroup2.Text = "Ver";
             // 
             // ribbonStatusBar
             // 
@@ -228,7 +228,7 @@
             this.Name = "NomencladorGridXtraUserControl";
             this.Size = new System.Drawing.Size(800, 600);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.noEscalaSalarialBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -238,23 +238,23 @@
         }
 
         #endregion
-        private DevExpress.XtraGrid.GridControl gridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem bbiPrintPreview;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarStaticItem bsiRecordsCount;
-        private DevExpress.XtraBars.BarButtonItem bbiNew;
-        private DevExpress.XtraBars.BarButtonItem bbiEdit;
-        private DevExpress.XtraBars.BarButtonItem bbiDelete;
-        private DevExpress.XtraBars.BarButtonItem bbiRefresh;
-        private System.Windows.Forms.BindingSource noEscalaSalarialBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colNoEscalaSalarialID;
-        private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colAbreviatura;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        public DevExpress.XtraGrid.GridControl gridControl;
+        public DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        public DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
+        public DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        public DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        public DevExpress.XtraBars.BarButtonItem bbiPrintPreview;
+        public DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        public DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
+        public DevExpress.XtraBars.BarStaticItem bsiRecordsCount;
+        public DevExpress.XtraBars.BarButtonItem bbiNew;
+        public DevExpress.XtraBars.BarButtonItem bbiEdit;
+        public DevExpress.XtraBars.BarButtonItem bbiDelete;
+        public DevExpress.XtraBars.BarButtonItem bbiRefresh;
+        public System.Windows.Forms.BindingSource bindingSource;
+        public DevExpress.XtraGrid.Columns.GridColumn colNoEscalaSalarialID;
+        public DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
+        public DevExpress.XtraGrid.Columns.GridColumn colAbreviatura;
+        public DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
     }
 }
