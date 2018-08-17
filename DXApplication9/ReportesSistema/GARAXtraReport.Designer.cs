@@ -277,8 +277,8 @@
             // 
             // Configuracion_objectDataSource
             // 
-            //this.Configuracion_objectDataSource.DataSource = typeof(DXApplication9.ConfiguracionGeneral);
-            //this.Configuracion_objectDataSource.Name = "Configuracion_objectDataSource";
+            this.Configuracion_objectDataSource.DataSourceType = null;
+            this.Configuracion_objectDataSource.Name = "Configuracion_objectDataSource";
             // 
             // ReportesFirmas_linqServerModeSource
             // 
@@ -309,6 +309,7 @@
             this.PageFooter});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.Configuracion_objectDataSource});
+            this.DataSource = this.Configuracion_linqServerModeSource;
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 85, 100);
             this.Scripts.OnFillEmptySpace = "XtraReport1_FillEmptySpace";
             this.Version = "17.1";
@@ -358,7 +359,6 @@
         public DevExpress.XtraReports.UI.XRTableCell AgenciaCentro_xrTableCell;
         public DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         public DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
-        public DevExpress.Data.Linq.LinqServerModeSource Configuracion_linqServerModeSource;
-
+        private DevExpress.Data.Linq.LinqServerModeSource Configuracion_linqServerModeSource;
     }
 }

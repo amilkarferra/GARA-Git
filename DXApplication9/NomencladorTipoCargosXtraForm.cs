@@ -41,6 +41,11 @@ namespace DXApplication9
 
         private void Refresh_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            ActualizaTabla();
+        }
+
+        private void ActualizaTabla()
+        {
             _dataContext = new NegocioDataContext();
             bindingSource.DataSource = _dataContext.TipoNomencladorCargo;
         }
@@ -54,7 +59,8 @@ namespace DXApplication9
             catch (Exception exception)
             {
                
-                Utils.MuestraError();
+                Utils.MuestraErrorDeEliminacion();
+
             }
         }
 

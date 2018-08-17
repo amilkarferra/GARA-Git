@@ -114,13 +114,6 @@ namespace DXApplication9
             }
         }
 
-        public enum TipoCargo
-        {
-            [Description("Artista")]
-            Artista = 1,
-            [Description("Apoyo")]
-            Apoyo = 2
-        }
         public enum TipoTramiteMigratorio
         {
             [Description("Confección de Pasaporte Ordinario")]
@@ -667,6 +660,11 @@ namespace DXApplication9
             var dc = new NegocioDataContext();
             var logError = new LogAction();
             //TODO implementar y estudiar el objeto exception para que se pueda implementar bien este log
+        }
+
+        public static void MuestraErrorDeEliminacion()
+        {
+           MuestraError("Error durante el proceso de borrado.<br><i><b>nota: </b>Usualmente ocurre cuando el registro ha sido previamente asignado.</i>");
         }
     }
     public class NumLetra

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NomencladorTipoCargosXtraForm));
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            this.colEnabled = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.Add_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.Edit_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
@@ -49,8 +50,8 @@
             this.colTipoNomencladorCargoID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAbreviatura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEnabled = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -58,6 +59,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
             this.gridSplitContainer1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // colEnabled
+            // 
+            this.colEnabled.Caption = "Habilitado";
+            this.colEnabled.FieldName = "Enabled";
+            this.colEnabled.Name = "colEnabled";
+            this.colEnabled.Visible = true;
+            this.colEnabled.VisibleIndex = 2;
             // 
             // ribbonControl1
             // 
@@ -143,7 +152,7 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Ver";
             // 
             // ribbonStatusBar1
             // 
@@ -224,14 +233,6 @@
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 1;
             // 
-            // colEnabled
-            // 
-            this.colEnabled.Caption = "Habilitado";
-            this.colEnabled.FieldName = "Enabled";
-            this.colEnabled.Name = "colEnabled";
-            this.colEnabled.Visible = true;
-            this.colEnabled.VisibleIndex = 2;
-            // 
             // gridSplitContainer1
             // 
             this.gridSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -241,6 +242,14 @@
             this.gridSplitContainer1.Panel1.Controls.Add(this.gridControl1);
             this.gridSplitContainer1.Size = new System.Drawing.Size(681, 355);
             this.gridSplitContainer1.TabIndex = 5;
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Nuevo";
+            this.barButtonItem2.Id = 1;
+            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // NomencladorTipoCargosXtraForm
             // 
@@ -286,5 +295,6 @@
         private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
     }
 }

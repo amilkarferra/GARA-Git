@@ -224,11 +224,6 @@
     <Compile Include="Dashboard2.Designer.cs">
       <DependentUpon>Dashboard2.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataClasses1.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Compile>
     <Compile Include="DeudasHistoricoXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +238,12 @@
     </Compile>
     <Compile Include="Negocio.cs">
       <DependentUpon>Negocio.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="NomencladorEscalasDeValores_RibbonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NomencladorEscalasDeValores_RibbonForm.Designer.cs">
+      <DependentUpon>NomencladorEscalasDeValores_RibbonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NomencladorNoEscalaSalarialXtraForm.cs">
       <SubType>Form</SubType>
@@ -513,11 +514,11 @@
     <Compile Include="ReportesSistema\GARAXtraReport.Designer.cs">
       <DependentUpon>GARAXtraReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportesSistema\IngresosPersonalesEscalaValoresXtraReport.cs">
+    <Compile Include="ReportesSistema\IngresosPersonalesSegunEscalaDeValores_XtraReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReportesSistema\IngresosPersonalesEscalaValoresXtraReport.Designer.cs">
-      <DependentUpon>IngresosPersonalesEscalaValoresXtraReport.cs</DependentUpon>
+    <Compile Include="ReportesSistema\IngresosPersonalesSegunEscalaDeValores_XtraReport.Designer.cs">
+      <DependentUpon>IngresosPersonalesSegunEscalaDeValores_XtraReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportesSistema\IngresosPorUA_XtraReport.cs">
       <SubType>Component</SubType>
@@ -883,14 +884,14 @@
     <EmbeddedResource Include="Dashboard2.resx">
       <DependentUpon>Dashboard2.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="DeudasHistoricoXtraForm.resx">
       <DependentUpon>DeudasHistoricoXtraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EscalaSalarialXtraForm.resx">
       <DependentUpon>EscalaSalarialXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NomencladorEscalasDeValores_RibbonForm.resx">
+      <DependentUpon>NomencladorEscalasDeValores_RibbonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NomencladorNoEscalaSalarialXtraForm.resx">
       <DependentUpon>NomencladorNoEscalaSalarialXtraForm.cs</DependentUpon>
@@ -1028,8 +1029,8 @@
     <EmbeddedResource Include="ReportesSistema\GARAXtraReport.resx">
       <DependentUpon>GARAXtraReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportesSistema\IngresosPersonalesEscalaValoresXtraReport.resx">
-      <DependentUpon>IngresosPersonalesEscalaValoresXtraReport.cs</DependentUpon>
+    <EmbeddedResource Include="ReportesSistema\IngresosPersonalesSegunEscalaDeValores_XtraReport.resx">
+      <DependentUpon>IngresosPersonalesSegunEscalaDeValores_XtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesSistema\IngresosPorUA_XtraReport.resx">
       <DependentUpon>IngresosPorUA_XtraReport.cs</DependentUpon>
@@ -1227,11 +1228,6 @@
       <DependentUpon>artistasDataSet11.xsd</DependentUpon>
     </None>
     <None Include="ClassDiagram1.cd" />
-    <None Include="DataClasses1.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Dictionaries\es_ES.aff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1279,6 +1275,7 @@
     <None Include="Properties\DataSources\NegocioDataContext.datasource" />
     <None Include="Properties\DataSources\NoEscalaSalarial.datasource" />
     <None Include="Properties\DataSources\NomencladorCargo.datasource" />
+    <None Include="Properties\DataSources\NomencladorEscalasDeIngreso.datasource" />
     <None Include="Properties\DataSources\Nomina.datasource" />
     <None Include="Properties\DataSources\OnatDeUA.datasource" />
     <None Include="Properties\DataSources\OrdenDeTrabajo.datasource" />

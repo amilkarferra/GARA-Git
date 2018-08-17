@@ -26,8 +26,8 @@ namespace DXApplication9.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SISTEMA;Initial Catalog=artistas;Persist Security Info=False;User ID=" +
-            "artex;Password=artex")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLExpress;Initial Catalog=artistas;Persist Security Info=True;User" +
+            " ID=artex;Password=artex")]
         public string artistasConnectionString {
             get {
                 return ((string)(this["artistasConnectionString"]));
@@ -42,6 +42,16 @@ namespace DXApplication9.Properties {
         public string artistasConnectionString1 {
             get {
                 return ((string)(this["artistasConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLExpress;Initial Catalog=artistas;User ID=artex;Password=artex")]
+        public string artistasConnectionString2 {
+            get {
+                return ((string)(this["artistasConnectionString2"]));
             }
         }
     }

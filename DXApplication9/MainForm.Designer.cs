@@ -165,6 +165,8 @@ namespace DXApplication9
             this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
             this.NoAportanSeguridadSocial_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.NomTipoCargo_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.NomencladorEscValores_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonMiniToolbar2 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonMiniToolbar3 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
@@ -205,7 +207,6 @@ namespace DXApplication9
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.NomTipoCargo_barButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -296,9 +297,10 @@ namespace DXApplication9
             this.barButtonItem24,
             this.barButtonItem25,
             this.NoAportanSeguridadSocial_barButtonItem,
-            this.NomTipoCargo_barButtonItem});
+            this.NomTipoCargo_barButtonItem,
+            this.NomencladorEscValores_barButtonItem});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 54;
+            this.ribbonControl.MaxItemId = 55;
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar2);
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar3);
@@ -1113,6 +1115,24 @@ namespace DXApplication9
             this.NoAportanSeguridadSocial_barButtonItem.Name = "NoAportanSeguridadSocial_barButtonItem";
             this.NoAportanSeguridadSocial_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.NoAportanSeguridadSocial_barButtonItem_ItemClick);
             // 
+            // NomTipoCargo_barButtonItem
+            // 
+            this.NomTipoCargo_barButtonItem.Caption = "Nomenclador Tipos de Cargo";
+            this.NomTipoCargo_barButtonItem.Id = 53;
+            this.NomTipoCargo_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("NomTipoCargo_barButtonItem.ImageOptions.Image")));
+            this.NomTipoCargo_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NomTipoCargo_barButtonItem.ImageOptions.LargeImage")));
+            this.NomTipoCargo_barButtonItem.Name = "NomTipoCargo_barButtonItem";
+            this.NomTipoCargo_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.NomTipoCargo_barButtonItem_ItemClick);
+            // 
+            // NomencladorEscValores_barButtonItem
+            // 
+            this.NomencladorEscValores_barButtonItem.Caption = "Nomenclador Escala de Valores";
+            this.NomencladorEscValores_barButtonItem.Id = 54;
+            this.NomencladorEscValores_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("NomencladorEscValores_barButtonItem.ImageOptions.Image")));
+            this.NomencladorEscValores_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NomencladorEscValores_barButtonItem.ImageOptions.LargeImage")));
+            this.NomencladorEscValores_barButtonItem.Name = "NomencladorEscValores_barButtonItem";
+            this.NomencladorEscValores_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.NomencladorEscValores_barButtonItem_ItemClick);
+            // 
             // Comercial_ribbonPage
             // 
             this.Comercial_ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1239,6 +1259,7 @@ namespace DXApplication9
             // NomencladoresEco_ribbonPageGroup
             // 
             this.NomencladoresEco_ribbonPageGroup.ItemLinks.Add(this.Monedas_barButtonItem);
+            this.NomencladoresEco_ribbonPageGroup.ItemLinks.Add(this.NomencladorEscValores_barButtonItem);
             this.NomencladoresEco_ribbonPageGroup.Name = "NomencladoresEco_ribbonPageGroup";
             this.NomencladoresEco_ribbonPageGroup.Text = "Nomencladores";
             // 
@@ -1425,15 +1446,6 @@ namespace DXApplication9
             superToolTip15.Items.Add(toolTipItem15);
             this.barButtonItem22.SuperTip = superToolTip15;
             // 
-            // NomTipoCargo_barButtonItem
-            // 
-            this.NomTipoCargo_barButtonItem.Caption = "Nomenclador Tipos de Cargo";
-            this.NomTipoCargo_barButtonItem.Id = 53;
-            this.NomTipoCargo_barButtonItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("NomTipoCargo_barButtonItem.ImageOptions.Image")));
-            this.NomTipoCargo_barButtonItem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("NomTipoCargo_barButtonItem.ImageOptions.LargeImage")));
-            this.NomTipoCargo_barButtonItem.Name = "NomTipoCargo_barButtonItem";
-            this.NomTipoCargo_barButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.NomTipoCargo_barButtonItem_ItemClick);
-            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1581,6 +1593,7 @@ namespace DXApplication9
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem NoAportanSeguridadSocial_barButtonItem;
         private DevExpress.XtraBars.BarButtonItem NomTipoCargo_barButtonItem;
+        private DevExpress.XtraBars.BarButtonItem NomencladorEscValores_barButtonItem;
     }
 }
 

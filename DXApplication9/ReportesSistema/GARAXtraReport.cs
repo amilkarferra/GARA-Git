@@ -24,7 +24,6 @@ namespace DXApplication9.ReportesSistema
             }
             InitializeComponent();
 
-            Configuracion_linqServerModeSource.QueryableSource = GlobalDataContext.ConfiguracionGeneral;
             ConfiguracionGeneral configuracion = GlobalDataContext.ConfiguracionGeneral.FirstOrDefault();
             if (configuracion.LogoAgencia != null)
             {

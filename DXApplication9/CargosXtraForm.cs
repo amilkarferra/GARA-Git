@@ -5,14 +5,14 @@ using DevExpress.XtraGrid.Views.Base;
 
 namespace DXApplication9
 {
-    public partial class CargosXtraForm : XtraForm
+    public partial class CargosXtraForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private readonly NegocioDataContext _aGlobalDataContext = new NegocioDataContext();
+        private NegocioDataContext _dataContext = new NegocioDataContext();
         public CargosXtraForm()
         {
             InitializeComponent();
-            nomencladorCargoBindingSource.DataSource = _aGlobalDataContext.NomencladorCargo;
-            tipoNomencladorCargoBindingSource.DataSource = _aGlobalDataContext.TipoNomencladorCargo;
+            bindingSource.DataSource = _dataContext.NomencladorCargo;
+            tipoNomencladorCargoBindingSource.DataSource = _dataContext.TipoNomencladorCargo;
            
         }
 
@@ -20,16 +20,69 @@ namespace DXApplication9
         {
             try
             {
-                _aGlobalDataContext.SubmitChanges();
+                _dataContext.SubmitChanges();
             }
             catch (Exception)
             {
                 
-                 var gridView = Cargos_gridView;
+                 var gridView = this.gridView;
                 XtraMessageBox.Show("Error en la operacion",
                     "Atención", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     gridView.DeleteRow(e.RowHandle);
             }
+        }
+
+        private void Nuevo_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridView.AddNewRow();
+            gridView.ShowEditForm();
+        }
+
+        private void Edit_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridView.ShowEditForm();
+
+        }
+
+        private void Delete_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Utils.MuestraMensajeEliminacion() == DialogResult.Yes)
+                gridView.DeleteSelectedRows();
+        }
+
+        private void Refresh_barButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           ActualizaTabla();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void gridView_RowDeleting(object sender, DevExpress.Data.RowDeletingEventArgs e)
+        {
+
+        }
+
+        private void gridView_RowDeleted(object sender, DevExpress.Data.RowDeletedEventArgs e)
+        {
+            try
+            {
+                _dataContext.SubmitChanges();
+            }
+            catch (Exception exception)
+            {
+
+                Utils.MuestraErrorDeEliminacion();
+                ActualizaTabla();
+            }
+        }
+
+        private void ActualizaTabla()
+        {
+            _dataContext = new NegocioDataContext();
+            bindingSource.DataSource = _dataContext.NomencladorCargo;
         }
     }
 }

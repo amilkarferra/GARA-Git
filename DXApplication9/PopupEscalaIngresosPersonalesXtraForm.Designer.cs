@@ -36,6 +36,10 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopupEscalaIngresosPersonalesXtraForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Escala_lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.nomencladorEscalasDeIngresoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Cancel_simpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.OK_simpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.FechaFinal_dateEdit = new DevExpress.XtraEditors.DateEdit();
@@ -43,6 +47,7 @@
             this.ImporteMaximo_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.ImporteMinimo_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.TipoMoneda_lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
+            this.tipoMonedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -52,14 +57,14 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.Cancel_simpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.OK_simpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.tipoMonedaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.Escala_layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Escala_lookUpEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nomencladorEscalasDeIngresoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FechaFinal_dateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FechaFinal_dateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FechaInicial_dateEdit.Properties.CalendarTimeProperties)).BeginInit();
@@ -67,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImporteMaximo_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImporteMinimo_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoMoneda_lookUpEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -76,14 +82,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Escala_layoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.Escala_lookUpEdit);
             this.layoutControl1.Controls.Add(this.Cancel_simpleButton);
             this.layoutControl1.Controls.Add(this.OK_simpleButton);
             this.layoutControl1.Controls.Add(this.labelControl2);
@@ -97,13 +104,60 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(416, 173);
+            this.layoutControl1.Size = new System.Drawing.Size(428, 198);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // Escala_lookUpEdit
+            // 
+            this.Escala_lookUpEdit.Location = new System.Drawing.Point(101, 53);
+            this.Escala_lookUpEdit.Name = "Escala_lookUpEdit";
+            this.Escala_lookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.Escala_lookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Descripcion", 64, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ImporteMaximo", "Importe Maximo", 87, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ImporteMinimo", "Importe Minimo", 83, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
+            this.Escala_lookUpEdit.Properties.DataSource = this.nomencladorEscalasDeIngresoBindingSource;
+            this.Escala_lookUpEdit.Properties.DisplayMember = "Descripcion";
+            this.Escala_lookUpEdit.Properties.ValueMember = "NomencladorEscalaIngresoID";
+            this.Escala_lookUpEdit.Size = new System.Drawing.Size(315, 20);
+            this.Escala_lookUpEdit.StyleController = this.layoutControl1;
+            this.Escala_lookUpEdit.TabIndex = 13;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "-Obligatorio-";
+            this.dxValidationProvider1.SetValidationRule(this.Escala_lookUpEdit, conditionValidationRule1);
+            this.Escala_lookUpEdit.EditValueChanged += new System.EventHandler(this.Escala_lookUpEdit_EditValueChanged);
+            // 
+            // nomencladorEscalasDeIngresoBindingSource
+            // 
+            this.nomencladorEscalasDeIngresoBindingSource.DataSource = typeof(DXApplication9.NomencladorEscalasDeIngreso);
+            // 
+            // Cancel_simpleButton
+            // 
+            this.Cancel_simpleButton.ImageOptions.Image = global::DXApplication9.Properties.Resources.cancel_32x32;
+            this.Cancel_simpleButton.Location = new System.Drawing.Point(317, 142);
+            this.Cancel_simpleButton.Name = "Cancel_simpleButton";
+            this.Cancel_simpleButton.Size = new System.Drawing.Size(99, 36);
+            this.Cancel_simpleButton.StyleController = this.layoutControl1;
+            this.Cancel_simpleButton.TabIndex = 12;
+            this.Cancel_simpleButton.Text = "Cancelar";
+            this.Cancel_simpleButton.Click += new System.EventHandler(this.Cancel_simpleButton_Click);
+            // 
+            // OK_simpleButton
+            // 
+            this.OK_simpleButton.ImageOptions.Image = global::DXApplication9.Properties.Resources.apply_32x32;
+            this.OK_simpleButton.Location = new System.Drawing.Point(215, 142);
+            this.OK_simpleButton.Name = "OK_simpleButton";
+            this.OK_simpleButton.Size = new System.Drawing.Size(98, 36);
+            this.OK_simpleButton.StyleController = this.layoutControl1;
+            this.OK_simpleButton.TabIndex = 11;
+            this.OK_simpleButton.Text = "Aceptar";
+            this.OK_simpleButton.Click += new System.EventHandler(this.OK_simpleButton_Click);
+            // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 77);
+            this.labelControl2.Location = new System.Drawing.Point(12, 101);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(94, 13);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -122,51 +176,48 @@
             // FechaFinal_dateEdit
             // 
             this.FechaFinal_dateEdit.EditValue = null;
-            this.FechaFinal_dateEdit.Location = new System.Drawing.Point(300, 94);
+            this.FechaFinal_dateEdit.Location = new System.Drawing.Point(306, 118);
             this.FechaFinal_dateEdit.Name = "FechaFinal_dateEdit";
             this.FechaFinal_dateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.FechaFinal_dateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.FechaFinal_dateEdit.Size = new System.Drawing.Size(104, 20);
+            this.FechaFinal_dateEdit.Size = new System.Drawing.Size(110, 20);
             this.FechaFinal_dateEdit.StyleController = this.layoutControl1;
             this.FechaFinal_dateEdit.TabIndex = 8;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Obligatorio";
-            this.dxValidationProvider1.SetValidationRule(this.FechaFinal_dateEdit, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Obligatorio";
+            this.dxValidationProvider1.SetValidationRule(this.FechaFinal_dateEdit, conditionValidationRule2);
             // 
             // FechaInicial_dateEdit
             // 
             this.FechaInicial_dateEdit.EditValue = null;
-            this.FechaInicial_dateEdit.Location = new System.Drawing.Point(101, 94);
+            this.FechaInicial_dateEdit.Location = new System.Drawing.Point(101, 118);
             this.FechaInicial_dateEdit.Name = "FechaInicial_dateEdit";
             this.FechaInicial_dateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.FechaInicial_dateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.FechaInicial_dateEdit.Size = new System.Drawing.Size(106, 20);
+            this.FechaInicial_dateEdit.Size = new System.Drawing.Size(112, 20);
             this.FechaInicial_dateEdit.StyleController = this.layoutControl1;
             this.FechaInicial_dateEdit.TabIndex = 7;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Obligatorio";
-            this.dxValidationProvider1.SetValidationRule(this.FechaInicial_dateEdit, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Obligatorio";
+            this.dxValidationProvider1.SetValidationRule(this.FechaInicial_dateEdit, conditionValidationRule3);
             // 
             // ImporteMaximo_textEdit
             // 
-            this.ImporteMaximo_textEdit.Location = new System.Drawing.Point(300, 53);
+            this.ImporteMaximo_textEdit.Location = new System.Drawing.Point(306, 77);
             this.ImporteMaximo_textEdit.Name = "ImporteMaximo_textEdit";
-            this.ImporteMaximo_textEdit.Size = new System.Drawing.Size(104, 20);
+            this.ImporteMaximo_textEdit.Size = new System.Drawing.Size(110, 20);
             this.ImporteMaximo_textEdit.StyleController = this.layoutControl1;
             this.ImporteMaximo_textEdit.TabIndex = 6;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Obligatorio";
-            this.dxValidationProvider1.SetValidationRule(this.ImporteMaximo_textEdit, conditionValidationRule3);
             // 
             // ImporteMinimo_textEdit
             // 
-            this.ImporteMinimo_textEdit.Location = new System.Drawing.Point(101, 53);
+            this.ImporteMinimo_textEdit.Location = new System.Drawing.Point(101, 77);
             this.ImporteMinimo_textEdit.Name = "ImporteMinimo_textEdit";
-            this.ImporteMinimo_textEdit.Size = new System.Drawing.Size(106, 20);
+            this.ImporteMinimo_textEdit.Size = new System.Drawing.Size(112, 20);
             this.ImporteMinimo_textEdit.StyleController = this.layoutControl1;
             this.ImporteMinimo_textEdit.TabIndex = 5;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -184,12 +235,16 @@
             this.TipoMoneda_lookUpEdit.Properties.DataSource = this.tipoMonedaBindingSource;
             this.TipoMoneda_lookUpEdit.Properties.DisplayMember = "Abreviatura";
             this.TipoMoneda_lookUpEdit.Properties.ValueMember = "TipoMonedaID";
-            this.TipoMoneda_lookUpEdit.Size = new System.Drawing.Size(303, 20);
+            this.TipoMoneda_lookUpEdit.Size = new System.Drawing.Size(315, 20);
             this.TipoMoneda_lookUpEdit.StyleController = this.layoutControl1;
             this.TipoMoneda_lookUpEdit.TabIndex = 4;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "Obligatorio";
             this.dxValidationProvider1.SetValidationRule(this.TipoMoneda_lookUpEdit, conditionValidationRule5);
+            // 
+            // tipoMonedaBindingSource
+            // 
+            this.tipoMonedaBindingSource.DataSource = typeof(DXApplication9.TipoMoneda);
             // 
             // layoutControlGroup1
             // 
@@ -205,10 +260,11 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.Escala_layoutControlItem});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(416, 173);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(428, 198);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -216,51 +272,51 @@
             this.layoutControlItem1.Control = this.TipoMoneda_lookUpEdit;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(396, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(408, 24);
             this.layoutControlItem1.Text = "Moneda *";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(86, 13);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 106);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 130);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(197, 47);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(203, 48);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.ImporteMinimo_textEdit;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 41);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 65);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(199, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(205, 24);
             this.layoutControlItem2.Text = "Importe Mínimo *";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.ImporteMaximo_textEdit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(199, 41);
+            this.layoutControlItem3.Location = new System.Drawing.Point(205, 65);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(197, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(203, 24);
             this.layoutControlItem3.Text = "Importe Máximo *";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.FechaInicial_dateEdit;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 82);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 106);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(199, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(205, 24);
             this.layoutControlItem4.Text = "Desde *";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.FechaFinal_dateEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(199, 82);
+            this.layoutControlItem5.Location = new System.Drawing.Point(205, 106);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(197, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(203, 24);
             this.layoutControlItem5.Text = "Hasta *";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 13);
             // 
@@ -269,75 +325,59 @@
             this.layoutControlItem6.Control = this.labelControl1;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(396, 17);
+            this.layoutControlItem6.Size = new System.Drawing.Size(408, 17);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.labelControl2;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 65);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 89);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(396, 17);
+            this.layoutControlItem7.Size = new System.Drawing.Size(408, 17);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
-            // 
-            // Cancel_simpleButton
-            // 
-            this.Cancel_simpleButton.Image = global::DXApplication9.Properties.Resources.cancel_32x32;
-            this.Cancel_simpleButton.Location = new System.Drawing.Point(309, 118);
-            this.Cancel_simpleButton.Name = "Cancel_simpleButton";
-            this.Cancel_simpleButton.Size = new System.Drawing.Size(95, 38);
-            this.Cancel_simpleButton.StyleController = this.layoutControl1;
-            this.Cancel_simpleButton.TabIndex = 12;
-            this.Cancel_simpleButton.Text = "Cancelar";
-            this.Cancel_simpleButton.Click += new System.EventHandler(this.Cancel_simpleButton_Click);
-            // 
-            // OK_simpleButton
-            // 
-            this.OK_simpleButton.Image = global::DXApplication9.Properties.Resources.apply_32x32;
-            this.OK_simpleButton.Location = new System.Drawing.Point(209, 118);
-            this.OK_simpleButton.Name = "OK_simpleButton";
-            this.OK_simpleButton.Size = new System.Drawing.Size(96, 38);
-            this.OK_simpleButton.StyleController = this.layoutControl1;
-            this.OK_simpleButton.TabIndex = 11;
-            this.OK_simpleButton.Text = "Aceptar";
-            this.OK_simpleButton.Click += new System.EventHandler(this.OK_simpleButton_Click);
-            // 
-            // tipoMonedaBindingSource
-            // 
-            this.tipoMonedaBindingSource.DataSource = typeof(DXApplication9.TipoMoneda);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.OK_simpleButton;
-            this.layoutControlItem8.Location = new System.Drawing.Point(197, 106);
+            this.layoutControlItem8.Location = new System.Drawing.Point(203, 130);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(100, 47);
+            this.layoutControlItem8.Size = new System.Drawing.Size(102, 48);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.Cancel_simpleButton;
-            this.layoutControlItem9.Location = new System.Drawing.Point(297, 106);
+            this.layoutControlItem9.Location = new System.Drawing.Point(305, 130);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(99, 47);
+            this.layoutControlItem9.Size = new System.Drawing.Size(103, 48);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
+            // 
+            // Escala_layoutControlItem
+            // 
+            this.Escala_layoutControlItem.Control = this.Escala_lookUpEdit;
+            this.Escala_layoutControlItem.Location = new System.Drawing.Point(0, 41);
+            this.Escala_layoutControlItem.Name = "Escala_layoutControlItem";
+            this.Escala_layoutControlItem.Size = new System.Drawing.Size(408, 24);
+            this.Escala_layoutControlItem.Text = "Escala: ";
+            this.Escala_layoutControlItem.TextSize = new System.Drawing.Size(86, 13);
             // 
             // PopupEscalaIngresosPersonalesXtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 173);
+            this.ClientSize = new System.Drawing.Size(428, 198);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PopupEscalaIngresosPersonalesXtraForm";
             this.Text = "Definiendo Datos";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            this.layoutControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Escala_lookUpEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nomencladorEscalasDeIngresoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FechaFinal_dateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FechaFinal_dateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FechaInicial_dateEdit.Properties.CalendarTimeProperties)).EndInit();
@@ -345,6 +385,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImporteMaximo_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImporteMinimo_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoMoneda_lookUpEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -354,10 +395,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoMonedaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Escala_layoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,14 +411,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.DateEdit FechaFinal_dateEdit;
         private DevExpress.XtraEditors.DateEdit FechaInicial_dateEdit;
-        private DevExpress.XtraEditors.TextEdit ImporteMaximo_textEdit;
-        private DevExpress.XtraEditors.TextEdit ImporteMinimo_textEdit;
         private DevExpress.XtraEditors.LookUpEdit TipoMoneda_lookUpEdit;
         private System.Windows.Forms.BindingSource tipoMonedaBindingSource;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
@@ -387,5 +424,12 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.XtraEditors.LookUpEdit Escala_lookUpEdit;
+        private DevExpress.XtraEditors.TextEdit ImporteMaximo_textEdit;
+        private DevExpress.XtraEditors.TextEdit ImporteMinimo_textEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem Escala_layoutControlItem;
+        private System.Windows.Forms.BindingSource nomencladorEscalasDeIngresoBindingSource;
     }
 }

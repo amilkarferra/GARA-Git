@@ -996,5 +996,11 @@ namespace DXApplication9
             NomencladorTipoCargosXtraForm Form = new NomencladorTipoCargosXtraForm { MdiParent = this };
             Form.Show();
         }
+
+        private void NomencladorEscValores_barButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            NomencladorEscalasDeValores_RibbonForm Form = new NomencladorEscalasDeValores_RibbonForm { MdiParent = this };
+            Form.Show();
+        }
     }
 }

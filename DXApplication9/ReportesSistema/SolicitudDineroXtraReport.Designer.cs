@@ -112,7 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FirmaIzq_xrTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirmDer_xrTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirmCentro_xrTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Configuracion_linqServerModeSource)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.Configuracion_linqServerModeSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linqServerModeSource1)).BeginInit();
@@ -817,7 +817,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FirmaIzq_xrTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirmDer_xrTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirmCentro_xrTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Configuracion_linqServerModeSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.Configuracion_linqServerModeSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linqServerModeSource1)).EndInit();

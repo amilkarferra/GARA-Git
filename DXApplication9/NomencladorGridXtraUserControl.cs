@@ -39,7 +39,7 @@ namespace DXApplication9
 
         private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (XtraMessageBox.Show("Esta acción es irreversible está seguro qeu desea eliminar el registro?", "Atención",MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk)==DialogResult.Yes);
+            if(Utils.MuestraMensajeEliminacion()==DialogResult.Yes)
             gridView.DeleteSelectedRows();
         }
 
@@ -57,7 +57,7 @@ namespace DXApplication9
             catch (Exception exception)
             {
 
-                Utils.MuestraError(exception.Message);
+                Utils.MuestraError();
             }
         }
 
@@ -70,8 +70,15 @@ namespace DXApplication9
             catch (Exception )
             {
 
-               Utils.MuestraError();
+                Utils.MuestraErrorDeEliminacion();
+                ActualizaTabla();
             }
+        }
+
+        private void ActualizaTabla()
+        {
+            _dataContext = new NegocioDataContext();
+            bindingSource.DataSource = _dataContext.NomencladorCargo;
         }
 
         private void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e)

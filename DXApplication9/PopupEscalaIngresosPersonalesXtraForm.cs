@@ -16,15 +16,19 @@ namespace DXApplication9.Code
     {
         public PopupEscalaIngresosPersonalesXtraForm()
         {
+
             InitializeComponent();
-            tipoMonedaBindingSource.DataSource = new NegocioDataContext().TipoMoneda;
+            var dc = new NegocioDataContext();
+            tipoMonedaBindingSource.DataSource = dc.TipoMoneda;
+            nomencladorEscalasDeIngresoBindingSource.DataSource = dc.NomencladorEscalasDeIngreso;
+            FechaInicial_dateEdit.DateTime = Utils.PrimerDiaAnnoEnCurso;
+            FechaFinal_dateEdit.DateTime = Utils.UltimoDiaAnnoEnCurso;
         }
 
         private void OK_simpleButton_Click(object sender, EventArgs e)
         {
             if (!dxValidationProvider1.Validate()) return;
-            IngresosPersonalesEscalaValoresXtraReport reporte = new IngresosPersonalesEscalaValoresXtraReport(Convert.ToDecimal(ImporteMinimo_textEdit.EditValue), Convert.ToDecimal(ImporteMaximo_textEdit.EditValue),FechaInicial_dateEdit.DateTime
-                ,FechaFinal_dateEdit.DateTime,Convert.ToInt32(TipoMoneda_lookUpEdit.EditValue));
+            IngresosPersonalesSegunEscalaDeValores_XtraReport reporte = new IngresosPersonalesSegunEscalaDeValores_XtraReport(Convert.ToInt32(Escala_lookUpEdit.EditValue), FechaInicial_dateEdit.DateTime,FechaFinal_dateEdit.DateTime,Convert.ToInt32(TipoMoneda_lookUpEdit.EditValue));
             reporte.CreateDocument();
             reporte.ShowPreviewDialog();
         }
@@ -32,6 +36,14 @@ namespace DXApplication9.Code
         private void Cancel_simpleButton_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void Escala_lookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            var escalaIngresoId = Convert.ToInt32(Escala_lookUpEdit.EditValue);
+            var escala = new NegocioDataContext().NomencladorEscalasDeIngreso.FirstOrDefault(c=>c.NomencladorEscalaIngresoID== escalaIngresoId);
+            ImporteMaximo_textEdit.EditValue = escala.ImporteMaximo;
+            ImporteMinimo_textEdit.EditValue = escala.ImporteMinimo;
         }
     }
 }

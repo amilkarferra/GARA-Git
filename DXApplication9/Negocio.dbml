@@ -402,45 +402,6 @@
       <Association Name="Empresarios_ControlClientes" Member="ControlClientes" ThisKey="EmpresarioID" OtherKey="EmpresarioId" Type="ControlClientes" />
     </Type>
   </Table>
-  <Table Name="dbo.ConfiguracionGeneral" Member="ConfiguracionGeneral">
-    <Type Name="ConfiguracionGeneral">
-      <Column Name="ConfiguracionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Destinatario_O_DirigidoA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CargoDestinatario" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="EmpresaDestinatario" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NombreDeJefeAgencia" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="CargoDeJefeDeAgencia" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="EncargadoRecrusosHumanos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CargoEncargadoRecHumanos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Agencia" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="NombreJefeDeDptoTramite" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CargoJefeDptoTramite" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CargoJefeComercial" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NombreJefeComercial" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="TelefonosAgencia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NombreCuentaEmpresaMN" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NombreCuentaEmpresaDIV" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NumeroCuentaEmpresaMN" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NumeroCuentaEmpresaDiv" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AnnoDeTrabajo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DireccionEmpresa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CorreoElectronico" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SitioWeb" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="BancoAgencia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NombreRepresentanteICM" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CargoRepresentanteInstituto" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="PrimerNumeroContratoNacionalAnual" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PrimerNumeroContratoInternacionalAnual" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LogoAgencia" Type="System.Byte[]" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CaminoContratosNacionales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CaminoContratoInternacionales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NitAgencia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Reup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CerrandoAnno" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="VigenciaContrato" Type="System.Int32" DbType="int" CanBeNull="true" />
-      <Association Name="ConfiguracionGeneral_CuentasEmpresa" Member="CuentasEmpresa" ThisKey="ConfiguracionID" OtherKey="ConfiguracionGeneralId" Type="CuentasEmpresa" />
-    </Type>
-  </Table>
   <Table Name="dbo.ParticipantesDeAcividad" Member="ParticipantesDeAcividad">
     <Type Name="ParticipantesDeAcividad">
       <Column Name="ParticipanteDeActividadID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -530,8 +491,8 @@
       <Column Name="NumeroCuenta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ConfiguracionGeneralId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Banco" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="ConfiguracionGeneral_CuentasEmpresa" Member="ConfiguracionGeneral" ThisKey="ConfiguracionGeneralId" OtherKey="ConfiguracionID" Type="ConfiguracionGeneral" IsForeignKey="true" />
       <Association Name="TipoMoneda_CuentasEmpresa" Member="TipoMoneda" ThisKey="TipoMonedaId" OtherKey="TipoMonedaID" Type="TipoMoneda" IsForeignKey="true" />
+      <Association Name="ConfiguracionGeneral_CuentasEmpresa" Member="ConfiguracionGeneral" ThisKey="ConfiguracionGeneralId" OtherKey="ConfiguracionID" Type="ConfiguracionGeneral" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OrdenDeTrabajo" Member="OrdenDeTrabajo">
@@ -645,6 +606,14 @@
       <Association Name="NomencladorCargo_Artista1" Member="NomencladorCargo1" ThisKey="TipoAval" OtherKey="NomencladorCargoID" Type="NomencladorCargo" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.NomencladorEscalasDeIngreso" Member="NomencladorEscalasDeIngreso">
+    <Type Name="NomencladorEscalasDeIngreso">
+      <Column Name="NomencladorEscalaIngresoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ImporteMaximo" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ImporteMinimo" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.NomencladorCargo" Member="NomencladorCargo">
     <Type Name="NomencladorCargo">
       <Column Name="NomencladorCargoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -664,6 +633,46 @@
       <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="TipoNomencladorCargo_NomencladorCargo" Member="NomencladorCargo" ThisKey="TipoNomencladorCargoID" OtherKey="TipoNomencladorCargoId" Type="NomencladorCargo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConfiguracionGeneral" Member="ConfiguracionGeneral">
+    <Type Name="ConfiguracionGeneral">
+      <Column Name="ConfiguracionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Destinatario_O_DirigidoA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CargoDestinatario" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EmpresaDestinatario" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NombreDeJefeAgencia" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CargoDeJefeDeAgencia" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="EncargadoRecrusosHumanos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CargoEncargadoRecHumanos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Agencia" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreJefeDeDptoTramite" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CargoJefeDptoTramite" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CargoJefeComercial" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NombreJefeComercial" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TelefonosAgencia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NombreCuentaEmpresaMN" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NombreCuentaEmpresaDIV" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NumeroCuentaEmpresaMN" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NumeroCuentaEmpresaDiv" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AnnoDeTrabajo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionEmpresa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CorreoElectronico" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SitioWeb" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BancoAgencia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NombreRepresentanteICM" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CargoRepresentanteInstituto" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PrimerNumeroContratoNacionalAnual" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrimerNumeroContratoInternacionalAnual" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LogoAgencia" Type="System.Byte[]" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CaminoContratosNacionales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CaminoContratoInternacionales" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NitAgencia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CerrandoAnno" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="VigenciaContrato" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IndiceParticipacionInstitucion" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="ConfiguracionGeneral_CuentasEmpresa" Member="CuentasEmpresa" ThisKey="ConfiguracionID" OtherKey="ConfiguracionGeneralId" Type="CuentasEmpresa" />
     </Type>
   </Table>
 </Database>
