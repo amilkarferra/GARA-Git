@@ -205,13 +205,13 @@
         kmkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="toolTipItem2.Text" xml:space="preserve">
+  <data name="toolTipItem4.Text" xml:space="preserve">
     <value>Camino Contratos Nacionales/Cómo opcion organizativa los contratos pueden ser guardados en una carpeta compartida para todos por igual en un servidor, si ese fuera el caso, el sistema te permite crear una carpeta con el nombre y número del contrato en el camino seleccionado por contrato creado./Configuración General</value>
   </data>
   <metadata name="toolTipController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>756, 17</value>
   </metadata>
-  <data name="toolTipItem3.Text" xml:space="preserve">
+  <data name="toolTipItem5.Text" xml:space="preserve">
     <value>Cómo opcion organizativa los contratos pueden ser guardados en una carpeta compartida para todos por igual en un servidor, si ese fuera el caso, el sistema te permite crear una carpeta con el nombre y número del contrato en el camino seleccionado por contrato creado.</value>
   </data>
   <data name="Eliminar_simpleButton.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -240,7 +240,7 @@
   <metadata name="General_dxValidationProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>907, 17</value>
   </metadata>
-  <data name="toolTipItem5.Text" xml:space="preserve">
+  <data name="toolTipItem7.Text" xml:space="preserve">
     <value>Número a partir del cuál el sistema comenzará a dar consecutivos.
 para los Contratos Nacionales.
 Si el Número inicial es 0, el primer ctto nacional es 1.

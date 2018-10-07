@@ -632,6 +632,19 @@ namespace DXApplication9
             return Decimal.Round(importe, 2);
         }
 
+        public static int ToEntero(this object entero)
+        {
+            try
+            {
+               return Convert.ToInt32(entero);
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+        }
+
         public static void MuestraMensajeOk()
         {
             MuestraInformacion("Acción exitosa");

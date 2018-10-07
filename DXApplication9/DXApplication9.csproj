@@ -27,7 +27,7 @@
     <TargetCulture>es-CO</TargetCulture>
     <ProductName>GARA 2017</ProductName>
     <PublisherName>GARA</PublisherName>
-    <ApplicationRevision>334</ApplicationRevision>
+    <ApplicationRevision>336</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

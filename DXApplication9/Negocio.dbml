@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="artistas" Class="NegocioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=artistas;Persist Security Info=True;User ID=artex" SettingsObjectName="DXApplication9.Properties.Settings" SettingsPropertyName="artistasConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=artistas;Persist Security Info=True;User ID=artex" SettingsObjectName="DXApplication9.Properties.Settings" SettingsPropertyName="artistasConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AgrupacionDeArtista" Member="AgrupacionDeArtista">
     <Type Name="AgrupacionDeArtista">
       <Column Name="AgrupacionDeArtistaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

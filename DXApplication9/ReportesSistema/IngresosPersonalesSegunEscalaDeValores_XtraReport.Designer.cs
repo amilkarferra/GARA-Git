@@ -162,21 +162,29 @@
             this.xrTableCell9,
             this.Retenido_xrTableCell});
             this.xrTableRow11.Name = "xrTableRow11";
+            this.xrTableRow11.StylePriority.UseTextAlignment = false;
+            this.xrTableRow11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableRow11.Weight = 1D;
             // 
             // RangoValor_xrTableCell
             // 
             this.RangoValor_xrTableCell.Name = "RangoValor_xrTableCell";
+            this.RangoValor_xrTableCell.StylePriority.UseTextAlignment = false;
+            this.RangoValor_xrTableCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.RangoValor_xrTableCell.Weight = 2.03546278952071D;
             // 
             // Cant_xrTableCell
             // 
             this.Cant_xrTableCell.Name = "Cant_xrTableCell";
+            this.Cant_xrTableCell.StylePriority.UseTextAlignment = false;
+            this.Cant_xrTableCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.Cant_xrTableCell.Weight = 0.577895482691674D;
             // 
             // IngArt_xrTableCell
             // 
             this.IngArt_xrTableCell.Name = "IngArt_xrTableCell";
+            this.IngArt_xrTableCell.StylePriority.UseTextAlignment = false;
+            this.IngArt_xrTableCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.IngArt_xrTableCell.Weight = 0.85543731119256794D;
             // 
             // xrTableCell9
@@ -190,6 +198,8 @@
             // Retenido_xrTableCell
             // 
             this.Retenido_xrTableCell.Name = "Retenido_xrTableCell";
+            this.Retenido_xrTableCell.StylePriority.UseTextAlignment = false;
+            this.Retenido_xrTableCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.Retenido_xrTableCell.Weight = 0.76348314592394106D;
             // 
             // IngresosPersonalesSegunEscalaDeValores_XtraReport

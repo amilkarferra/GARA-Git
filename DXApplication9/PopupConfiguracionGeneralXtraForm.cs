@@ -76,6 +76,8 @@ namespace DXApplication9
 
             #region Otras
             VigenciaContrato_textEdit.EditValue = configuracion.VigenciaContrato == null ? 0 : Convert.ToInt32(configuracion.VigenciaContrato);
+            IndiceIngInst_textEdit.EditValue = configuracion.IndiceParticipacionInstitucion;
+
             #endregion
 
 
@@ -180,6 +182,9 @@ namespace DXApplication9
 
                     #region Otras
                     configuracion.VigenciaContrato = VigenciaContrato_textEdit.EditValue == null ? 0 : Convert.ToInt32(VigenciaContrato_textEdit.EditValue);
+                    if (IndiceIngInst_textEdit.EditValue != null)
+                        configuracion.IndiceParticipacionInstitucion =Convert.ToDecimal(IndiceIngInst_textEdit.EditValue);
+
                     #endregion
 
                     if (AConfiguracionId == 0)

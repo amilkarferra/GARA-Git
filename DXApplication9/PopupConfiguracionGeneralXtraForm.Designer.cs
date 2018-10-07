@@ -33,53 +33,63 @@
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopupConfiguracionGeneralXtraForm));
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopupConfiguracionGeneralXtraForm));
             DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.IndiceIngInst_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.VigenciaContrato_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
             this.EnCierre_checkEdit = new DevExpress.XtraEditors.CheckEdit();
             this.NIT_textEdit = new DevExpress.XtraEditors.TextEdit();
             this.Reup_textEdit = new DevExpress.XtraEditors.TextEdit();
@@ -123,6 +133,8 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Generales_layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -152,8 +164,6 @@
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -167,11 +177,13 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IndiceIngInst_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VigenciaContrato_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnCierre_checkEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NIT_textEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reup_textEdit.Properties)).BeginInit();
@@ -206,6 +218,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Generales_layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
@@ -235,8 +249,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
@@ -286,6 +298,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.IndiceIngInst_textEdit);
             this.layoutControl2.Controls.Add(this.label1);
             this.layoutControl2.Controls.Add(this.VigenciaContrato_textEdit);
             this.layoutControl2.Location = new System.Drawing.Point(215, 49);
@@ -296,22 +309,55 @@
             this.layoutControl2.TabIndex = 34;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // IndiceIngInst_textEdit
+            // 
+            this.IndiceIngInst_textEdit.Location = new System.Drawing.Point(152, 36);
+            this.IndiceIngInst_textEdit.Name = "IndiceIngInst_textEdit";
+            this.IndiceIngInst_textEdit.Properties.Mask.EditMask = "n2";
+            this.IndiceIngInst_textEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.IndiceIngInst_textEdit.Size = new System.Drawing.Size(242, 20);
+            this.IndiceIngInst_textEdit.StyleController = this.layoutControl2;
+            superToolTip1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem1.Text = "Indice de Ingreso de la Institución ";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Indice que define el importe de ingreso de la institución en el reporte Ingreso p" +
+    "or escala de valores al multiplicarse por el ingreso de los artistas.";
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "<i><b>Para el uso del departamento de economía en el reporte de <u>Ingresos según" +
+    " Escala de Valores </i>";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.IndiceIngInst_textEdit.SuperTip = superToolTip1;
+            this.IndiceIngInst_textEdit.TabIndex = 6;
+            // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(205, 12);
+            this.label1.Location = new System.Drawing.Point(206, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 20);
+            this.label1.Size = new System.Drawing.Size(188, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Años";
             // 
             // VigenciaContrato_textEdit
             // 
-            this.VigenciaContrato_textEdit.Location = new System.Drawing.Point(115, 12);
+            this.VigenciaContrato_textEdit.Location = new System.Drawing.Point(152, 12);
             this.VigenciaContrato_textEdit.Name = "VigenciaContrato_textEdit";
             this.VigenciaContrato_textEdit.Properties.Mask.EditMask = "n0";
             this.VigenciaContrato_textEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.VigenciaContrato_textEdit.Size = new System.Drawing.Size(86, 20);
+            this.VigenciaContrato_textEdit.Size = new System.Drawing.Size(50, 20);
             this.VigenciaContrato_textEdit.StyleController = this.layoutControl2;
+            superToolTip2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem3.Text = "Vigencia de Contratos";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Cantidad de años que por defecto tendrá vigencia un contrato";
+            toolTipTitleItem4.LeftIndent = 6;
+            toolTipTitleItem4.Text = "<i><b>facilita el trabajo durante la entrada de la fecha de vigencia de un contra" +
+    "to";
+            superToolTip2.Items.Add(toolTipTitleItem3);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipTitleItem4);
+            this.VigenciaContrato_textEdit.SuperTip = superToolTip2;
             this.VigenciaContrato_textEdit.TabIndex = 4;
             // 
             // Root
@@ -321,7 +367,8 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem27,
             this.emptySpaceItem8,
-            this.layoutControlItem28});
+            this.layoutControlItem28,
+            this.layoutControlItem29});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(406, 293);
@@ -332,26 +379,35 @@
             this.layoutControlItem27.Control = this.VigenciaContrato_textEdit;
             this.layoutControlItem27.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem27.Name = "layoutControlItem27";
-            this.layoutControlItem27.Size = new System.Drawing.Size(193, 24);
+            this.layoutControlItem27.Size = new System.Drawing.Size(194, 24);
             this.layoutControlItem27.Text = "Vigencia de Contrato";
-            this.layoutControlItem27.TextSize = new System.Drawing.Size(100, 13);
+            this.layoutControlItem27.TextSize = new System.Drawing.Size(137, 13);
             // 
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 48);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(386, 249);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(386, 225);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem28
             // 
             this.layoutControlItem28.Control = this.label1;
-            this.layoutControlItem28.Location = new System.Drawing.Point(193, 0);
+            this.layoutControlItem28.Location = new System.Drawing.Point(194, 0);
             this.layoutControlItem28.Name = "layoutControlItem28";
-            this.layoutControlItem28.Size = new System.Drawing.Size(193, 24);
+            this.layoutControlItem28.Size = new System.Drawing.Size(192, 24);
             this.layoutControlItem28.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem28.TextVisible = false;
+            // 
+            // layoutControlItem29
+            // 
+            this.layoutControlItem29.Control = this.IndiceIngInst_textEdit;
+            this.layoutControlItem29.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem29.Name = "layoutControlItem29";
+            this.layoutControlItem29.Size = new System.Drawing.Size(386, 24);
+            this.layoutControlItem29.Text = "Indice de Ingreso Institución";
+            this.layoutControlItem29.TextSize = new System.Drawing.Size(137, 13);
             // 
             // EnCierre_checkEdit
             // 
@@ -384,15 +440,15 @@
             this.NombEmpRect_textEdit.Name = "NombEmpRect_textEdit";
             this.NombEmpRect_textEdit.Size = new System.Drawing.Size(248, 20);
             this.NombEmpRect_textEdit.StyleController = this.layoutControl1;
-            toolTipTitleItem1.Text = "Nombre Org. Rector";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Nombre del Organismo Rector";
-            toolTipTitleItem2.LeftIndent = 6;
-            toolTipTitleItem2.Text = "ej: de Agencia Clave Cubana es \r\nARTEX S.A";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            superToolTip1.Items.Add(toolTipTitleItem2);
-            this.NombEmpRect_textEdit.SuperTip = superToolTip1;
+            toolTipTitleItem5.Text = "Nombre Org. Rector";
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Nombre del Organismo Rector";
+            toolTipTitleItem6.LeftIndent = 6;
+            toolTipTitleItem6.Text = "ej: de Agencia Clave Cubana es \r\nARTEX S.A";
+            superToolTip3.Items.Add(toolTipTitleItem5);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipTitleItem6);
+            this.NombEmpRect_textEdit.SuperTip = superToolTip3;
             this.NombEmpRect_textEdit.TabIndex = 30;
             // 
             // CargoDirEmpRect_textEdit
@@ -441,16 +497,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.CaminoCttoInternacional_buttonEdit.Size = new System.Drawing.Size(248, 20);
             this.CaminoCttoInternacional_buttonEdit.StyleController = this.layoutControl1;
-            toolTipTitleItem3.Text = "Camino Contrato Internacional";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = resources.GetString("toolTipItem2.Text");
-            toolTipTitleItem4.LeftIndent = 6;
-            toolTipTitleItem4.Text = "Configuración General";
-            superToolTip2.Items.Add(toolTipTitleItem3);
-            superToolTip2.Items.Add(toolTipItem2);
-            superToolTip2.Items.Add(toolTipSeparatorItem1);
-            superToolTip2.Items.Add(toolTipTitleItem4);
-            this.CaminoCttoInternacional_buttonEdit.SuperTip = superToolTip2;
+            toolTipTitleItem7.Text = "Camino Contrato Internacional";
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = resources.GetString("toolTipItem4.Text");
+            toolTipTitleItem8.LeftIndent = 6;
+            toolTipTitleItem8.Text = "Configuración General";
+            superToolTip4.Items.Add(toolTipTitleItem7);
+            superToolTip4.Items.Add(toolTipItem4);
+            superToolTip4.Items.Add(toolTipSeparatorItem1);
+            superToolTip4.Items.Add(toolTipTitleItem8);
+            this.CaminoCttoInternacional_buttonEdit.SuperTip = superToolTip4;
             this.CaminoCttoInternacional_buttonEdit.TabIndex = 24;
             this.CaminoCttoInternacional_buttonEdit.ToolTipController = this.toolTipController1;
             this.CaminoCttoInternacional_buttonEdit.Click += new System.EventHandler(this.CaminoCttoInternacional_buttonEdit_Click);
@@ -467,16 +523,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.CaminoCttoNacional_buttonEdit.Size = new System.Drawing.Size(248, 20);
             this.CaminoCttoNacional_buttonEdit.StyleController = this.layoutControl1;
-            toolTipTitleItem5.Text = "Camino Contratos Nacionales";
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = resources.GetString("toolTipItem3.Text");
-            toolTipTitleItem6.LeftIndent = 6;
-            toolTipTitleItem6.Text = "Configuración General";
-            superToolTip3.Items.Add(toolTipTitleItem5);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem2);
-            superToolTip3.Items.Add(toolTipTitleItem6);
-            this.CaminoCttoNacional_buttonEdit.SuperTip = superToolTip3;
+            toolTipTitleItem9.Text = "Camino Contratos Nacionales";
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = resources.GetString("toolTipItem5.Text");
+            toolTipTitleItem10.LeftIndent = 6;
+            toolTipTitleItem10.Text = "Configuración General";
+            superToolTip5.Items.Add(toolTipTitleItem9);
+            superToolTip5.Items.Add(toolTipItem5);
+            superToolTip5.Items.Add(toolTipSeparatorItem2);
+            superToolTip5.Items.Add(toolTipTitleItem10);
+            this.CaminoCttoNacional_buttonEdit.SuperTip = superToolTip5;
             this.CaminoCttoNacional_buttonEdit.TabIndex = 23;
             this.CaminoCttoNacional_buttonEdit.ToolTipController = this.toolTipController1;
             this.CaminoCttoNacional_buttonEdit.Click += new System.EventHandler(this.buttonEdit1_Click);
@@ -595,17 +651,17 @@
             this.PrimerCttoIntern_textEdit.Name = "PrimerCttoIntern_textEdit";
             this.PrimerCttoIntern_textEdit.Size = new System.Drawing.Size(248, 20);
             this.PrimerCttoIntern_textEdit.StyleController = this.layoutControl1;
-            toolTipTitleItem7.Text = "Primer Número Contrato Internacional";
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "Número a partir del cuál el sistema comenzará a dar consecutivos.\r\npara los Contr" +
+            toolTipTitleItem11.Text = "Primer Número Contrato Internacional";
+            toolTipItem6.LeftIndent = 6;
+            toolTipItem6.Text = "Número a partir del cuál el sistema comenzará a dar consecutivos.\r\npara los Contr" +
     "atos Internacionales.\r\nSi el Número inicial es 0, el primer ctto nacional es 1.";
-            toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "Configuración General";
-            superToolTip4.Items.Add(toolTipTitleItem7);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem3);
-            superToolTip4.Items.Add(toolTipTitleItem8);
-            this.PrimerCttoIntern_textEdit.SuperTip = superToolTip4;
+            toolTipTitleItem12.LeftIndent = 6;
+            toolTipTitleItem12.Text = "Configuración General";
+            superToolTip6.Items.Add(toolTipTitleItem11);
+            superToolTip6.Items.Add(toolTipItem6);
+            superToolTip6.Items.Add(toolTipSeparatorItem3);
+            superToolTip6.Items.Add(toolTipTitleItem12);
+            this.PrimerCttoIntern_textEdit.SuperTip = superToolTip6;
             this.PrimerCttoIntern_textEdit.TabIndex = 18;
             this.PrimerCttoIntern_textEdit.ToolTipController = this.toolTipController1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -620,16 +676,16 @@
             this.PrimerCttoNacional_textEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.PrimerCttoNacional_textEdit5.Size = new System.Drawing.Size(248, 20);
             this.PrimerCttoNacional_textEdit5.StyleController = this.layoutControl1;
-            toolTipTitleItem9.Text = "1er Número de Contrato Nacional";
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = resources.GetString("toolTipItem5.Text");
-            toolTipTitleItem10.LeftIndent = 6;
-            toolTipTitleItem10.Text = "Configuración General";
-            superToolTip5.Items.Add(toolTipTitleItem9);
-            superToolTip5.Items.Add(toolTipItem5);
-            superToolTip5.Items.Add(toolTipSeparatorItem4);
-            superToolTip5.Items.Add(toolTipTitleItem10);
-            this.PrimerCttoNacional_textEdit5.SuperTip = superToolTip5;
+            toolTipTitleItem13.Text = "1er Número de Contrato Nacional";
+            toolTipItem7.LeftIndent = 6;
+            toolTipItem7.Text = resources.GetString("toolTipItem7.Text");
+            toolTipTitleItem14.LeftIndent = 6;
+            toolTipTitleItem14.Text = "Configuración General";
+            superToolTip7.Items.Add(toolTipTitleItem13);
+            superToolTip7.Items.Add(toolTipItem7);
+            superToolTip7.Items.Add(toolTipSeparatorItem4);
+            superToolTip7.Items.Add(toolTipTitleItem14);
+            this.PrimerCttoNacional_textEdit5.SuperTip = superToolTip7;
             this.PrimerCttoNacional_textEdit5.TabIndex = 17;
             this.PrimerCttoNacional_textEdit5.ToolTipController = this.toolTipController1;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -658,17 +714,17 @@
             this.NombreDirigTram_textEdit.Name = "NombreDirigTram_textEdit";
             this.NombreDirigTram_textEdit.Size = new System.Drawing.Size(248, 20);
             this.NombreDirigTram_textEdit.StyleController = this.layoutControl1;
-            toolTipTitleItem11.Text = "Nombre del Máximo dirigente del departamento de tramites";
-            toolTipItem6.LeftIndent = 6;
-            toolTipItem6.Text = "Nombre de la persona a la que se le dirige la notificación de salida de alguna or" +
+            toolTipTitleItem15.Text = "Nombre del Máximo dirigente del departamento de tramites";
+            toolTipItem8.LeftIndent = 6;
+            toolTipItem8.Text = "Nombre de la persona a la que se le dirige la notificación de salida de alguna or" +
     "questa en el departamento de trámites";
-            toolTipTitleItem12.LeftIndent = 6;
-            toolTipTitleItem12.Text = "Confirguración General";
-            superToolTip6.Items.Add(toolTipTitleItem11);
-            superToolTip6.Items.Add(toolTipItem6);
-            superToolTip6.Items.Add(toolTipSeparatorItem5);
-            superToolTip6.Items.Add(toolTipTitleItem12);
-            this.NombreDirigTram_textEdit.SuperTip = superToolTip6;
+            toolTipTitleItem16.LeftIndent = 6;
+            toolTipTitleItem16.Text = "Confirguración General";
+            superToolTip8.Items.Add(toolTipTitleItem15);
+            superToolTip8.Items.Add(toolTipItem8);
+            superToolTip8.Items.Add(toolTipSeparatorItem5);
+            superToolTip8.Items.Add(toolTipTitleItem16);
+            this.NombreDirigTram_textEdit.SuperTip = superToolTip8;
             this.NombreDirigTram_textEdit.TabIndex = 15;
             // 
             // CargoDirigeAgencia_textEdit
@@ -700,17 +756,17 @@
             this.CargoDirTram_textEdit.Name = "CargoDirTram_textEdit";
             this.CargoDirTram_textEdit.Size = new System.Drawing.Size(248, 20);
             this.CargoDirTram_textEdit.StyleController = this.layoutControl1;
-            toolTipTitleItem13.Text = "Cargo del Máximo dirigente del departamento de tramites";
-            toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "Cargo de la persona a la que se le dirige la notificación de salida de alguna orq" +
+            toolTipTitleItem17.Text = "Cargo del Máximo dirigente del departamento de tramites";
+            toolTipItem9.LeftIndent = 6;
+            toolTipItem9.Text = "Cargo de la persona a la que se le dirige la notificación de salida de alguna orq" +
     "uesta en el departamento de trámites";
-            toolTipTitleItem14.LeftIndent = 6;
-            toolTipTitleItem14.Text = "Confirguración General";
-            superToolTip7.Items.Add(toolTipTitleItem13);
-            superToolTip7.Items.Add(toolTipItem7);
-            superToolTip7.Items.Add(toolTipSeparatorItem6);
-            superToolTip7.Items.Add(toolTipTitleItem14);
-            this.CargoDirTram_textEdit.SuperTip = superToolTip7;
+            toolTipTitleItem18.LeftIndent = 6;
+            toolTipTitleItem18.Text = "Confirguración General";
+            superToolTip9.Items.Add(toolTipTitleItem17);
+            superToolTip9.Items.Add(toolTipItem9);
+            superToolTip9.Items.Add(toolTipSeparatorItem6);
+            superToolTip9.Items.Add(toolTipTitleItem18);
+            this.CargoDirTram_textEdit.SuperTip = superToolTip9;
             this.CargoDirTram_textEdit.TabIndex = 12;
             // 
             // SitioWeb_textEdit
@@ -861,14 +917,32 @@
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(191, 0);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.Generales_layoutControlGroup;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup8;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 3;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(434, 346);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.Generales_layoutControlGroup,
             this.Cargos_layoutControlGroup,
             this.layoutControlGroup6,
             this.layoutControlGroup8});
+            // 
+            // layoutControlGroup8
+            // 
+            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem26});
+            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup8.Name = "layoutControlGroup8";
+            this.layoutControlGroup8.Size = new System.Drawing.Size(410, 297);
+            this.layoutControlGroup8.Text = "Otras Configuraciones";
+            // 
+            // layoutControlItem26
+            // 
+            this.layoutControlItem26.Control = this.layoutControl2;
+            this.layoutControlItem26.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem26.Name = "layoutControlItem26";
+            this.layoutControlItem26.Size = new System.Drawing.Size(410, 297);
+            this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem26.TextVisible = false;
             // 
             // Generales_layoutControlGroup
             // 
@@ -1147,24 +1221,6 @@
             this.emptySpaceItem7.Size = new System.Drawing.Size(300, 26);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlGroup8
-            // 
-            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem26});
-            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(410, 297);
-            this.layoutControlGroup8.Text = "Otras Configuraciones";
-            // 
-            // layoutControlItem26
-            // 
-            this.layoutControlItem26.Control = this.layoutControl2;
-            this.layoutControlItem26.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(410, 297);
-            this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem26.TextVisible = false;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.SitioWeb_textEdit;
@@ -1224,11 +1280,13 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IndiceIngInst_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VigenciaContrato_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnCierre_checkEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NIT_textEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Reup_textEdit.Properties)).EndInit();
@@ -1263,6 +1321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Generales_layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
@@ -1292,8 +1352,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
@@ -1399,5 +1457,7 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem28;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.TextEdit IndiceIngInst_textEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem29;
     }
 }

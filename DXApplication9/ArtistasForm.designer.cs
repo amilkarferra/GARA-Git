@@ -98,8 +98,6 @@
             this.colCarnetIdentidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaAlta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTipoNomencladorCargo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TipoCargo_repositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.tipoNomencladorCargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colFechaBaja = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEdad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAgrupacion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,6 +108,8 @@
             this.Direccion_gridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MotivoNoSeguridadSocialCol = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TipoPasaporte_repositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.TipoCargo_repositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.tipoNomencladorCargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.municipioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.provinciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
@@ -225,9 +225,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.agrupacionDeArtistaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Artista_gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Obligatory_repositoryItemTextEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TipoPasaporte_repositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoCargo_repositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoNomencladorCargoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TipoPasaporte_repositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.municipioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
@@ -291,7 +291,7 @@
             this.Obligatory_repositoryItemTextEdit,
             this.TipoPasaporte_repositoryItemLookUpEdit,
             this.TipoCargo_repositoryItemLookUpEdit});
-            this.Integrantes_gridControl.Size = new System.Drawing.Size(1080, 296);
+            this.Integrantes_gridControl.Size = new System.Drawing.Size(1083, 278);
             this.Integrantes_gridControl.TabIndex = 4;
             this.Integrantes_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Artista_gridView,
@@ -589,23 +589,6 @@
             this.colTipoNomencladorCargo.VisibleIndex = 7;
             this.colTipoNomencladorCargo.Width = 73;
             // 
-            // TipoCargo_repositoryItemLookUpEdit
-            // 
-            this.TipoCargo_repositoryItemLookUpEdit.AutoHeight = false;
-            this.TipoCargo_repositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.TipoCargo_repositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Tipo")});
-            this.TipoCargo_repositoryItemLookUpEdit.DataSource = this.tipoNomencladorCargoBindingSource;
-            this.TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Abreviatura";
-            this.TipoCargo_repositoryItemLookUpEdit.KeyMember = "TipoNomencladorCargoID";
-            this.TipoCargo_repositoryItemLookUpEdit.Name = "TipoCargo_repositoryItemLookUpEdit";
-            this.TipoCargo_repositoryItemLookUpEdit.ValueMember = "TipoNomencladorCargoID";
-            // 
-            // tipoNomencladorCargoBindingSource
-            // 
-            this.tipoNomencladorCargoBindingSource.DataSource = typeof(DXApplication9.TipoNomencladorCargo);
-            // 
             // colFechaBaja
             // 
             this.colFechaBaja.FieldName = "FechaBaja";
@@ -687,6 +670,23 @@
             this.TipoPasaporte_repositoryItemLookUpEdit.NullText = "-Sin Asignar-";
             this.TipoPasaporte_repositoryItemLookUpEdit.ValueMember = "Valor";
             // 
+            // TipoCargo_repositoryItemLookUpEdit
+            // 
+            this.TipoCargo_repositoryItemLookUpEdit.AutoHeight = false;
+            this.TipoCargo_repositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TipoCargo_repositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Tipo")});
+            this.TipoCargo_repositoryItemLookUpEdit.DataSource = this.tipoNomencladorCargoBindingSource;
+            this.TipoCargo_repositoryItemLookUpEdit.DisplayMember = "Abreviatura";
+            this.TipoCargo_repositoryItemLookUpEdit.KeyMember = "TipoNomencladorCargoID";
+            this.TipoCargo_repositoryItemLookUpEdit.Name = "TipoCargo_repositoryItemLookUpEdit";
+            this.TipoCargo_repositoryItemLookUpEdit.ValueMember = "TipoNomencladorCargoID";
+            // 
+            // tipoNomencladorCargoBindingSource
+            // 
+            this.tipoNomencladorCargoBindingSource.DataSource = typeof(DXApplication9.TipoNomencladorCargo);
+            // 
             // municipioBindingSource
             // 
             this.municipioBindingSource.DataSource = typeof(DXApplication9.Municipio);
@@ -701,12 +701,12 @@
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 159);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 160);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.layoutControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1142, 423);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1142, 422);
             this.splitContainerControl1.SplitterPosition = 0;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -720,14 +720,14 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(821, 384, 250, 350);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(1130, 423);
+            this.layoutControl2.Size = new System.Drawing.Size(1137, 422);
             this.layoutControl2.TabIndex = 8;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // InsertInegrante_buttonEdit
             // 
             this.InsertInegrante_buttonEdit.EditValue = "";
-            this.InsertInegrante_buttonEdit.Location = new System.Drawing.Point(1014, 389);
+            this.InsertInegrante_buttonEdit.Location = new System.Drawing.Point(1020, 372);
             this.InsertInegrante_buttonEdit.Name = "InsertInegrante_buttonEdit";
             this.InsertInegrante_buttonEdit.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.InsertInegrante_buttonEdit.Properties.Appearance.Options.UseBackColor = true;
@@ -737,10 +737,11 @@
             toolTipItem1.Text = "Inserta el integrante como participante del proyecto.";
             superToolTip1.Items.Add(toolTipTitleItem1);
             superToolTip1.Items.Add(toolTipItem1);
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.InsertInegrante_buttonEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Insertar Integrantes Seleccionados", null, superToolTip1),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Cancelar")});
-            this.InsertInegrante_buttonEdit.Size = new System.Drawing.Size(104, 22);
+            this.InsertInegrante_buttonEdit.Size = new System.Drawing.Size(105, 38);
             this.InsertInegrante_buttonEdit.StyleController = this.layoutControl2;
             this.InsertInegrante_buttonEdit.TabIndex = 5;
             this.InsertInegrante_buttonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.InsertInegrante_buttonEdit_ButtonClick);
@@ -750,7 +751,7 @@
             this.ArtistasSinGrupos_xtraTabControl.Location = new System.Drawing.Point(12, 12);
             this.ArtistasSinGrupos_xtraTabControl.Name = "ArtistasSinGrupos_xtraTabControl";
             this.ArtistasSinGrupos_xtraTabControl.SelectedTabPage = this.Integrantes_xtraTabPage;
-            this.ArtistasSinGrupos_xtraTabControl.Size = new System.Drawing.Size(1106, 373);
+            this.ArtistasSinGrupos_xtraTabControl.Size = new System.Drawing.Size(1113, 356);
             this.ArtistasSinGrupos_xtraTabControl.TabIndex = 7;
             this.ArtistasSinGrupos_xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.Integrantes_xtraTabPage,
@@ -761,7 +762,7 @@
             // 
             this.Integrantes_xtraTabPage.Controls.Add(this.layoutControl1);
             this.Integrantes_xtraTabPage.Name = "Integrantes_xtraTabPage";
-            this.Integrantes_xtraTabPage.Size = new System.Drawing.Size(1104, 346);
+            this.Integrantes_xtraTabPage.Size = new System.Drawing.Size(1107, 328);
             this.Integrantes_xtraTabPage.Text = "Integrantes";
             // 
             // layoutControl1
@@ -774,14 +775,14 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(841, 383, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1104, 346);
+            this.layoutControl1.Size = new System.Drawing.Size(1107, 328);
             this.layoutControl1.TabIndex = 6;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // Actualizar_simpleButton
             // 
             this.Actualizar_simpleButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Actualizar_simpleButton.ImageOptions.Image")));
-            this.Actualizar_simpleButton.Location = new System.Drawing.Point(619, 12);
+            this.Actualizar_simpleButton.Location = new System.Drawing.Point(621, 12);
             this.Actualizar_simpleButton.Name = "Actualizar_simpleButton";
             this.Actualizar_simpleButton.Size = new System.Drawing.Size(106, 22);
             this.Actualizar_simpleButton.StyleController = this.layoutControl1;
@@ -791,7 +792,7 @@
             // 
             // AgrupacionSelect_lookUpEdit
             // 
-            this.AgrupacionSelect_lookUpEdit.Location = new System.Drawing.Point(443, 12);
+            this.AgrupacionSelect_lookUpEdit.Location = new System.Drawing.Point(444, 12);
             this.AgrupacionSelect_lookUpEdit.Name = "AgrupacionSelect_lookUpEdit";
             editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             superToolTip2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
@@ -813,7 +814,7 @@
             this.AgrupacionSelect_lookUpEdit.Properties.DisplayMember = "Nombre";
             this.AgrupacionSelect_lookUpEdit.Properties.NullText = "-Seleccione Agrupación-";
             this.AgrupacionSelect_lookUpEdit.Properties.ValueMember = "AgrupacionID";
-            this.AgrupacionSelect_lookUpEdit.Size = new System.Drawing.Size(172, 22);
+            this.AgrupacionSelect_lookUpEdit.Size = new System.Drawing.Size(173, 22);
             this.AgrupacionSelect_lookUpEdit.StyleController = this.layoutControl1;
             this.AgrupacionSelect_lookUpEdit.TabIndex = 7;
             this.AgrupacionSelect_lookUpEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.AgrupacionSelect_lookUpEdit_ButtonClick);
@@ -837,7 +838,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1104, 346);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1107, 328);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -846,7 +847,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1084, 300);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1087, 282);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -855,30 +856,30 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(370, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(371, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.AgrupacionSelect_lookUpEdit;
-            this.layoutControlItem6.Location = new System.Drawing.Point(370, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(371, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(237, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(238, 26);
             this.layoutControlItem6.Text = "Agrupación:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(58, 13);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(717, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(719, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(367, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(368, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.Actualizar_simpleButton;
-            this.layoutControlItem2.Location = new System.Drawing.Point(607, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(609, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(110, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -888,7 +889,7 @@
             // 
             this.Reserva_xtraTabPage.Controls.Add(this.Reservas_gridControl);
             this.Reserva_xtraTabPage.Name = "Reserva_xtraTabPage";
-            this.Reserva_xtraTabPage.Size = new System.Drawing.Size(1104, 346);
+            this.Reserva_xtraTabPage.Size = new System.Drawing.Size(1107, 345);
             this.Reserva_xtraTabPage.Text = "Reservas";
             // 
             // Reservas_gridControl
@@ -899,7 +900,7 @@
             this.Reservas_gridControl.Location = new System.Drawing.Point(0, 0);
             this.Reservas_gridControl.MainView = this.Reservas_gridView;
             this.Reservas_gridControl.Name = "Reservas_gridControl";
-            this.Reservas_gridControl.Size = new System.Drawing.Size(1104, 346);
+            this.Reservas_gridControl.Size = new System.Drawing.Size(1107, 345);
             this.Reservas_gridControl.TabIndex = 0;
             this.Reservas_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Reservas_gridView});
@@ -1012,7 +1013,7 @@
             this.Last_emptySpaceItem});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1130, 423);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1137, 422);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
@@ -1021,7 +1022,7 @@
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1110, 377);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1117, 360);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1029,9 +1030,9 @@
             // 
             this.ButtonContainer_layoutControlItem.Control = this.InsertInegrante_buttonEdit;
             this.ButtonContainer_layoutControlItem.CustomizationFormText = "layoutControlItem5";
-            this.ButtonContainer_layoutControlItem.Location = new System.Drawing.Point(1002, 377);
+            this.ButtonContainer_layoutControlItem.Location = new System.Drawing.Point(1008, 360);
             this.ButtonContainer_layoutControlItem.Name = "ButtonContainer_layoutControlItem";
-            this.ButtonContainer_layoutControlItem.Size = new System.Drawing.Size(108, 26);
+            this.ButtonContainer_layoutControlItem.Size = new System.Drawing.Size(109, 42);
             this.ButtonContainer_layoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.ButtonContainer_layoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.ButtonContainer_layoutControlItem.TextToControlDistance = 0;
@@ -1041,9 +1042,9 @@
             // 
             this.Last_emptySpaceItem.AllowHotTrack = false;
             this.Last_emptySpaceItem.CustomizationFormText = "emptySpaceItem2";
-            this.Last_emptySpaceItem.Location = new System.Drawing.Point(0, 377);
+            this.Last_emptySpaceItem.Location = new System.Drawing.Point(0, 360);
             this.Last_emptySpaceItem.Name = "Last_emptySpaceItem";
-            this.Last_emptySpaceItem.Size = new System.Drawing.Size(1002, 26);
+            this.Last_emptySpaceItem.Size = new System.Drawing.Size(1008, 42);
             this.Last_emptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Accion_popupMenu
@@ -1153,7 +1154,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.Principal});
-            this.ribbonControl1.Size = new System.Drawing.Size(1142, 159);
+            this.ribbonControl1.Size = new System.Drawing.Size(1142, 160);
             // 
             // backstageViewControl1
             // 
@@ -1167,9 +1168,9 @@
             // 
             // backstageViewClientControl1
             // 
-            this.backstageViewClientControl1.Location = new System.Drawing.Point(195, 0);
+            this.backstageViewClientControl1.Location = new System.Drawing.Point(188, 0);
             this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-            this.backstageViewClientControl1.Size = new System.Drawing.Size(285, 150);
+            this.backstageViewClientControl1.Size = new System.Drawing.Size(292, 150);
             this.backstageViewClientControl1.TabIndex = 1;
             // 
             // backstageViewTabItem1
@@ -1859,9 +1860,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.agrupacionDeArtistaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Artista_gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Obligatory_repositoryItemTextEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TipoPasaporte_repositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TipoCargo_repositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoNomencladorCargoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TipoPasaporte_repositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.municipioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinciaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
